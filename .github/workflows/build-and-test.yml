@@ -1,0 +1,40 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Installing utils
+      run: sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates gnupg software-properties-common wget curl
+    - name: Installing g++/gcc
+      run: |
+        sudo add-apt-repository ppa:ubuntu-toolchain-r/test && sudo apt-get update && sudo apt-get install -y g++-8
+        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 90
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 90
+    - name: Installing latest cmake
+      run: |
+        wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -
+        sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
+        sudo apt-get update && sudo apt-get install -y cmake
+    - name: Installing GTest
+      run: |
+        curl -o gtest.tar.gz https://codeload.github.com/google/googletest/tar.gz/release-1.8.1
+        tar -zxvf gtest.tar.gz
+        cd googletest-release-1.8.1
+        cmake .
+        make -j4
+        sudo make install
+        cd ..
+        rm -r googletest-release-1.8.1
+        rm gtest.tar.gz
+    - name: Creating binary files
+      run: cmake -H. -Bbuild
+    - name: Building core
+      run: cmake --build build --target all -- -j4
+    - name: Running core tests
+      run: cmake --build build --target test 
