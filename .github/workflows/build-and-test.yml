@@ -11,11 +11,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Installing utils
       run: sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates gnupg software-properties-common wget curl lcov
-    - name: Installing g++/gcc
-      run: |
-        sudo add-apt-repository ppa:ubuntu-toolchain-r/test && sudo apt-get update && sudo apt-get install -y g++-8
-        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 90
-        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 90
     - name: Installing latest cmake
       run: |
         wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -
@@ -33,7 +28,7 @@ jobs:
         rm -r googletest-release-1.8.1
         rm gtest.tar.gz
     - name: Creating binary files
-      run: cmake -H. -Bbuild
+      run: cmake -DCMAKE_BUILD_TYPE=Debug -H. -Bbuild
     - name: Building core
       run: cmake --build build --target all -- -j4
     - name: Running core tests
