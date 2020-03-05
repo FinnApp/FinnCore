@@ -3,7 +3,7 @@ name: CI
 on: [push]
 
 jobs:
-  build:
+  build-test-deploy:
 
     runs-on: ubuntu-18.04
 
@@ -57,7 +57,7 @@ jobs:
       with:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
-        draft: true
+        draft: false
         prerelease: false
     - name: Upload Release Asset
       id: upload-release-asset
