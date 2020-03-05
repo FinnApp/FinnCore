@@ -7,20 +7,20 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(${PROJECT_NAME} SHARED
-    Account.cpp
-    Account.hpp
-    Wallet.cpp
-    Wallet.hpp
-    Category.cpp
-    Category.hpp
-    Settings.cpp
-    Settings.hpp
+    src/Account.cpp
+    include/Account.hpp
+    src/Wallet.cpp
+    include/Wallet.hpp
+    src/Category.cpp
+    include/Category.hpp
+    src/Settings.cpp
+    include/Settings.hpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR})
 
-target_include_directories(${PROJECT_NAME} PUBLIC .)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_compile_options(${PROJECT_NAME} PUBLIC
     "$<$<CONFIG:RELEASE>:-O2>"
     "$<$<CONFIG:DEBUG>:-O0>"
