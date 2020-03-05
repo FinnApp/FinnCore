@@ -8,22 +8,36 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(${PROJECT_NAME} SHARED
     src/Account.cpp
-    include/Account.hpp
+    src/Account.hpp
     src/Wallet.cpp
-    include/Wallet.hpp
+    src/Wallet.hpp
     src/Category.cpp
-    include/Category.hpp
+    src/Category.hpp
     src/Settings.cpp
-    include/Settings.hpp
+    src/Settings.hpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR})
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PUBLIC src)
 target_compile_options(${PROJECT_NAME} PUBLIC
     "$<$<CONFIG:RELEASE>:-O2>"
     "$<$<CONFIG:DEBUG>:-O0>"
+)
+
+install(TARGETS ${PROJECT_NAME}
+    RUNTIME
+        DESTINATION bin # on DLL platforms shared lib goes here
+    LIBRARY
+        DESTINATION lib # on non-DLL platforms shared lib goes here
+    PUBLIC_HEADER
+        DESTINATION inlcude
+)
+install(DIRECTORY src/
+    DESTINATION include/
+    FILES_MATCHING
+        PATTERN "*.hpp"
 )
 
 option(CODE_COVERAGE "Enable GCC/Clang coverage reporting" ON)

@@ -28,9 +28,11 @@ jobs:
         rm -r googletest-release-1.8.1
         rm gtest.tar.gz
     - name: Creating binary files
-      run: cmake -DCMAKE_BUILD_TYPE=Debug -H. -Bbuild
+      run: cmake -DCMAKE_BUILD_TYPE=Release -H. -Bbuild
     - name: Building core
       run: cmake --build build --target all -- -j4
+    - name: Installing core
+      run: cmake --build build --target install
     - name: Running core tests
       run: cmake --build build --target test 
     - name: Running lcov
