@@ -3,34 +3,40 @@ name: CI
 on: [push]
 
 jobs:
-  build:
+  build-test-deploy:
 
     runs-on: ubuntu-18.04
 
     steps:
     - uses: actions/checkout@v2
     - name: Installing utils
-      run: sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates gnupg software-properties-common wget curl lcov
+      run: sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates gnupg software-properties-common wget curl lcov zip
     - name: Installing latest cmake
       run: |
         wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -
         sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
         sudo apt-get update && sudo apt-get install -y cmake
     - name: Installing GTest
+      env:
+          GTEST_VERSION: 1.8.1
       run: |
-        curl -o gtest.tar.gz https://codeload.github.com/google/googletest/tar.gz/release-1.8.1
+        curl -o gtest.tar.gz https://codeload.github.com/google/googletest/tar.gz/release-${GTEST_VERSION}
         tar -zxvf gtest.tar.gz
-        cd googletest-release-1.8.1
+        cd googletest-release-${GTEST_VERSION}
         cmake .
         make -j4
         sudo make install
         cd ..
-        rm -r googletest-release-1.8.1
+        rm -r googletest-release-${GTEST_VERSION}
         rm gtest.tar.gz
     - name: Creating binary files
-      run: cmake -DCMAKE_BUILD_TYPE=Debug -H. -Bbuild
+      run: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=build -H. -Bbuild
     - name: Building core
       run: cmake --build build --target all -- -j4
+    - name: Installing core
+      run: cmake --build build --target install
+    - name: Zipping artifacts
+      run: cd build && zip -r finncore.zip include lib
     - name: Running core tests
       run: cmake --build build --target test 
     - name: Running lcov
@@ -42,3 +48,25 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }} #required
         file: ./coverage.info #optional
+    - name: Create Release
+      id: create_release
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+    - name: Upload Release Asset
+      id: upload-release-asset
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`
+        asset_path: ./build/finncore.zip
+        asset_name: finncore.zip
+        asset_content_type: application/zip
