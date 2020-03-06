@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Installing utils
-      run: sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates gnupg software-properties-common wget curl lcov zip
+      run: sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates gnupg software-properties-common wget curl lcov zip openjdk-11-jdk
     - name: Installing latest cmake
       run: |
         wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -

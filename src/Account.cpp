@@ -1,6 +1,8 @@
 #include "Account.hpp"
 
-Account::Account()
-{
+Account::Account() {}
 
+int Account::getCount()
+{
+    return 43;
 }

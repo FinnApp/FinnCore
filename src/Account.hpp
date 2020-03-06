@@ -4,4 +4,6 @@ class Account
 {
 public:
     Account();
+
+    static int getCount();
 };
