@@ -3,19 +3,19 @@ name: CI
 on: [push]
 
 jobs:
-  build-test-deploy:
-
+  debug-build-and-test:
     runs-on: ubuntu-18.04
+    if: startsWith(github.ref, 'refs/tags/v') != true
 
     steps:
-    - uses: actions/checkout@v2
     - name: Installing utils
-      run: sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates gnupg software-properties-common wget curl lcov zip openjdk-11-jdk
+      run: sudo apt-get update && sudo apt-get install -y software-properties-common wget curl lcov openjdk-11-jdk
     - name: Installing latest cmake
       run: |
         wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -
         sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
         sudo apt-get update && sudo apt-get install -y cmake
+    - uses: actions/checkout@v2
     - name: Installing GTest
       env:
           GTEST_VERSION: 1.8.1
@@ -30,13 +30,9 @@ jobs:
         rm -r googletest-release-${GTEST_VERSION}
         rm gtest.tar.gz
     - name: Creating binary files
-      run: cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=build -H. -Bbuild
+      run: cmake -DCMAKE_BUILD_TYPE=Debug -H. -Bbuild
     - name: Building core
       run: cmake --build build --target all -- -j4
-    - name: Installing core
-      run: cmake --build build --target install
-    - name: Zipping artifacts
-      run: cd build && zip -r finncore.zip include lib
     - name: Running core tests
       run: cmake --build build --target test 
     - name: Running lcov
@@ -48,9 +44,42 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }} #required
         file: ./coverage.info #optional
+
+  release-build-and-deploy:
+    runs-on: ubuntu-18.04
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    steps:
+    - name: Installing utils
+      run: sudo apt-get update && sudo apt-get install -y software-properties-common wget curl zip openjdk-11-jdk
+    - name: Installing latest cmake
+      run: |
+        wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -
+        sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
+        sudo apt-get update && sudo apt-get install -y cmake
+    - uses: actions/checkout@v2
+    - name: Installing GTest
+      env:
+          GTEST_VERSION: 1.8.1
+      run: |
+        curl -o gtest.tar.gz https://codeload.github.com/google/googletest/tar.gz/release-${GTEST_VERSION}
+        tar -zxvf gtest.tar.gz
+        cd googletest-release-${GTEST_VERSION}
+        cmake .
+        make -j4
+        sudo make install
+        cd ..
+        rm -r googletest-release-${GTEST_VERSION}
+    - name: Creating binary files
+      run: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=build -H. -Bbuild
+    - name: Building core
+      run: cmake --build build --target all -- -j4
+    - name: Installing core
+      run: cmake --build build --target install
+    - name: Zipping artifacts
+      run: cd build && zip -r finncore.zip include lib
     - name: Create Release
       id: create_release
-      if: startsWith(github.ref, 'refs/tags/v')
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -61,7 +90,6 @@ jobs:
         prerelease: false
     - name: Upload Release Asset
       id: upload-release-asset
-      if: startsWith(github.ref, 'refs/tags/v')
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
