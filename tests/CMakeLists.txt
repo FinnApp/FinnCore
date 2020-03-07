@@ -8,7 +8,7 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-    FinnCore
+    FinnCoreShared
     GTest::GTest
     GTest::Main
 )

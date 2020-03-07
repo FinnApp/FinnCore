@@ -17,7 +17,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 )
 target_link_libraries(${PROJECT_NAME} PRIVATE
     ${JNI_LIBRARIES}
-    FinnCore
+    FinnCoreStatic
 )
 target_compile_options(${PROJECT_NAME} PUBLIC
     "$<$<CONFIG:RELEASE>:-O2>"
