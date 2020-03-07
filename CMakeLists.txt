@@ -73,8 +73,3 @@ if (BUILD_TESTING AND (PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR))
   enable_testing()
   add_subdirectory(tests)
 endif()
-
-option (BUILD_JNI "Build JNI wrapper" ON)
-if(BUILD_JNI)
-    add_subdirectory(jni)
-endif(BUILD_JNI)
