@@ -30,7 +30,7 @@ jobs:
         rm -r googletest-release-${GTEST_VERSION}
         rm gtest.tar.gz
     - name: Creating binary files
-      run: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=build -H. -Bbuild
+      run: cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=build -H. -Bbuild
     - name: Building core
       run: cmake --build build --target all -- -j4
     - name: Installing core
