@@ -4,5 +4,5 @@
 
 TEST(AccountTests, DummyTest)
 {
-    ASSERT_EQ(Account::getCount(), 43);
+    Account acc;
 }
