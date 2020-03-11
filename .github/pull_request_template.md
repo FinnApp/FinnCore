@@ -1,0 +1,3 @@
+- [ ] I've added tests to new code
+- [ ] I've added documentation to new code
+- [ ] All tests are passed
