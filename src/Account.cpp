@@ -17,7 +17,7 @@ const std::string& Account::name() const
 
 void Account::setName(const std::string& name)
 {
-    if(name.empty()) throw EmptyNameError{};
+    if (name.empty()) throw EmptyNameError{};
 
     name_ = name;
 }
@@ -27,10 +27,7 @@ void Account::addWallet(Wallet&& wallet)
     wallets_.emplace_back(std::move(wallet));
 }
 
-void Account::removeWalletBy(Id walletId)
-{
-
-}
+void Account::removeWalletBy(Id walletId) {}
 
 size_t Account::walletsCount() const
 {
@@ -42,10 +39,7 @@ void Account::addCategory(Category&& category)
     categories_.emplace_back(std::move(category));
 }
 
-void Account::removeCategoryBy(Id categoryId)
-{
-
-}
+void Account::removeCategoryBy(Id categoryId) {}
 
 size_t Account::categoriesCount() const
 {
