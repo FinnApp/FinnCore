@@ -1,5 +1,3 @@
-#pragma once
-
 #include "Id.hpp"
 #include "Utils.hpp"
 

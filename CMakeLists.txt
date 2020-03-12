@@ -44,12 +44,12 @@ target_compile_options(${INTERFACE_TARGET} INTERFACE
 
 # link to object library to inherit include dirs and compile options
 add_library(${STATIC_LIB} STATIC $<TARGET_OBJECTS:${CORE_OBJECTS}>)
-# static library need to propagate coverage flags only in debug mode otherwise there will be undefined references
+# need to propagate coverage flags only in debug mode otherwise there will be undefined references
 target_link_libraries(${STATIC_LIB} PUBLIC ${INTERFACE_TARGET} PUBLIC ${CORE_OBJECTS})
 
 add_library(${SHARED_LIB} SHARED $<TARGET_OBJECTS:${CORE_OBJECTS}>)
-# we don't want to propogate coverage flags to executables so we link it privately
-target_link_libraries(${SHARED_LIB} PUBLIC ${INTERFACE_TARGET} PRIVATE ${CORE_OBJECTS})
+# propogate coverage flags to executables
+target_link_libraries(${SHARED_LIB} PUBLIC ${INTERFACE_TARGET} PUBLIC ${CORE_OBJECTS})
 
 # set versioning for shared library
 set_target_properties(${SHARED_LIB} PROPERTIES VERSION ${PROJECT_VERSION})
