@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['settings_6',['Settings',['../classSettings.html',1,'']]]
+  ['emptynameerror_24',['EmptyNameError',['../structAccount_1_1EmptyNameError.html',1,'Account']]]
 ];

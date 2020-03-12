@@ -62,6 +62,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classAccount-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -73,18 +74,258 @@ $(function() {
  <a href="classAccount.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Account_8hpp_source.html">Account.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Account:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classAccount.png" usemap="#Account_map" alt=""/>
+  <map id="Account_map" name="Account_map">
+<area href="classUniqueEntity.html" alt="UniqueEntity&lt; Account &gt;" shape="rect" coords="0,0,152,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccount_1_1EmptyNameError.html">EmptyNameError</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if name is empty.  <a href="structAccount_1_1EmptyNameError.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a366660970b5eeb5c17436062327f1b14"><td class="memItemLeft" align="right" valign="top"><a id="a366660970b5eeb5c17436062327f1b14"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.html#a366660970b5eeb5c17436062327f1b14">Account</a> ()</td></tr>
-<tr class="memdesc:a366660970b5eeb5c17436062327f1b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
-<tr class="separator:a366660970b5eeb5c17436062327f1b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5aabb1fb0568bdb2f762166ce659b76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.html#ab5aabb1fb0568bdb2f762166ce659b76">Account</a> (<a class="el" href="classId.html">Id</a> <a class="el" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>, const std::string &amp;<a class="el" href="classAccount.html#a939cfd44a40aa60a67eb9f31ebd2e7a0">name</a>)</td></tr>
+<tr class="memdesc:ab5aabb1fb0568bdb2f762166ce659b76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classAccount.html#ab5aabb1fb0568bdb2f762166ce659b76">More...</a><br /></td></tr>
+<tr class="separator:ab5aabb1fb0568bdb2f762166ce659b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a939cfd44a40aa60a67eb9f31ebd2e7a0"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.html#a939cfd44a40aa60a67eb9f31ebd2e7a0">name</a> () const</td></tr>
+<tr class="separator:a939cfd44a40aa60a67eb9f31ebd2e7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11498500bc8e38d58d2cbf747caa5128"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.html#a11498500bc8e38d58d2cbf747caa5128">setName</a> (const std::string &amp;<a class="el" href="classAccount.html#a939cfd44a40aa60a67eb9f31ebd2e7a0">name</a>)</td></tr>
+<tr class="separator:a11498500bc8e38d58d2cbf747caa5128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a879b132d992317aa47ff8f15754bb3e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.html#a879b132d992317aa47ff8f15754bb3e0">addWallet</a> (<a class="el" href="classWallet.html">Wallet</a> &amp;&amp;wallet)</td></tr>
+<tr class="memdesc:a879b132d992317aa47ff8f15754bb3e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">addWallet  <a href="classAccount.html#a879b132d992317aa47ff8f15754bb3e0">More...</a><br /></td></tr>
+<tr class="separator:a879b132d992317aa47ff8f15754bb3e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5022ac4105c41d8057aadc14ad7753e6"><td class="memItemLeft" align="right" valign="top"><a id="a5022ac4105c41d8057aadc14ad7753e6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>removeWalletBy</b> (<a class="el" href="classId.html">Id</a> walletId)</td></tr>
+<tr class="separator:a5022ac4105c41d8057aadc14ad7753e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b04d181f7d9c91df8a2c5b5c0d04e70"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.html#a6b04d181f7d9c91df8a2c5b5c0d04e70">walletsCount</a> () const</td></tr>
+<tr class="separator:a6b04d181f7d9c91df8a2c5b5c0d04e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1a41c1095fb08fb7289726d2b9cc11e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.html#ab1a41c1095fb08fb7289726d2b9cc11e">addCategory</a> (<a class="el" href="classCategory.html">Category</a> &amp;&amp;category)</td></tr>
+<tr class="memdesc:ab1a41c1095fb08fb7289726d2b9cc11e"><td class="mdescLeft">&#160;</td><td class="mdescRight">addCategory  <a href="classAccount.html#ab1a41c1095fb08fb7289726d2b9cc11e">More...</a><br /></td></tr>
+<tr class="separator:ab1a41c1095fb08fb7289726d2b9cc11e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57bbc3c81110128213c0322989fe1d73"><td class="memItemLeft" align="right" valign="top"><a id="a57bbc3c81110128213c0322989fe1d73"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>removeCategoryBy</b> (<a class="el" href="classId.html">Id</a> categoryId)</td></tr>
+<tr class="separator:a57bbc3c81110128213c0322989fe1d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59d6a67e60d9412339d2d1959dbf7fcb"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccount.html#a59d6a67e60d9412339d2d1959dbf7fcb">categoriesCount</a> () const</td></tr>
+<tr class="separator:a59d6a67e60d9412339d2d1959dbf7fcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classUniqueEntity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classUniqueEntity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classUniqueEntity.html">UniqueEntity&lt; Account &gt;</a></td></tr>
+<tr class="memitem:a1bd5176ee40191ca30e5f3575b25b6c3 inherit pub_methods_classUniqueEntity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">UniqueEntity</a> (<a class="el" href="classId.html">Id</a> <a class="el" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>)</td></tr>
+<tr class="memdesc:a1bd5176ee40191ca30e5f3575b25b6c3 inherit pub_methods_classUniqueEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates entity with unique ID.  <a href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">More...</a><br /></td></tr>
+<tr class="separator:a1bd5176ee40191ca30e5f3575b25b6c3 inherit pub_methods_classUniqueEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b23944c0c2d49f09bad93a91de86d2 inherit pub_methods_classUniqueEntity"><td class="memItemLeft" align="right" valign="top"><a id="a00b23944c0c2d49f09bad93a91de86d2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUniqueEntity.html#a00b23944c0c2d49f09bad93a91de86d2">UniqueEntity</a> (const <a class="el" href="classUniqueEntity.html">UniqueEntity</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a00b23944c0c2d49f09bad93a91de86d2 inherit pub_methods_classUniqueEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor. <br /></td></tr>
+<tr class="separator:a00b23944c0c2d49f09bad93a91de86d2 inherit pub_methods_classUniqueEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a873548756f92c3cf5c4349dd0f4a1121 inherit pub_methods_classUniqueEntity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUniqueEntity.html#a873548756f92c3cf5c4349dd0f4a1121">UniqueEntity</a> (<a class="el" href="classUniqueEntity.html">UniqueEntity</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:a873548756f92c3cf5c4349dd0f4a1121 inherit pub_methods_classUniqueEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <a href="classUniqueEntity.html#a873548756f92c3cf5c4349dd0f4a1121">More...</a><br /></td></tr>
+<tr class="separator:a873548756f92c3cf5c4349dd0f4a1121 inherit pub_methods_classUniqueEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad9a838410f898ea759342c3257767b7 inherit pub_methods_classUniqueEntity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUniqueEntity.html#aad9a838410f898ea759342c3257767b7">~UniqueEntity</a> ()</td></tr>
+<tr class="memdesc:aad9a838410f898ea759342c3257767b7 inherit pub_methods_classUniqueEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classUniqueEntity.html#aad9a838410f898ea759342c3257767b7">More...</a><br /></td></tr>
+<tr class="separator:aad9a838410f898ea759342c3257767b7 inherit pub_methods_classUniqueEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd263d5899942cb8aa82fdd9ae244002 inherit pub_methods_classUniqueEntity"><td class="memItemLeft" align="right" valign="top"><a id="abd263d5899942cb8aa82fdd9ae244002"></a>
+<a class="el" href="classUniqueEntity.html">UniqueEntity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUniqueEntity.html#abd263d5899942cb8aa82fdd9ae244002">operator=</a> (const <a class="el" href="classUniqueEntity.html">UniqueEntity</a> &amp;)=delete</td></tr>
+<tr class="memdesc:abd263d5899942cb8aa82fdd9ae244002 inherit pub_methods_classUniqueEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy assignment. <br /></td></tr>
+<tr class="separator:abd263d5899942cb8aa82fdd9ae244002 inherit pub_methods_classUniqueEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadee5259a16b69f00858c4a44960d74a inherit pub_methods_classUniqueEntity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUniqueEntity.html">UniqueEntity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUniqueEntity.html#aadee5259a16b69f00858c4a44960d74a">operator=</a> (<a class="el" href="classUniqueEntity.html">UniqueEntity</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:aadee5259a16b69f00858c4a44960d74a inherit pub_methods_classUniqueEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment.  <a href="classUniqueEntity.html#aadee5259a16b69f00858c4a44960d74a">More...</a><br /></td></tr>
+<tr class="separator:aadee5259a16b69f00858c4a44960d74a inherit pub_methods_classUniqueEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2984b7478ee6f5f15d2a911c2d81eb2f inherit pub_methods_classUniqueEntity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classId.html">Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a> () const</td></tr>
+<tr class="separator:a2984b7478ee6f5f15d2a911c2d81eb2f inherit pub_methods_classUniqueEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classAccount.html" title="The Account class.">Account</a> class. </p>
-<p>Repesents the single users and contains account-specific settings, wallets and categories. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<p>Repesents the single users and contains account-specific settings, wallets with transactions and categories. You can create multiple accounts but each of them will have own data and information. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab5aabb1fb0568bdb2f762166ce659b76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5aabb1fb0568bdb2f762166ce659b76">&#9670;&nbsp;</a></span>Account()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Account::Account </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classId.html">Id</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<p>Constructs account object with <code>id</code> and <code>name</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Unique non-negative integer that represents account ID </td></tr>
+    <tr><td class="paramname">name</td><td>Unicode string that represents account name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">SameIdError</td><td>is thrown if account with <code>id</code> already exists </td></tr>
+    <tr><td class="paramname"><a class="el" href="structAccount_1_1EmptyNameError.html" title="Exception is thrown if name is empty.">EmptyNameError</a></td><td>is thrown if <code>name</code> is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab1a41c1095fb08fb7289726d2b9cc11e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1a41c1095fb08fb7289726d2b9cc11e">&#9670;&nbsp;</a></span>addCategory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Account::addCategory </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCategory.html">Category</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>category</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>addCategory </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">category</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a879b132d992317aa47ff8f15754bb3e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a879b132d992317aa47ff8f15754bb3e0">&#9670;&nbsp;</a></span>addWallet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Account::addWallet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classWallet.html">Wallet</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>wallet</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>addWallet </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wallet</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a59d6a67e60d9412339d2d1959dbf7fcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59d6a67e60d9412339d2d1959dbf7fcb">&#9670;&nbsp;</a></span>categoriesCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Account::categoriesCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Number of created categories in the <a class="el" href="classAccount.html" title="The Account class.">Account</a> </dd></dl>
+
+</div>
+</div>
+<a id="a939cfd44a40aa60a67eb9f31ebd2e7a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a939cfd44a40aa60a67eb9f31ebd2e7a0">&#9670;&nbsp;</a></span>name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; Account::name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Unicode <a class="el" href="classAccount.html" title="The Account class.">Account</a> name </dd></dl>
+
+</div>
+</div>
+<a id="a11498500bc8e38d58d2cbf747caa5128"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11498500bc8e38d58d2cbf747caa5128">&#9670;&nbsp;</a></span>setName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Account::setName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Non-empty unicode string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structAccount_1_1EmptyNameError.html" title="Exception is thrown if name is empty.">EmptyNameError</a></td><td>is thrown if <code>name</code> is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6b04d181f7d9c91df8a2c5b5c0d04e70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b04d181f7d9c91df8a2c5b5c0d04e70">&#9670;&nbsp;</a></span>walletsCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Account::walletsCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Number of created wallets in the <a class="el" href="classAccount.html" title="The Account class.">Account</a> </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="Account_8hpp_source.html">Account.hpp</a></li>
 <li>src/Account.cpp</li>
 </ul>

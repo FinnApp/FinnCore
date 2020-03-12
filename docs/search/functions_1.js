@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['category_9',['Category',['../classCategory.html#adeee911f773db1ebeb1005a00da45e08',1,'Category']]]
+  ['categoriescount_37',['categoriesCount',['../classAccount.html#a59d6a67e60d9412339d2d1959dbf7fcb',1,'Account']]],
+  ['category_38',['Category',['../classCategory.html#ad1b16c4562eebd76799e5a1b05e46cf0',1,'Category']]]
 ];

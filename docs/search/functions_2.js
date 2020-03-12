@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['settings_10',['Settings',['../classSettings.html#ab7169a6eefce79566dd07db3b1e5e967',1,'Settings']]]
+  ['id_39',['Id',['../classId.html#a248c0334583ce20ae846d509ab709cb7',1,'Id::Id(int value)'],['../classId.html#ad0ebe723c74f79eb6dd4123b4f1fd7e8',1,'Id::Id(const Id &amp;)=default'],['../classId.html#a7877c96a77a656e9a77a21647deb877c',1,'Id::Id(Id &amp;&amp;other)'],['../classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f',1,'UniqueEntity::id()']]]
 ];
