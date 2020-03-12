@@ -5,6 +5,9 @@ find_package(GTest REQUIRED)
 add_executable(${PROJECT_NAME}
     main.cpp
     AccountTests.cpp
+    UniqueEntityTests.cpp
+    Utils.hpp
+    IdTests.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}
