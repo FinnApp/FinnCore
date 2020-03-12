@@ -19,10 +19,14 @@ set(SOURCES
     src/Category.hpp
     src/Settings.cpp
     src/Settings.hpp
+    src/UniqueEntity.hpp
+    src/Id.hpp
+    src/Id.cpp
 )
 
 # build object lib with coverage flags and propagate them further
 add_library(${CORE_OBJECTS} OBJECT ${SOURCES})
+set_target_properties(${CORE_OBJECTS} PROPERTIES POSITION_INDEPENDENT_CODE 1)
 
 option(CODE_COVERAGE "Enable GCC/Clang coverage reporting" ON)
 if(CODE_COVERAGE AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
