@@ -20,23 +20,23 @@ public:
     /*!
      * \brief Exception is thrown is wallet with some ID is not found
      */
-    struct InvalidWallet : std::runtime_error
+    struct WalletNotFound : std::runtime_error
     {
         /*!
          * \param walletId is used in exception message
          */
-        InvalidWallet(Id walletId);
+        WalletNotFound(Id walletId);
     };
 
     /*!
      * \brief Exception is thrown is category with some ID is not found
      */
-    struct InvalidCategory : std::runtime_error
+    struct CategoryNotFound : std::runtime_error
     {
         /*!
          * \param categoryId is used in exception message
          */
-        InvalidCategory(Id categoryId);
+        CategoryNotFound(Id categoryId);
     };
 
     /*!

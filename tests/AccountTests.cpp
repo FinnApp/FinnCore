@@ -40,7 +40,7 @@ TEST(AccountTests, GetNonExistingWalletShouldThrowException)
 
     acc.addWallet(Wallet{DefaultId, DefaultName});
 
-    ASSERT_THROW(acc.walletBy(DefaultId + 1), Account::InvalidWallet);
+    ASSERT_THROW(acc.walletBy(DefaultId + 1), Account::WalletNotFound);
 }
 
 TEST(AccountTests, RemoveWalletShouldDecreaseTheNumberOfWallets)
@@ -109,7 +109,7 @@ TEST(AccountTests, GetNonExistingCategoryShouldThrowException)
 
     acc.addCategory(std::make_shared<Category>(DefaultId, DefaultName));
 
-    ASSERT_THROW(acc.categoryBy(DefaultId + 1), Account::InvalidCategory);
+    ASSERT_THROW(acc.categoryBy(DefaultId + 1), Account::CategoryNotFound);
 }
 
 TEST(AccountTests, RemoveCategoryShouldDecreaseTheNumberOfCategories)

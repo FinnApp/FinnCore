@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-Category::InvalidSubcategory::InvalidSubcategory(Id categoryId) :
+Category::SubcategoryNotFound::SubcategoryNotFound(Id categoryId) :
     std::runtime_error{"Subcategory with ID " + std::to_string(categoryId) + " not found"}
 {
 }
@@ -28,7 +28,7 @@ Category& Category::subcategoryBy(Id subcategoryId)
 {
     auto it = std::find_if(subcategories_.begin(), subcategories_.end(), IdPredicate{subcategoryId});
 
-    if (it == subcategories_.end()) throw InvalidSubcategory{subcategoryId};
+    if (it == subcategories_.end()) throw SubcategoryNotFound{subcategoryId};
 
     return **it;
 }

@@ -5,12 +5,12 @@
 
 #include <algorithm>
 
-Account::InvalidWallet::InvalidWallet(Id walletId) :
+Account::WalletNotFound::WalletNotFound(Id walletId) :
     std::runtime_error{"Wallet with ID " + std::to_string(walletId) + " not found"}
 {
 }
 
-Account::InvalidCategory::InvalidCategory(Id categoryId) :
+Account::CategoryNotFound::CategoryNotFound(Id categoryId) :
     std::runtime_error{"Category with ID " + std::to_string(categoryId) + " not found"}
 {
 }
@@ -36,7 +36,7 @@ Wallet& Account::walletBy(Id walletId)
 {
     auto it = std::find_if(wallets_.begin(), wallets_.end(), IdPredicate{walletId});
 
-    if (it == wallets_.end()) throw InvalidWallet{walletId};
+    if (it == wallets_.end()) throw WalletNotFound{walletId};
 
     return *it;
 }
@@ -65,7 +65,7 @@ Category& Account::categoryBy(Id categoryId)
 {
     auto it = std::find_if(categories_.begin(), categories_.end(), IdPredicate{categoryId});
 
-    if (it == categories_.end()) throw InvalidCategory{categoryId};
+    if (it == categories_.end()) throw CategoryNotFound{categoryId};
 
     return **it;
 }

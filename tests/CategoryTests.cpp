@@ -40,7 +40,7 @@ TEST(CategoryTests, GetNonExistingSubcategoryShouldThrowException)
 
     cat->addSubcategory(std::make_shared<Category>(DefaultId + 1, DefaultName));
 
-    ASSERT_THROW(cat->subcategoryBy(DefaultId), Category::InvalidSubcategory);
+    ASSERT_THROW(cat->subcategoryBy(DefaultId), Category::SubcategoryNotFound);
 }
 
 TEST(CategoryTests, RemoveSubcategoryShouldDecreaseTheNumberOfSubcategories)

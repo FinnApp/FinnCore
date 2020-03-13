@@ -18,12 +18,12 @@ public:
     /*!
      * \brief Exception is thrown if subcategory with some ID is not found
      */
-    struct InvalidSubcategory : std::runtime_error  // TODO rename to *NotFound
+    struct SubcategoryNotFound : std::runtime_error
     {
         /*!
          * \param categoryId is used in exception message
          */
-        InvalidSubcategory(Id categoryId);
+        SubcategoryNotFound(Id categoryId);
     };
 
     /*!
