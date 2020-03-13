@@ -77,6 +77,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUniqueEntity_1_1IdPredicate.html">IdPredicate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simplifies entity search in the container with <a class="el" href="classUniqueEntity.html" title="Unique entity that&#39;s identified by unique ID. It cannot be copied but only moved.">UniqueEntity</a>.  <a href="classUniqueEntity_1_1IdPredicate.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUniqueEntity_1_1InvalidIdError.html">InvalidIdError</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if entity is created with invalid ID.  <a href="structUniqueEntity_1_1InvalidIdError.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -210,6 +213,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Move constructor. </p>
+<p><code>other</code> entity becomes invalid</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structUniqueEntity_1_1InvalidIdError.html" title="Exception is thrown if entity is created with invalid ID.">InvalidIdError</a></td><td>is thrown if <code>other.id()</code> is invaid </td></tr>
@@ -276,6 +280,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Move assignment. </p>
+<p>Previous ID is removed and can be reused in the future. <code>other</code> entity becomes invalid</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structUniqueEntity_1_1InvalidIdError.html" title="Exception is thrown if entity is created with invalid ID.">InvalidIdError</a></td><td>is thrown if <code>other.id()</code> is invaid </td></tr>

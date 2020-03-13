@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['emptynameerror_24',['EmptyNameError',['../structAccount_1_1EmptyNameError.html',1,'Account']]]
+  ['emptynameerror_39',['EmptyNameError',['../structNamedEntity_1_1EmptyNameError.html',1,'NamedEntity']]]
 ];

@@ -62,6 +62,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classCategory-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -79,16 +80,36 @@ Inheritance diagram for Category:</div>
  <div class="center">
   <img src="classCategory.png" usemap="#Category_map" alt=""/>
   <map id="Category_map" name="Category_map">
-<area href="classUniqueEntity.html" alt="UniqueEntity&lt; Category &gt;" shape="rect" coords="0,0,157,24"/>
+<area href="classUniqueEntity.html" alt="UniqueEntity&lt; Category &gt;" shape="rect" coords="0,0,252,24"/>
+<area href="classNamedEntity.html" title="Represents the named entity to reuse it in several places." alt="NamedEntity" shape="rect" coords="262,0,514,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCategory_1_1InvalidSubcategory.html">InvalidSubcategory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if subcategory with some ID is not found.  <a href="structCategory_1_1InvalidSubcategory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad1b16c4562eebd76799e5a1b05e46cf0"><td class="memItemLeft" align="right" valign="top"><a id="ad1b16c4562eebd76799e5a1b05e46cf0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#ad1b16c4562eebd76799e5a1b05e46cf0">Category</a> (<a class="el" href="classId.html">Id</a> <a class="el" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>)</td></tr>
-<tr class="memdesc:ad1b16c4562eebd76799e5a1b05e46cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
-<tr class="separator:ad1b16c4562eebd76799e5a1b05e46cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8585d6483d70b4c91addf55020969e3c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#a8585d6483d70b4c91addf55020969e3c">Category</a> (<a class="el" href="classId.html">Id</a> <a class="el" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>, const std::string &amp;<a class="el" href="classNamedEntity.html#a2dfd3b6f8f7bac8cd4bd27806fdf63ba">name</a>)</td></tr>
+<tr class="memdesc:a8585d6483d70b4c91addf55020969e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classCategory.html#a8585d6483d70b4c91addf55020969e3c">More...</a><br /></td></tr>
+<tr class="separator:a8585d6483d70b4c91addf55020969e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44b15ae2378438e23c308f335df00f80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#a44b15ae2378438e23c308f335df00f80">addSubcategory</a> (const std::shared_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt; &amp;subcategory)</td></tr>
+<tr class="memdesc:a44b15ae2378438e23c308f335df00f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds subcategory to account.  <a href="classCategory.html#a44b15ae2378438e23c308f335df00f80">More...</a><br /></td></tr>
+<tr class="separator:a44b15ae2378438e23c308f335df00f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7641399764623ab40d91feb171f10c6"><td class="memItemLeft" align="right" valign="top"><a id="af7641399764623ab40d91feb171f10c6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#af7641399764623ab40d91feb171f10c6">removeSubcategoryBy</a> (<a class="el" href="classId.html">Id</a> subcategoryId)</td></tr>
+<tr class="memdesc:af7641399764623ab40d91feb171f10c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes subcategory with <code>subcategoryId</code> from parent category. <br /></td></tr>
+<tr class="separator:af7641399764623ab40d91feb171f10c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b39a610e165d1dee5f1821bd0dcaa8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCategory.html">Category</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#a8b39a610e165d1dee5f1821bd0dcaa8e">subcategoryBy</a> (<a class="el" href="classId.html">Id</a> subcategoryId)</td></tr>
+<tr class="memdesc:a8b39a610e165d1dee5f1821bd0dcaa8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrives the subcategory with <code>subcategoryId</code> from category.  <a href="classCategory.html#a8b39a610e165d1dee5f1821bd0dcaa8e">More...</a><br /></td></tr>
+<tr class="separator:a8b39a610e165d1dee5f1821bd0dcaa8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dab86f052457cd548458ab0cd0eb12b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#a9dab86f052457cd548458ab0cd0eb12b">subcategoriesCount</a> () const</td></tr>
+<tr class="separator:a9dab86f052457cd548458ab0cd0eb12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa49373aae6a41adcc1de583c0ccd922d"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#aa49373aae6a41adcc1de583c0ccd922d">parentCategory</a> () const</td></tr>
+<tr class="separator:aa49373aae6a41adcc1de583c0ccd922d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classUniqueEntity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classUniqueEntity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classUniqueEntity.html">UniqueEntity&lt; Category &gt;</a></td></tr>
 <tr class="memitem:a1bd5176ee40191ca30e5f3575b25b6c3 inherit pub_methods_classUniqueEntity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">UniqueEntity</a> (<a class="el" href="classId.html">Id</a> <a class="el" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>)</td></tr>
 <tr class="memdesc:a1bd5176ee40191ca30e5f3575b25b6c3 inherit pub_methods_classUniqueEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates entity with unique ID.  <a href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">More...</a><br /></td></tr>
@@ -112,11 +133,151 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aadee5259a16b69f00858c4a44960d74a inherit pub_methods_classUniqueEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2984b7478ee6f5f15d2a911c2d81eb2f inherit pub_methods_classUniqueEntity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classId.html">Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a> () const</td></tr>
 <tr class="separator:a2984b7478ee6f5f15d2a911c2d81eb2f inherit pub_methods_classUniqueEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classNamedEntity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classNamedEntity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classNamedEntity.html">NamedEntity</a></td></tr>
+<tr class="memitem:a1bdb9820242a217c4b4f004a45920ecf inherit pub_methods_classNamedEntity"><td class="memItemLeft" align="right" valign="top"><a id="a1bdb9820242a217c4b4f004a45920ecf"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNamedEntity.html#a1bdb9820242a217c4b4f004a45920ecf">NamedEntity</a> (const std::string &amp;<a class="el" href="classNamedEntity.html#a2dfd3b6f8f7bac8cd4bd27806fdf63ba">name</a>)</td></tr>
+<tr class="memdesc:a1bdb9820242a217c4b4f004a45920ecf inherit pub_methods_classNamedEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
+<tr class="separator:a1bdb9820242a217c4b4f004a45920ecf inherit pub_methods_classNamedEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dfd3b6f8f7bac8cd4bd27806fdf63ba inherit pub_methods_classNamedEntity"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNamedEntity.html#a2dfd3b6f8f7bac8cd4bd27806fdf63ba">name</a> () const</td></tr>
+<tr class="separator:a2dfd3b6f8f7bac8cd4bd27806fdf63ba inherit pub_methods_classNamedEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08d46349930238647bb0328a16826aef inherit pub_methods_classNamedEntity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNamedEntity.html#a08d46349930238647bb0328a16826aef">setName</a> (const std::string &amp;<a class="el" href="classNamedEntity.html#a2dfd3b6f8f7bac8cd4bd27806fdf63ba">name</a>)</td></tr>
+<tr class="separator:a08d46349930238647bb0328a16826aef inherit pub_methods_classNamedEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classCategory.html" title="The Category class.">Category</a> class. </p>
 <p>Represents the transaction category and has tree structure: category has subcategories which also can have subsubcategories and so on. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8585d6483d70b4c91addf55020969e3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8585d6483d70b4c91addf55020969e3c">&#9670;&nbsp;</a></span>Category()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Category::Category </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classId.html">Id</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<p>Constructs category object with <code>id</code> and <code>name</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Unique non-negative integer that represents category ID </td></tr>
+    <tr><td class="paramname">name</td><td>Unicode string that represents category name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">SameIdError</td><td>is thrown if category with <code>id</code> already exists </td></tr>
+    <tr><td class="paramname">EmptyNameError</td><td>is thrown if <code>name</code> is empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a44b15ae2378438e23c308f335df00f80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44b15ae2378438e23c308f335df00f80">&#9670;&nbsp;</a></span>addSubcategory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Category::addSubcategory </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>subcategory</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds subcategory to account. </p>
+<p>Subcateogry is owned by parent category. Subcategory has reference to its parent. </p>
+
+</div>
+</div>
+<a id="aa49373aae6a41adcc1de583c0ccd922d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa49373aae6a41adcc1de583c0ccd922d">&#9670;&nbsp;</a></span>parentCategory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::weak_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt; Category::parentCategory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Weak pointer to parent category. It can be checked to find if parent category is alive </dd></dl>
+
+</div>
+</div>
+<a id="a9dab86f052457cd548458ab0cd0eb12b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dab86f052457cd548458ab0cd0eb12b">&#9670;&nbsp;</a></span>subcategoriesCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Category::subcategoriesCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Number of created subcategories in the <a class="el" href="classCategory.html" title="The Category class.">Category</a> </dd></dl>
+
+</div>
+</div>
+<a id="a8b39a610e165d1dee5f1821bd0dcaa8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b39a610e165d1dee5f1821bd0dcaa8e">&#9670;&nbsp;</a></span>subcategoryBy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCategory.html">Category</a> &amp; Category::subcategoryBy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classId.html">Id</a>&#160;</td>
+          <td class="paramname"><em>subcategoryId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrives the subcategory with <code>subcategoryId</code> from category. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to existing subcategory </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structCategory_1_1InvalidSubcategory.html" title="Exception is thrown if subcategory with some ID is not found.">InvalidSubcategory</a></td><td>is thrown if subcategory with <code>subcategoryId</code> isn't found in the parent category </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="Category_8hpp_source.html">Category.hpp</a></li>
 <li>src/Category.cpp</li>
 </ul>
