@@ -1,6 +1,13 @@
 #include "Id.hpp"
 #include "Utils.hpp"
 
+TEST(IdTests, CreateDefaultId)
+{
+    Id id;
+
+    ASSERT_FALSE(id.valid());
+}
+
 TEST(IdTests, CreateValidId)
 {
     Id id{1};

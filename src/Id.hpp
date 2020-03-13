@@ -12,6 +12,13 @@ class Id
 
 public:
     /*!
+     * \brief Default constructor
+     *
+     * Constructs default ID object which is invalid
+     */
+    Id() = default;
+
+    /*!
      * \brief Constructor
      *
      * Non-explicit constructor which creates ID from integer
