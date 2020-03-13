@@ -8,6 +8,8 @@ add_executable(${PROJECT_NAME}
     UniqueEntityTests.cpp
     Utils.hpp
     IdTests.cpp
+    CategoryTests.cpp
+    NamedEntityTests.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}

@@ -4,76 +4,58 @@
 #include "Category.hpp"
 #include "Wallet.hpp"
 
-const std::string DefaultAccountName{"Maxim"};
-const std::vector<std::string> UnicodeNames{"Максим", "Zwölf", "Γαζέες", "Árvíztűrő"};
-
-class AccountUnicodeNameTests : public testing::TestWithParam<std::string>
-{
-};
-
 TEST(AccountTests, CreateWithUniqueIdAndNameWithoutWalletsAndCategories)
 {
-    Account acc{DefaultId, DefaultAccountName};
+    Account acc{DefaultId, DefaultName};
 
     ASSERT_EQ(acc.id(), DefaultId);
-    ASSERT_EQ(acc.name(), DefaultAccountName);
+    ASSERT_EQ(acc.name(), DefaultName);
     ASSERT_EQ(acc.walletsCount(), 0);
     ASSERT_EQ(acc.categoriesCount(), 0);
 }
 
-TEST(AccountTests, CreateWithEmptyNameShouldThrowException)
-{
-    ASSERT_THROW(Account(DefaultId, {}), Account::EmptyNameError);
-}
-
-TEST_P(AccountUnicodeNameTests, CreateWithUnicodeName)
-{
-    Account acc{DefaultId, GetParam()};
-
-    ASSERT_EQ(acc.name(), GetParam());
-}
-
-INSTANTIATE_TEST_CASE_P(Suite, AccountUnicodeNameTests, testing::ValuesIn(UnicodeNames));
-
-TEST(AccountTests, ChangeAccountName)
-{
-    const std::string NewName = DefaultAccountName + "New";
-    Account acc{DefaultId, DefaultAccountName};
-
-    acc.setName(NewName);
-
-    ASSERT_EQ(acc.name(), NewName);
-}
-
-TEST(AccountTests, ChangeAccountNameToEmptyShouldThrowException)
-{
-    Account acc{DefaultId, DefaultAccountName};
-
-    ASSERT_THROW(acc.setName({}), Account::EmptyNameError);
-}
-
 TEST(AccountTests, AddWalletShouldIncreaseTheNumberOfWallets)
 {
-    Account acc{DefaultId, DefaultAccountName};
+    Account acc{DefaultId, DefaultName};
 
-    acc.addWallet(Wallet{DefaultId});
+    acc.addWallet(Wallet{DefaultId, DefaultName});
 
     ASSERT_EQ(acc.walletsCount(), 1);
 }
 
+TEST(AccountTests, GetExistingWalletById)
+{
+    Account acc{DefaultId, DefaultName};
+
+    acc.addWallet(Wallet{DefaultId, DefaultName});
+    auto& wallet = acc.walletBy(DefaultId);
+
+    ASSERT_EQ(wallet.id(), DefaultId);
+    ASSERT_EQ(wallet.name(), DefaultName);
+}
+
+TEST(AccountTests, GetNonExistingWalletShouldThrowException)
+{
+    Account acc{DefaultId, DefaultName};
+
+    acc.addWallet(Wallet{DefaultId, DefaultName});
+
+    ASSERT_THROW(acc.walletBy(DefaultId + 1), Account::InvalidWallet);
+}
+
 TEST(AccountTests, RemoveWalletShouldDecreaseTheNumberOfWallets)
 {
-    Account acc{DefaultId, DefaultAccountName};
+    Account acc{DefaultId, DefaultName};
 
-    acc.addWallet(Wallet{DefaultId});
+    acc.addWallet(Wallet{DefaultId, DefaultName});
     acc.removeWalletBy(DefaultId);
 
-    //    ASSERT_EQ(acc.walletsCount(), 0);
+    ASSERT_EQ(acc.walletsCount(), 0);
 }
 
 TEST(AccountTests, RemoveWalletOnEmptyNumberOfWalletsShouldDoNothing)
 {
-    Account acc{DefaultId, DefaultAccountName};
+    Account acc{DefaultId, DefaultName};
 
     acc.removeWalletBy(DefaultId);
 
@@ -82,9 +64,9 @@ TEST(AccountTests, RemoveWalletOnEmptyNumberOfWalletsShouldDoNothing)
 
 TEST(AccountTests, RemoveNotExistingWalletShouldDoNothing)
 {
-    Account acc{DefaultId, DefaultAccountName};
+    Account acc{DefaultId, DefaultName};
 
-    acc.addWallet(Wallet{DefaultId});
+    acc.addWallet(Wallet{DefaultId, DefaultName});
     acc.removeWalletBy(DefaultId + 1);
 
     ASSERT_EQ(acc.walletsCount(), 1);
@@ -92,28 +74,68 @@ TEST(AccountTests, RemoveNotExistingWalletShouldDoNothing)
 
 TEST(AccountTests, AddCategoryShouldIncreaseTheNumberOfCategories)
 {
-    Account acc{DefaultId, DefaultAccountName};
+    Account acc{DefaultId, DefaultName};
 
-    acc.addCategory(Category{DefaultId});
+    acc.addCategory(std::make_shared<Category>(DefaultId, DefaultName));
 
     ASSERT_EQ(acc.categoriesCount(), 1);
 }
 
+TEST(AccountTests, AddNonRootCategoryShouldThrowException)
+{
+    Account acc{DefaultId, DefaultName};
+
+    auto rootCategory = std::make_shared<Category>(DefaultId, DefaultName);
+    auto nonRootCategory = std::make_shared<Category>(DefaultId + 1, DefaultName);
+    rootCategory->addSubcategory(nonRootCategory);
+
+    ASSERT_THROW(acc.addCategory(std::move(nonRootCategory)), Account::NonRootCateogry);
+}
+
+TEST(AccountTests, GetExistingCategoryById)
+{
+    Account acc{DefaultId, DefaultName};
+
+    acc.addCategory(std::make_shared<Category>(DefaultId, DefaultName));
+    auto& category = acc.categoryBy(DefaultId);
+
+    ASSERT_EQ(category.id(), DefaultId);
+    ASSERT_EQ(category.name(), DefaultName);
+}
+
+TEST(AccountTests, GetNonExistingCategoryShouldThrowException)
+{
+    Account acc{DefaultId, DefaultName};
+
+    acc.addCategory(std::make_shared<Category>(DefaultId, DefaultName));
+
+    ASSERT_THROW(acc.categoryBy(DefaultId + 1), Account::InvalidCategory);
+}
+
 TEST(AccountTests, RemoveCategoryShouldDecreaseTheNumberOfCategories)
 {
-    Account acc{DefaultId, DefaultAccountName};
+    Account acc{DefaultId, DefaultName};
 
-    acc.addCategory(Category{DefaultId});
+    acc.addCategory(std::make_shared<Category>(DefaultId, DefaultName));
     acc.removeCategoryBy(DefaultId);
 
-    //    ASSERT_EQ(acc.categoriesCount(), 0);
+    ASSERT_EQ(acc.categoriesCount(), 0);
+}
+
+TEST(AccountTests, RemovCategoryOnEmptyNumberOfCategoriesShouldDoNothing)
+{
+    Account acc{DefaultId, DefaultName};
+
+    acc.removeCategoryBy(DefaultId);
+
+    ASSERT_EQ(acc.categoriesCount(), 0);
 }
 
 TEST(AccountTests, RemoveNotExistingCategoryShouldDoNothing)
 {
-    Account acc{DefaultId, DefaultAccountName};
+    Account acc{DefaultId, DefaultName};
 
-    acc.addCategory(Category{DefaultId});
+    acc.addCategory(std::make_shared<Category>(DefaultId, DefaultName));
     acc.removeCategoryBy(DefaultId + 1);
 
     ASSERT_EQ(acc.categoriesCount(), 1);
