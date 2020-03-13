@@ -3,43 +3,72 @@
 #include "Category.hpp"
 #include "Wallet.hpp"
 
-Account::EmptyNameError::EmptyNameError() : std::runtime_error{"Account name shouldn't be empty"} {}
+#include <algorithm>
 
-Account::Account(Id id, const std::string& name) : UniqueEntity{id}, name_(name)
+Account::InvalidWallet::InvalidWallet(Id walletId) :
+    std::runtime_error{"Wallet with ID " + std::to_string(walletId) + " not found"}
 {
-    if (name.empty()) throw EmptyNameError{};
 }
 
-const std::string& Account::name() const
+Account::InvalidCategory::InvalidCategory(Id categoryId) :
+    std::runtime_error{"Category with ID " + std::to_string(categoryId) + " not found"}
 {
-    return name_;
 }
 
-void Account::setName(const std::string& name)
+Account::NonRootCateogry::NonRootCateogry(Id categoryId) :
+    std::runtime_error{"Category with ID " + std::to_string(categoryId) + " not root"}
 {
-    if (name.empty()) throw EmptyNameError{};
-
-    name_ = name;
 }
+
+Account::Account(Id id, const std::string& name) : UniqueEntity{id}, NamedEntity{name} {}
 
 void Account::addWallet(Wallet&& wallet)
 {
     wallets_.emplace_back(std::move(wallet));
 }
 
-void Account::removeWalletBy(Id walletId) {}
+void Account::removeWalletBy(Id walletId)
+{
+    wallets_.erase(std::remove_if(wallets_.begin(), wallets_.end(), IdPredicate{walletId}), wallets_.end());
+}
+
+Wallet& Account::walletBy(Id walletId)
+{
+    auto it = std::find_if(wallets_.begin(), wallets_.end(), IdPredicate{walletId});
+
+    if (it == wallets_.end()) throw InvalidWallet{walletId};
+
+    return *it;
+}
 
 size_t Account::walletsCount() const
 {
     return wallets_.size();
 }
 
-void Account::addCategory(Category&& category)
+void Account::addCategory(std::shared_ptr<Category>&& category)
 {
+    assert(category);
+
+    if (category->parentCategory().lock()) throw NonRootCateogry{category->id()};
+
     categories_.emplace_back(std::move(category));
 }
 
-void Account::removeCategoryBy(Id categoryId) {}
+void Account::removeCategoryBy(Id categoryId)
+{
+    categories_.erase(std::remove_if(categories_.begin(), categories_.end(), IdPredicate{categoryId}),
+                      categories_.end());
+}
+
+Category& Account::categoryBy(Id categoryId)
+{
+    auto it = std::find_if(categories_.begin(), categories_.end(), IdPredicate{categoryId});
+
+    if (it == categories_.end()) throw InvalidCategory{categoryId};
+
+    return **it;
+}
 
 size_t Account::categoriesCount() const
 {

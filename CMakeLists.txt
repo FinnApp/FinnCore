@@ -17,9 +17,9 @@ set(SOURCES
     src/Wallet.hpp
     src/Category.cpp
     src/Category.hpp
-    src/Settings.cpp
-    src/Settings.hpp
     src/UniqueEntity.hpp
+    src/NamedEntity.hpp
+    src/NamedEntity.cpp
     src/Id.hpp
     src/Id.cpp
 )
