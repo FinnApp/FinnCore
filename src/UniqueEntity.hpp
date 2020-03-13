@@ -3,9 +3,8 @@
 #include "Id.hpp"
 
 #include <cassert>
+#include <memory>
 #include <set>
-
-#include <iostream>
 
 /*!
  * \brief Unique entity that's identified by unique ID. It cannot be copied but only moved.
@@ -45,12 +44,9 @@ public:
      * \exception SameIdError is thrown if entity with \p id already exists
      * \exception InvalidIdError is thrown if \p id is invalid
      */
-    UniqueEntity(Id id) : id_{std::move(id)}
+    UniqueEntity(Id id)
     {
-        if (entityExists(id_)) throw SameIdError{id};
-        if (!id_.valid()) throw InvalidIdError{};
-
-        addEntityBy(id_);
+        setId(id);
     }
 
     /*!
@@ -80,16 +76,22 @@ public:
 
     /*!
      * \brief Move constructor
+     *
+     * \p other entity becomes invalid
+     *
      * \exception InvalidIdError is thrown if \p other.id() is invaid
      */
-    UniqueEntity(UniqueEntity&& other) : id_{std::move(other.id_)}
+    UniqueEntity(UniqueEntity&& other)
     {
-        if (!id_.valid()) throw InvalidIdError{};
+        *this = std::move(other);
     }
 
     /*!
      *
      * \brief Move assignment
+     *
+     * Previous ID is removed and can be reused in the future. \p other entity becomes invalid
+     *
      * \exception InvalidIdError is thrown if \p other.id() is invaid
      */
     UniqueEntity& operator=(UniqueEntity&& other)
@@ -99,6 +101,8 @@ public:
         removeEntityBy(id_);
 
         id_ = std::move(other.id_);
+
+        return *this;
     }
 
     /*!
@@ -112,7 +116,50 @@ public:
         return id_;
     }
 
+protected:
+    /*!
+     * \brief Simplifies entity search in the container with UniqueEntity
+     */
+    class IdPredicate
+    {
+    public:
+        /*!
+         * \brief Constructs predicate with target \p id
+         */
+        IdPredicate(Id id) : id_(id) {}
+
+        /*!
+         *  \brief Compares \p uniqueEntity id with target id
+         */
+        template <typename Entity>
+        bool operator()(const Entity& uniqueEntity)
+        {
+            return uniqueEntity.id() == id_;
+        }
+
+        /*!
+         *  \brief Compares \p uniqueEntity shared pointer id with target id
+         */
+        template <typename Entity>
+        bool operator()(const std::shared_ptr<Entity>& uniqueEntity)
+        {
+            return uniqueEntity->id() == id_;
+        }
+
+    private:
+        Id id_;
+    };
+
 private:
+    void setId(Id id)
+    {
+        if (entityExists(id)) throw SameIdError{id};
+        if (!id.valid()) throw InvalidIdError{};
+
+        addEntityBy(id);
+        id_ = id;
+    }
+
     bool entityExists(Id id)
     {
         return ids_.count(id) > 0;
