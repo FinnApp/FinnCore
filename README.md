@@ -19,8 +19,9 @@
   - [x] Has ID
   - [ ] Has initial balance
   - [ ] Has balance from transactions
-  - [ ] Set/Update name and currency
-  - [ ] Add/Remove/Get/Count transactions
+  - [x] Set/Update name
+  - [ ] Set/Update currency
+  - [x] Add/Remove/Get/Count transactions
 - Transaction (only income and expenses)
   - [ ] Has ID
   - [ ] Set/Update wallet
