@@ -2,7 +2,27 @@
 
 #include "Transaction.hpp"
 
-Wallet::Wallet(Id id, const std::string& name) : UniqueEntity{id}, NamedEntity{name} {}
+Wallet::Wallet(Id id, const std::string& name, double initialBalance) :
+    UniqueEntity{id},
+    NamedEntity{name},
+    initialBalance_{initialBalance}
+{
+}
+
+double Wallet::initialBalance() const
+{
+    return initialBalance_;
+}
+
+double Wallet::balance() const
+{
+    double balance = initialBalance_;
+    for (auto&& transaction : transactions_)
+    {
+        balance += transaction->amount();
+    }
+    return balance;
+}
 
 void Wallet::addTransaction(std::shared_ptr<Transaction>&& wallet)
 {

@@ -24,10 +24,23 @@ public:
      *
      * \param id Unique non-negative integer that represents wallet ID
      * \param name Unicode string that represents wallet name
+     * \param initialBalance Sets the initial balance for the wallet
      * \exception SameIdError is thrown if wallet with \p id already exists
      * \exception EmptyNameError is thrown if \p name is empty
      */
-    Wallet(Id id, const std::string& name);
+    Wallet(Id id, const std::string& name, double initialBalance);
+
+    /*!
+     * \brief initialBalance
+     * \return
+     */
+    double initialBalance() const;
+
+    /*!
+     * \brief balance
+     * \return
+     */
+    double balance() const;
 
     /*!
      * \brief Adds transaction to wallet
@@ -55,4 +68,5 @@ public:
 
 private:
     EntityContainer<std::shared_ptr<Transaction>> transactions_;
+    double initialBalance_;
 };

@@ -18,6 +18,7 @@ set(SOURCES
     Id.hpp
     Id.cpp
     Transaction.hpp
+    Transaction.cpp
     EntityContainer.hpp
 )
 
@@ -50,7 +51,7 @@ target_link_libraries(${SHARED_LIB} PUBLIC ${INTERFACE_TARGET} PUBLIC ${CORE_OBJ
 
 # set versioning for shared library
 set_target_properties(${SHARED_LIB} PROPERTIES VERSION ${PROJECT_VERSION})
-set_target_properties(${SHARED_LIB} PROPERTIES SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR})
+set_target_properties(${SHARED_LIB} PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR})
 set_target_properties(${SHARED_LIB} PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
 
 install(

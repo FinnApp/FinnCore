@@ -11,6 +11,16 @@ public:
     /*!
      * \brief Transaction
      * \param id
+     * \param amount
      */
-    Transaction(Id id) : UniqueEntity{id} {}
+    Transaction(Id id, double amount);
+
+    /*!
+     * \brief amount
+     * \return
+     */
+    double amount() const;
+
+private:
+    double amount_;
 };
