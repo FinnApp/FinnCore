@@ -10,6 +10,7 @@ add_executable(${PROJECT_NAME}
     IdTests.cpp
     CategoryTests.cpp
     NamedEntityTests.cpp
+    WalletTests.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}
