@@ -16,12 +16,12 @@
   - [x] Add/Remove/Get/Count subcategories
 - Wallet
   - [x] Has ID
-  - [ ] Has initial balance
-  - [ ] Has balance from transactions
+  - [x] Has initial balance
+  - [x] Has balance from transactions
   - [x] Set/Update name
   - [x] Add/Remove/Get/Count transactions
 - Transaction
-  - [ ] Has ID
+  - [x] Has ID
   - [ ] Set/Update wallet
   - [ ] Set/Update category
   - [ ] Set/Update date
