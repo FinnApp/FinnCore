@@ -77,7 +77,7 @@ public:
     /*!
      * \brief Retrives the wallet with \p walletId from account
      * \return Reference to existing wallet
-     * \exception InvalidWallet is thrown if wallet with \p walletId isn't found in the account
+     * \exception WalletNotFound is thrown if wallet with \p walletId isn't found in the account
      */
     Wallet& walletBy(Id walletId);
 
@@ -103,7 +103,7 @@ public:
     /*!
      * \brief Retrives the category with \p walletId from category
      * \return Reference to existing category
-     * \exception InvalidCategory is thrown if category with \p categoryId isn't found in the account
+     * \exception CategoryNotFound is thrown if category with \p categoryId isn't found in the account
      */
     Category& categoryBy(Id categoryId);
 

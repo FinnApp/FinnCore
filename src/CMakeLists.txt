@@ -17,6 +17,7 @@ set(SOURCES
     NamedEntity.cpp
     Id.hpp
     Id.cpp
+    Transaction.hpp
 )
 
 # build object lib with coverage flags and propagate them further
@@ -62,7 +63,7 @@ install(
         DESTINATION inlcude
 )
 install(
-    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
     DESTINATION include/
     FILES_MATCHING
         PATTERN "*.hpp"

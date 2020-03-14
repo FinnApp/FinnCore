@@ -12,7 +12,6 @@ TEST(CategoryTests, CreateWithUniqueIdAndNameWithoutSubcategories)
     ASSERT_EQ(cat->parentCategory().lock(), nullptr);
 }
 
-// TODO forbid adding higher or same level category to subcategories
 TEST(CategoryTests, AddCategoryShouldIncreaseTheNumberOfCategories)
 {
     auto cat = std::make_shared<Category>(DefaultId, DefaultName);
