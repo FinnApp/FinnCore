@@ -98,7 +98,10 @@ public:
     {
         if (!other.id_.valid()) throw InvalidIdError{};
 
-        removeEntityBy(id_);
+        if (id_.valid())
+        {
+            removeEntityBy(id_);
+        }
 
         id_ = std::move(other.id_);
 
@@ -176,5 +179,5 @@ private:
     }
 
 private:
-    Id id_;
+    Id id_ = InvalidId;
 };
