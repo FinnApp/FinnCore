@@ -3,7 +3,6 @@
 #include "Id.hpp"
 
 #include <cassert>
-#include <memory>
 #include <set>
 
 /*!
@@ -118,40 +117,6 @@ public:
     {
         return id_;
     }
-
-protected:
-    /*!
-     * \brief Simplifies entity search in the container with UniqueEntity
-     */
-    class IdPredicate
-    {
-    public:
-        /*!
-         * \brief Constructs predicate with target \p id
-         */
-        IdPredicate(Id id) : id_(id) {}
-
-        /*!
-         *  \brief Compares \p uniqueEntity id with target id
-         */
-        template <typename Entity>
-        bool operator()(const Entity& uniqueEntity)
-        {
-            return uniqueEntity.id() == id_;
-        }
-
-        /*!
-         *  \brief Compares \p uniqueEntity shared pointer id with target id
-         */
-        template <typename Entity>
-        bool operator()(const std::shared_ptr<Entity>& uniqueEntity)
-        {
-            return uniqueEntity->id() == id_;
-        }
-
-    private:
-        Id id_;
-    };
 
 private:
     void setId(Id id)

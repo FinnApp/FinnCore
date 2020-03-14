@@ -37,7 +37,7 @@ TEST(WalletTests, GetNonExistingTransactionShouldThrowException)
 
     w.addTransaction(std::make_shared<Transaction>(DefaultId));
 
-    ASSERT_THROW(w.transactionBy(DefaultId + 1), Wallet::TransactionNotFound);
+    ASSERT_THROW(w.transactionBy(DefaultId + 1), EntityNotFound);
 }
 
 TEST(WalletTests, RemoveTransactionShouldDecreaseTheNumberOfTransactions)

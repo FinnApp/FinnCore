@@ -1,10 +1,10 @@
 #pragma once
 
+#include "EntityContainer.hpp"
 #include "NamedEntity.hpp"
 #include "UniqueEntity.hpp"
 
 #include <memory>
-#include <vector>
 
 /*!
  * \brief The Category class
@@ -15,17 +15,6 @@
 class Category : public UniqueEntity<Category>, public NamedEntity, public std::enable_shared_from_this<Category>
 {
 public:
-    /*!
-     * \brief Exception is thrown if subcategory with some ID is not found
-     */
-    struct SubcategoryNotFound : std::runtime_error
-    {
-        /*!
-         * \param categoryId is used in exception message
-         */
-        SubcategoryNotFound(Id categoryId);
-    };
-
     /*!
      * \brief Constructor
      *
@@ -53,7 +42,7 @@ public:
     /*!
      * \brief Retrives the subcategory with \p subcategoryId from category
      * \return Reference to existing subcategory
-     * \exception InvalidSubcategory is thrown if subcategory with \p subcategoryId isn't found in the parent category
+     * \exception NotFound is thrown if subcategory with \p subcategoryId isn't found in the parent category
      */
     Category& subcategoryBy(Id subcategoryId);
 
@@ -72,5 +61,5 @@ private:
 
 private:
     std::weak_ptr<Category> parentCategory_;
-    std::vector<std::shared_ptr<Category>> subcategories_;
+    EntityContainer<std::shared_ptr<Category>> subcategories_;
 };

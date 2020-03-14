@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['namedentity_51',['NamedEntity',['../classNamedEntity.html',1,'']]],
-  ['nonrootcateogry_52',['NonRootCateogry',['../structAccount_1_1NonRootCateogry.html',1,'Account']]]
+  ['namedentity_57',['NamedEntity',['../classNamedEntity.html',1,'']]],
+  ['nonrootcategory_58',['NonRootCategory',['../structAccount_1_1NonRootCategory.html',1,'Account']]]
 ];

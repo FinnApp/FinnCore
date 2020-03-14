@@ -18,6 +18,7 @@ set(SOURCES
     Id.hpp
     Id.cpp
     Transaction.hpp
+    EntityContainer.hpp
 )
 
 # build object lib with coverage flags and propagate them further

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['name_75',['name',['../classNamedEntity.html#a2dfd3b6f8f7bac8cd4bd27806fdf63ba',1,'NamedEntity']]],
-  ['namedentity_76',['NamedEntity',['../classNamedEntity.html#a1bdb9820242a217c4b4f004a45920ecf',1,'NamedEntity']]],
-  ['nonrootcateogry_77',['NonRootCateogry',['../structAccount_1_1NonRootCateogry.html#a6241d0577bd48202db5b72d9a605bf66',1,'Account::NonRootCateogry']]]
+  ['id_79',['Id',['../classId.html#a2ecd652512e482798d3a0905cab71990',1,'Id::Id()=default'],['../classId.html#a248c0334583ce20ae846d509ab709cb7',1,'Id::Id(int value)'],['../classId.html#ad0ebe723c74f79eb6dd4123b4f1fd7e8',1,'Id::Id(const Id &amp;)=default'],['../classId.html#a7877c96a77a656e9a77a21647deb877c',1,'Id::Id(Id &amp;&amp;other)'],['../classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f',1,'UniqueEntity::id()']]]
 ];

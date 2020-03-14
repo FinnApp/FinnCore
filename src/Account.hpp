@@ -1,9 +1,8 @@
 #pragma once
 
+#include "EntityContainer.hpp"
 #include "NamedEntity.hpp"
 #include "UniqueEntity.hpp"
-
-#include <vector>
 
 class Wallet;
 class Category;
@@ -18,36 +17,14 @@ class Account : public UniqueEntity<Account>, public NamedEntity
 {
 public:
     /*!
-     * \brief Exception is thrown is wallet with some ID is not found
-     */
-    struct WalletNotFound : std::runtime_error
-    {
-        /*!
-         * \param walletId is used in exception message
-         */
-        WalletNotFound(Id walletId);
-    };
-
-    /*!
-     * \brief Exception is thrown is category with some ID is not found
-     */
-    struct CategoryNotFound : std::runtime_error
-    {
-        /*!
-         * \param categoryId is used in exception message
-         */
-        CategoryNotFound(Id categoryId);
-    };
-
-    /*!
      * \brief Exception is thrown is category with some ID is not root
      */
-    struct NonRootCateogry : std::runtime_error
+    struct NonRootCategory : std::runtime_error
     {
         /*!
          * \param categoryId is used in exception message
          */
-        NonRootCateogry(Id categoryId);
+        NonRootCategory(Id categoryId);
     };
 
     /*!
@@ -77,7 +54,7 @@ public:
     /*!
      * \brief Retrives the wallet with \p walletId from account
      * \return Reference to existing wallet
-     * \exception WalletNotFound is thrown if wallet with \p walletId isn't found in the account
+     * \exception NotFound is thrown if wallet with \p walletId isn't found in the account
      */
     Wallet& walletBy(Id walletId);
 
@@ -103,7 +80,7 @@ public:
     /*!
      * \brief Retrives the category with \p walletId from category
      * \return Reference to existing category
-     * \exception CategoryNotFound is thrown if category with \p categoryId isn't found in the account
+     * \exception NotFound is thrown if category with \p categoryId isn't found in the account
      */
     Category& categoryBy(Id categoryId);
 
@@ -113,6 +90,6 @@ public:
     size_t categoriesCount() const;
 
 private:
-    std::vector<Wallet> wallets_;
-    std::vector<std::shared_ptr<Category>> categories_;
+    EntityContainer<Wallet> wallets_;
+    EntityContainer<std::shared_ptr<Category>> categories_;
 };

@@ -40,7 +40,7 @@ TEST(AccountTests, GetNonExistingWalletShouldThrowException)
 
     acc.addWallet(Wallet{DefaultId, DefaultName});
 
-    ASSERT_THROW(acc.walletBy(DefaultId + 1), Account::WalletNotFound);
+    ASSERT_THROW(acc.walletBy(DefaultId + 1), EntityNotFound);
 }
 
 TEST(AccountTests, RemoveWalletShouldDecreaseTheNumberOfWallets)
@@ -89,7 +89,7 @@ TEST(AccountTests, AddNonRootCategoryShouldThrowException)
     auto nonRootCategory = std::make_shared<Category>(DefaultId + 1, DefaultName);
     rootCategory->addSubcategory(nonRootCategory);
 
-    ASSERT_THROW(acc.addCategory(std::move(nonRootCategory)), Account::NonRootCateogry);
+    ASSERT_THROW(acc.addCategory(std::move(nonRootCategory)), Account::NonRootCategory);
 }
 
 TEST(AccountTests, GetExistingCategoryById)
@@ -109,7 +109,7 @@ TEST(AccountTests, GetNonExistingCategoryShouldThrowException)
 
     acc.addCategory(std::make_shared<Category>(DefaultId, DefaultName));
 
-    ASSERT_THROW(acc.categoryBy(DefaultId + 1), Account::CategoryNotFound);
+    ASSERT_THROW(acc.categoryBy(DefaultId + 1), EntityNotFound);
 }
 
 TEST(AccountTests, RemoveCategoryShouldDecreaseTheNumberOfCategories)

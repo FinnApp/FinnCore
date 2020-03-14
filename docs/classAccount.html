@@ -87,14 +87,8 @@ Inheritance diagram for Account:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccount_1_1CategoryNotFound.html">CategoryNotFound</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown is category with some ID is not found.  <a href="structAccount_1_1CategoryNotFound.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccount_1_1NonRootCateogry.html">NonRootCateogry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown is category with some ID is not root.  <a href="structAccount_1_1NonRootCateogry.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccount_1_1WalletNotFound.html">WalletNotFound</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown is wallet with some ID is not found.  <a href="structAccount_1_1WalletNotFound.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccount_1_1NonRootCategory.html">NonRootCategory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown is category with some ID is not root.  <a href="structAccount_1_1NonRootCategory.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -229,7 +223,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p><a class="el" href="classCategory.html" title="The Category class.">Category</a> is owned by account</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">NonRootCategory</td><td>is thrown if <code>category</code> is not root </td></tr>
+    <tr><td class="paramname"><a class="el" href="structAccount_1_1NonRootCategory.html" title="Exception is thrown is category with some ID is not root.">NonRootCategory</a></td><td>is thrown if <code>category</code> is not root </td></tr>
   </table>
   </dd>
 </dl>
@@ -295,7 +289,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns</dt><dd>Reference to existing category </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structAccount_1_1CategoryNotFound.html" title="Exception is thrown is category with some ID is not found.">CategoryNotFound</a></td><td>is thrown if category with <code>categoryId</code> isn't found in the account </td></tr>
+    <tr><td class="paramname">NotFound</td><td>is thrown if category with <code>categoryId</code> isn't found in the account </td></tr>
   </table>
   </dd>
 </dl>
@@ -322,7 +316,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns</dt><dd>Reference to existing wallet </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structAccount_1_1WalletNotFound.html" title="Exception is thrown is wallet with some ID is not found.">WalletNotFound</a></td><td>is thrown if wallet with <code>walletId</code> isn't found in the account </td></tr>
+    <tr><td class="paramname">NotFound</td><td>is thrown if wallet with <code>walletId</code> isn't found in the account </td></tr>
   </table>
   </dd>
 </dl>

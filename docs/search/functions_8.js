@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['transaction_91',['Transaction',['../classTransaction.html#aed8a097984e51c72c93c4624c463066a',1,'Transaction']]],
-  ['transactionby_92',['transactionBy',['../classWallet.html#a0cd4704dee901c7b9bcab7c58e1bbefa',1,'Wallet']]],
-  ['transactionnotfound_93',['TransactionNotFound',['../structWallet_1_1TransactionNotFound.html#a8908aad65b35da044043be62eaa86579',1,'Wallet::TransactionNotFound']]],
-  ['transactionscount_94',['transactionsCount',['../classWallet.html#ac63b23361b5621b7a8785a12f44cb783',1,'Wallet']]]
+  ['sameiderror_91',['SameIdError',['../structUniqueEntity_1_1SameIdError.html#af2abfa2cc832912dfbadc0f298236be5',1,'UniqueEntity::SameIdError']]],
+  ['setname_92',['setName',['../classNamedEntity.html#a08d46349930238647bb0328a16826aef',1,'NamedEntity']]],
+  ['subcategoriescount_93',['subcategoriesCount',['../classCategory.html#a9dab86f052457cd548458ab0cd0eb12b',1,'Category']]],
+  ['subcategoryby_94',['subcategoryBy',['../classCategory.html#a8b39a610e165d1dee5f1821bd0dcaa8e',1,'Category']]]
 ];

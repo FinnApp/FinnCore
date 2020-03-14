@@ -1,9 +1,10 @@
 #pragma once
 
+#include "EntityContainer.hpp"
 #include "NamedEntity.hpp"
 #include "UniqueEntity.hpp"
 
-#include <vector>
+#include <memory>
 
 class Transaction;
 
@@ -16,17 +17,6 @@ class Transaction;
 class Wallet : public UniqueEntity<Wallet>, public NamedEntity
 {
 public:
-    /*!
-     * \brief Exception is thrown is transaction with some ID is not found
-     */
-    struct TransactionNotFound : std::runtime_error
-    {
-        /*!
-         * \param transactionId is used in exception message
-         */
-        TransactionNotFound(Id transactionId);
-    };
-
     /*!
      * \brief Constructor
      *
@@ -54,7 +44,7 @@ public:
     /*!
      * \brief Retrives the transaction with \p transactionId from wallet
      * \return Reference to existing transaction
-     * \exception TransactionNotFound is thrown if transaction with \p transactionId isn't found in the wallet
+     * \exception NotFound is thrown if transaction with \p transactionId isn't found in the wallet
      */
     Transaction& transactionBy(Id transactionId);
 
@@ -64,5 +54,5 @@ public:
     size_t transactionsCount() const;
 
 private:
-    std::vector<std::shared_ptr<Transaction>> transactions_;
+    EntityContainer<std::shared_ptr<Transaction>> transactions_;
 };

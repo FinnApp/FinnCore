@@ -74,137 +74,110 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Id.hpp&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classUniqueEntity.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classUniqueEntity.html">UniqueEntity</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">static</span> <span class="keyword">inline</span> std::set&lt;Id&gt; ids_;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structUniqueEntity_1_1SameIdError.html">   24</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structUniqueEntity_1_1SameIdError.html">SameIdError</a> : std::runtime_error</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structUniqueEntity_1_1SameIdError.html#af2abfa2cc832912dfbadc0f298236be5">   29</a></span>&#160;        <a class="code" href="structUniqueEntity_1_1SameIdError.html#af2abfa2cc832912dfbadc0f298236be5">SameIdError</a>(<a class="code" href="classId.html">Id</a> existingId) : std::runtime_error{<span class="stringliteral">&quot;Entity with &quot;</span> + std::to_string(existingId) + <span class="stringliteral">&quot; already exists&quot;</span>}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    };</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structUniqueEntity_1_1InvalidIdError.html">   37</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structUniqueEntity_1_1InvalidIdError.html">InvalidIdError</a> : std::runtime_error</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="structUniqueEntity_1_1InvalidIdError.html">InvalidIdError</a>() : std::runtime_error{<span class="stringliteral">&quot;ID should be non-negative&quot;</span>} {}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    };</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">   47</a></span>&#160;    <a class="code" href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">UniqueEntity</a>(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        setId(<span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classUniqueEntity.html#aad9a838410f898ea759342c3257767b7">   57</a></span>&#160;    <a class="code" href="classUniqueEntity.html#aad9a838410f898ea759342c3257767b7">~UniqueEntity</a>()</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> (id_.<a class="code" href="classId.html#a51764c567be7598a2edab09d48f6cb03">valid</a>())</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            assert(entityExists(id_));</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            removeEntityBy(id_);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">UniqueEntity</a>(<span class="keyword">const</span> <a class="code" href="classUniqueEntity.html">UniqueEntity</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classUniqueEntity.html">UniqueEntity</a>&amp; <a class="code" href="classUniqueEntity.html#abd263d5899942cb8aa82fdd9ae244002">operator=</a>(<span class="keyword">const</span> <a class="code" href="classUniqueEntity.html">UniqueEntity</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classUniqueEntity.html#a873548756f92c3cf5c4349dd0f4a1121">   84</a></span>&#160;    <a class="code" href="classUniqueEntity.html#a873548756f92c3cf5c4349dd0f4a1121">UniqueEntity</a>(<a class="code" href="classUniqueEntity.html">UniqueEntity</a>&amp;&amp; other)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        *<span class="keyword">this</span> = std::move(other);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classUniqueEntity.html#aadee5259a16b69f00858c4a44960d74a">   97</a></span>&#160;    <a class="code" href="classUniqueEntity.html">UniqueEntity</a>&amp; <a class="code" href="classUniqueEntity.html#aadee5259a16b69f00858c4a44960d74a">operator=</a>(<a class="code" href="classUniqueEntity.html">UniqueEntity</a>&amp;&amp; other)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">if</span> (!other.id_.valid()) <span class="keywordflow">throw</span> InvalidIdError{};</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">if</span> (id_.<a class="code" href="classId.html#a51764c567be7598a2edab09d48f6cb03">valid</a>())</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            removeEntityBy(id_);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        id_ = std::move(other.id_);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">  117</a></span>&#160;    <a class="code" href="classId.html">Id</a> <a class="code" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> id_;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classUniqueEntity_1_1IdPredicate.html">  126</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classUniqueEntity_1_1IdPredicate.html">IdPredicate</a></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classUniqueEntity_1_1IdPredicate.html#a4345532ab83f8fa5083015ae77ed915f">  132</a></span>&#160;        <a class="code" href="classUniqueEntity_1_1IdPredicate.html#a4345532ab83f8fa5083015ae77ed915f">IdPredicate</a>(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>) : id_(<a class="code" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>) {}</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Entity&gt;</div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classUniqueEntity_1_1IdPredicate.html#a3b74365faa4731dedc3e515b86fe4f6d">  138</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classUniqueEntity_1_1IdPredicate.html#a3b74365faa4731dedc3e515b86fe4f6d">operator()</a>(<span class="keyword">const</span> Entity&amp; uniqueEntity)</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        {</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <span class="keywordflow">return</span> uniqueEntity.id() == id_;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Entity&gt;</div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="classUniqueEntity_1_1IdPredicate.html#aa3c1f84c9c2e12cbef36be216768a890">  147</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classUniqueEntity_1_1IdPredicate.html#aa3c1f84c9c2e12cbef36be216768a890">operator()</a>(<span class="keyword">const</span> std::shared_ptr&lt;Entity&gt;&amp; uniqueEntity)</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordflow">return</span> uniqueEntity-&gt;id() == id_;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <a class="code" href="classId.html">Id</a> id_;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    };</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">void</span> setId(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">if</span> (entityExists(<span class="keywordtype">id</span>)) <span class="keywordflow">throw</span> SameIdError{<span class="keywordtype">id</span>};</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">if</span> (!<span class="keywordtype">id</span>.valid()) <span class="keywordflow">throw</span> InvalidIdError{};</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        addEntityBy(<span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        id_ = <a class="code" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    }</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">bool</span> entityExists(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    {</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">return</span> ids_.count(<span class="keywordtype">id</span>) &gt; 0;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> addEntityBy(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    {</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        ids_.emplace(<span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">void</span> removeEntityBy(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    {</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        ids_.erase(<span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    }</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <a class="code" href="classId.html">Id</a> id_ = InvalidId;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;};</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classUniqueEntity.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classUniqueEntity.html">UniqueEntity</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">static</span> <span class="keyword">inline</span> std::set&lt;Id&gt; ids_;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structUniqueEntity_1_1SameIdError.html">   23</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structUniqueEntity_1_1SameIdError.html">SameIdError</a> : std::runtime_error</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structUniqueEntity_1_1SameIdError.html#af2abfa2cc832912dfbadc0f298236be5">   28</a></span>&#160;        <a class="code" href="structUniqueEntity_1_1SameIdError.html#af2abfa2cc832912dfbadc0f298236be5">SameIdError</a>(<a class="code" href="classId.html">Id</a> existingId) : std::runtime_error{<span class="stringliteral">&quot;Entity with &quot;</span> + std::to_string(existingId) + <span class="stringliteral">&quot; already exists&quot;</span>}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structUniqueEntity_1_1InvalidIdError.html">   36</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structUniqueEntity_1_1InvalidIdError.html">InvalidIdError</a> : std::runtime_error</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="structUniqueEntity_1_1InvalidIdError.html">InvalidIdError</a>() : std::runtime_error{<span class="stringliteral">&quot;ID should be non-negative&quot;</span>} {}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    };</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">   46</a></span>&#160;    <a class="code" href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">UniqueEntity</a>(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        setId(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classUniqueEntity.html#aad9a838410f898ea759342c3257767b7">   56</a></span>&#160;    <a class="code" href="classUniqueEntity.html#aad9a838410f898ea759342c3257767b7">~UniqueEntity</a>()</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span> (id_.<a class="code" href="classId.html#a51764c567be7598a2edab09d48f6cb03">valid</a>())</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            assert(entityExists(id_));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            removeEntityBy(id_);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">UniqueEntity</a>(<span class="keyword">const</span> <a class="code" href="classUniqueEntity.html">UniqueEntity</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="classUniqueEntity.html">UniqueEntity</a>&amp; <a class="code" href="classUniqueEntity.html#abd263d5899942cb8aa82fdd9ae244002">operator=</a>(<span class="keyword">const</span> <a class="code" href="classUniqueEntity.html">UniqueEntity</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classUniqueEntity.html#a873548756f92c3cf5c4349dd0f4a1121">   83</a></span>&#160;    <a class="code" href="classUniqueEntity.html#a873548756f92c3cf5c4349dd0f4a1121">UniqueEntity</a>(<a class="code" href="classUniqueEntity.html">UniqueEntity</a>&amp;&amp; other)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        *<span class="keyword">this</span> = std::move(other);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classUniqueEntity.html#aadee5259a16b69f00858c4a44960d74a">   96</a></span>&#160;    <a class="code" href="classUniqueEntity.html">UniqueEntity</a>&amp; <a class="code" href="classUniqueEntity.html#aadee5259a16b69f00858c4a44960d74a">operator=</a>(<a class="code" href="classUniqueEntity.html">UniqueEntity</a>&amp;&amp; other)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">if</span> (!other.id_.valid()) <span class="keywordflow">throw</span> InvalidIdError{};</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">if</span> (id_.<a class="code" href="classId.html#a51764c567be7598a2edab09d48f6cb03">valid</a>())</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            removeEntityBy(id_);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        id_ = std::move(other.id_);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">  116</a></span>&#160;    <a class="code" href="classId.html">Id</a> <a class="code" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">return</span> id_;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> setId(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">if</span> (entityExists(<span class="keywordtype">id</span>)) <span class="keywordflow">throw</span> SameIdError{<span class="keywordtype">id</span>};</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">if</span> (!<span class="keywordtype">id</span>.valid()) <span class="keywordflow">throw</span> InvalidIdError{};</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        addEntityBy(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        id_ = <a class="code" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">bool</span> entityExists(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">return</span> ids_.count(<span class="keywordtype">id</span>) &gt; 0;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> addEntityBy(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        ids_.emplace(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">void</span> removeEntityBy(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        ids_.erase(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <a class="code" href="classId.html">Id</a> id_ = InvalidId;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassId_html_a51764c567be7598a2edab09d48f6cb03"><div class="ttname"><a href="classId.html#a51764c567be7598a2edab09d48f6cb03">Id::valid</a></div><div class="ttdeci">bool valid() const</div><div class="ttdef"><b>Definition:</b> Id.cpp:20</div></div>
-<div class="ttc" id="aclassUniqueEntity_html_aad9a838410f898ea759342c3257767b7"><div class="ttname"><a href="classUniqueEntity.html#aad9a838410f898ea759342c3257767b7">UniqueEntity::~UniqueEntity</a></div><div class="ttdeci">~UniqueEntity()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:57</div></div>
+<div class="ttc" id="aclassUniqueEntity_html_aad9a838410f898ea759342c3257767b7"><div class="ttname"><a href="classUniqueEntity.html#aad9a838410f898ea759342c3257767b7">UniqueEntity::~UniqueEntity</a></div><div class="ttdeci">~UniqueEntity()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:56</div></div>
 <div class="ttc" id="aclassId_html"><div class="ttname"><a href="classId.html">Id</a></div><div class="ttdoc">Represents the identifier which can be used throughout the program. ID is considered to be valid if i...</div><div class="ttdef"><b>Definition:</b> Id.hpp:9</div></div>
-<div class="ttc" id="aclassUniqueEntity_1_1IdPredicate_html"><div class="ttname"><a href="classUniqueEntity_1_1IdPredicate.html">UniqueEntity::IdPredicate</a></div><div class="ttdoc">Simplifies entity search in the container with UniqueEntity.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:126</div></div>
 <div class="ttc" id="aclassUniqueEntity_html_abd263d5899942cb8aa82fdd9ae244002"><div class="ttname"><a href="classUniqueEntity.html#abd263d5899942cb8aa82fdd9ae244002">UniqueEntity::operator=</a></div><div class="ttdeci">UniqueEntity &amp; operator=(const UniqueEntity &amp;)=delete</div><div class="ttdoc">Deleted copy assignment.</div></div>
-<div class="ttc" id="aclassUniqueEntity_html_a873548756f92c3cf5c4349dd0f4a1121"><div class="ttname"><a href="classUniqueEntity.html#a873548756f92c3cf5c4349dd0f4a1121">UniqueEntity::UniqueEntity</a></div><div class="ttdeci">UniqueEntity(UniqueEntity &amp;&amp;other)</div><div class="ttdoc">Move constructor.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:84</div></div>
-<div class="ttc" id="aclassUniqueEntity_html"><div class="ttname"><a href="classUniqueEntity.html">UniqueEntity</a></div><div class="ttdoc">Unique entity that's identified by unique ID. It cannot be copied but only moved.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:16</div></div>
-<div class="ttc" id="aclassUniqueEntity_html_a1bd5176ee40191ca30e5f3575b25b6c3"><div class="ttname"><a href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">UniqueEntity::UniqueEntity</a></div><div class="ttdeci">UniqueEntity(Id id)</div><div class="ttdoc">Creates entity with unique ID.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:47</div></div>
-<div class="ttc" id="aclassUniqueEntity_html_aadee5259a16b69f00858c4a44960d74a"><div class="ttname"><a href="classUniqueEntity.html#aadee5259a16b69f00858c4a44960d74a">UniqueEntity::operator=</a></div><div class="ttdeci">UniqueEntity &amp; operator=(UniqueEntity &amp;&amp;other)</div><div class="ttdoc">Move assignment.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:97</div></div>
-<div class="ttc" id="astructUniqueEntity_1_1InvalidIdError_html"><div class="ttname"><a href="structUniqueEntity_1_1InvalidIdError.html">UniqueEntity::InvalidIdError</a></div><div class="ttdoc">Exception is thrown if entity is created with invalid ID.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:37</div></div>
-<div class="ttc" id="astructUniqueEntity_1_1SameIdError_html"><div class="ttname"><a href="structUniqueEntity_1_1SameIdError.html">UniqueEntity::SameIdError</a></div><div class="ttdoc">Exception is thrown if entity with some ID already exists.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:24</div></div>
-<div class="ttc" id="aclassUniqueEntity_1_1IdPredicate_html_a4345532ab83f8fa5083015ae77ed915f"><div class="ttname"><a href="classUniqueEntity_1_1IdPredicate.html#a4345532ab83f8fa5083015ae77ed915f">UniqueEntity::IdPredicate::IdPredicate</a></div><div class="ttdeci">IdPredicate(Id id)</div><div class="ttdoc">Constructs predicate with target id.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:132</div></div>
-<div class="ttc" id="aclassUniqueEntity_html_a2984b7478ee6f5f15d2a911c2d81eb2f"><div class="ttname"><a href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">UniqueEntity::id</a></div><div class="ttdeci">Id id() const</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:117</div></div>
-<div class="ttc" id="aclassUniqueEntity_1_1IdPredicate_html_aa3c1f84c9c2e12cbef36be216768a890"><div class="ttname"><a href="classUniqueEntity_1_1IdPredicate.html#aa3c1f84c9c2e12cbef36be216768a890">UniqueEntity::IdPredicate::operator()</a></div><div class="ttdeci">bool operator()(const std::shared_ptr&lt; Entity &gt; &amp;uniqueEntity)</div><div class="ttdoc">Compares uniqueEntity shared pointer id with target id.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:147</div></div>
-<div class="ttc" id="aclassUniqueEntity_1_1IdPredicate_html_a3b74365faa4731dedc3e515b86fe4f6d"><div class="ttname"><a href="classUniqueEntity_1_1IdPredicate.html#a3b74365faa4731dedc3e515b86fe4f6d">UniqueEntity::IdPredicate::operator()</a></div><div class="ttdeci">bool operator()(const Entity &amp;uniqueEntity)</div><div class="ttdoc">Compares uniqueEntity id with target id.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:138</div></div>
-<div class="ttc" id="astructUniqueEntity_1_1SameIdError_html_af2abfa2cc832912dfbadc0f298236be5"><div class="ttname"><a href="structUniqueEntity_1_1SameIdError.html#af2abfa2cc832912dfbadc0f298236be5">UniqueEntity::SameIdError::SameIdError</a></div><div class="ttdeci">SameIdError(Id existingId)</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:29</div></div>
+<div class="ttc" id="aclassUniqueEntity_html_a873548756f92c3cf5c4349dd0f4a1121"><div class="ttname"><a href="classUniqueEntity.html#a873548756f92c3cf5c4349dd0f4a1121">UniqueEntity::UniqueEntity</a></div><div class="ttdeci">UniqueEntity(UniqueEntity &amp;&amp;other)</div><div class="ttdoc">Move constructor.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:83</div></div>
+<div class="ttc" id="aclassUniqueEntity_html"><div class="ttname"><a href="classUniqueEntity.html">UniqueEntity</a></div><div class="ttdoc">Unique entity that's identified by unique ID. It cannot be copied but only moved.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:15</div></div>
+<div class="ttc" id="aclassUniqueEntity_html_a1bd5176ee40191ca30e5f3575b25b6c3"><div class="ttname"><a href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">UniqueEntity::UniqueEntity</a></div><div class="ttdeci">UniqueEntity(Id id)</div><div class="ttdoc">Creates entity with unique ID.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:46</div></div>
+<div class="ttc" id="aclassUniqueEntity_html_aadee5259a16b69f00858c4a44960d74a"><div class="ttname"><a href="classUniqueEntity.html#aadee5259a16b69f00858c4a44960d74a">UniqueEntity::operator=</a></div><div class="ttdeci">UniqueEntity &amp; operator=(UniqueEntity &amp;&amp;other)</div><div class="ttdoc">Move assignment.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:96</div></div>
+<div class="ttc" id="astructUniqueEntity_1_1InvalidIdError_html"><div class="ttname"><a href="structUniqueEntity_1_1InvalidIdError.html">UniqueEntity::InvalidIdError</a></div><div class="ttdoc">Exception is thrown if entity is created with invalid ID.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:36</div></div>
+<div class="ttc" id="astructUniqueEntity_1_1SameIdError_html"><div class="ttname"><a href="structUniqueEntity_1_1SameIdError.html">UniqueEntity::SameIdError</a></div><div class="ttdoc">Exception is thrown if entity with some ID already exists.</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:23</div></div>
+<div class="ttc" id="aclassUniqueEntity_html_a2984b7478ee6f5f15d2a911c2d81eb2f"><div class="ttname"><a href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">UniqueEntity::id</a></div><div class="ttdeci">Id id() const</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:116</div></div>
+<div class="ttc" id="astructUniqueEntity_1_1SameIdError_html_af2abfa2cc832912dfbadc0f298236be5"><div class="ttname"><a href="structUniqueEntity_1_1SameIdError.html#af2abfa2cc832912dfbadc0f298236be5">UniqueEntity::SameIdError::SameIdError</a></div><div class="ttdeci">SameIdError(Id existingId)</div><div class="ttdef"><b>Definition:</b> UniqueEntity.hpp:28</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
