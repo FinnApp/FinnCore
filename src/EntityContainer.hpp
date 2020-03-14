@@ -68,6 +68,42 @@ public:
     }
 
     /*!
+     * \brief begin
+     * \return
+     */
+    typename std::vector<T>::iterator begin()
+    {
+        return entities_.begin();
+    }
+
+    /*!
+     * \brief end
+     * \return
+     */
+    typename std::vector<T>::iterator end()
+    {
+        return entities_.end();
+    }
+
+    /*!
+     * \brief cbegin
+     * \return
+     */
+    typename std::vector<T>::const_iterator begin() const
+    {
+        return entities_.begin();
+    }
+
+    /*!
+     * \brief cend
+     * \return
+     */
+    typename std::vector<T>::const_iterator end() const
+    {
+        return entities_.end();
+    }
+
+    /*!
      * \brief Copies entity to container
      */
     void add(const T& entity)
