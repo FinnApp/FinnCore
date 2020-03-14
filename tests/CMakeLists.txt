@@ -9,8 +9,12 @@ add_executable(${PROJECT_NAME}
     Utils.hpp
     IdTests.cpp
     CategoryTests.cpp
+    CategoryTests.hpp
     NamedEntityTests.cpp
     WalletTests.cpp
+    WalletTests.hpp
+    TransactionTests.cpp
+    TransactionTests.hpp
 )
 
 target_link_libraries(${PROJECT_NAME}

@@ -1,31 +1,40 @@
-#include "Utils.hpp"
+#include "WalletTests.hpp"
 
-#include "Transaction.hpp"
-#include "Wallet.hpp"
+#include "TransactionTests.hpp"
 
-TEST(WalletTests, CreateWithUniqueIdAndNameWithoutTransactionsAndCategories)
+TEST(WalletTests, CreateWithUniqueIdAndNameWithoutTransactions)
 {
-    Wallet w{DefaultId, DefaultName};
+    auto w = createWallet();
 
     ASSERT_EQ(w.id(), DefaultId);
     ASSERT_EQ(w.name(), DefaultName);
+    ASSERT_EQ(w.initialBalance(), 0);
+    ASSERT_EQ(w.balance(), 0);
     ASSERT_EQ(w.transactionsCount(), 0);
+}
+
+TEST(WalletTests, CreateWithWalletWithInitialBalance)
+{
+    auto w = createWallet(DefaultId, DefaultName, 100);
+
+    ASSERT_EQ(w.initialBalance(), 100);
+    ASSERT_EQ(w.balance(), 100);
 }
 
 TEST(WalletTests, AddTransactionShouldIncreaseTheNumberOfTransactions)
 {
-    Wallet w{DefaultId, DefaultName};
+    auto w = createWallet();
 
-    w.addTransaction(std::make_shared<Transaction>(DefaultId));
+    w.addTransaction(createTransaction());
 
     ASSERT_EQ(w.transactionsCount(), 1);
 }
 
-TEST(WalletTests, GetExistingtransactionById)
+TEST(WalletTests, GetExistingTransactionById)
 {
-    Wallet w{DefaultId, DefaultName};
+    auto w = createWallet();
 
-    w.addTransaction(std::make_shared<Transaction>(DefaultId));
+    w.addTransaction(createTransaction());
     auto& transaction = w.transactionBy(DefaultId);
 
     ASSERT_EQ(transaction.id(), DefaultId);
@@ -33,18 +42,18 @@ TEST(WalletTests, GetExistingtransactionById)
 
 TEST(WalletTests, GetNonExistingTransactionShouldThrowException)
 {
-    Wallet w{DefaultId, DefaultName};
+    auto w = createWallet();
 
-    w.addTransaction(std::make_shared<Transaction>(DefaultId));
+    w.addTransaction(createTransaction());
 
     ASSERT_THROW(w.transactionBy(DefaultId + 1), EntityNotFound);
 }
 
 TEST(WalletTests, RemoveTransactionShouldDecreaseTheNumberOfTransactions)
 {
-    Wallet w{DefaultId, DefaultName};
+    auto w = createWallet();
 
-    w.addTransaction(std::make_shared<Transaction>(DefaultId));
+    w.addTransaction(createTransaction());
     w.removeTransactionBy(DefaultId);
 
     ASSERT_EQ(w.transactionsCount(), 0);
@@ -52,18 +61,18 @@ TEST(WalletTests, RemoveTransactionShouldDecreaseTheNumberOfTransactions)
 
 TEST(WalletTests, RemoveTransactionOnEmptyNumberOfTransactionsShouldDoNothing)
 {
-    Wallet w{DefaultId, DefaultName};
+    auto w = createWallet();
 
     w.removeTransactionBy(DefaultId);
 
     ASSERT_EQ(w.transactionsCount(), 0);
 }
 
-TEST(WalletTests, RemoveNotExistingWalletShouldDoNothing)
+TEST(WalletTests, RemoveNotExistingTransactionShouldDoNothing)
 {
-    Wallet w{DefaultId, DefaultName};
+    auto w = createWallet();
 
-    w.addTransaction(std::make_shared<Transaction>(DefaultId));
+    w.addTransaction(createTransaction());
     w.removeTransactionBy(DefaultId + 1);
 
     ASSERT_EQ(w.transactionsCount(), 1);
