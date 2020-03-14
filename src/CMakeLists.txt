@@ -1,4 +1,4 @@
-project(FinnCore VERSION 0.0.1 LANGUAGES CXX)
+project(FinnCore VERSION 0.1 LANGUAGES CXX)
 
 set(SHARED_LIB ${PROJECT_NAME}Shared)
 set(STATIC_LIB ${PROJECT_NAME}Static)
