@@ -9,7 +9,7 @@
   - [x] Set/Update name
   - [x] Add/Remove/Get/Count wallets
   - [x] Add/Remove/Get/Count categories
-  - [ ] Overall balance
+  - [x] Overall balance
 - Category
   - [x] Has ID
   - [x] Set/Update name
