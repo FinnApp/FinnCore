@@ -10,7 +10,7 @@ Account::NonRootCategory::NonRootCategory(Id categoryId) :
 
 Account::Account(Id id, const std::string& name) : UniqueEntity{id}, NamedEntity{name} {}
 
-void Account::addWallet(Wallet&& wallet)
+void Account::addWallet(std::shared_ptr<Wallet>&& wallet)
 {
     wallets_.add(std::move(wallet));
 }
@@ -22,7 +22,7 @@ void Account::removeWalletBy(Id walletId)
 
 Wallet& Account::walletBy(Id walletId)
 {
-    return wallets_.entityBy(walletId);
+    return *wallets_.entityBy(walletId);
 }
 
 size_t Account::walletsCount() const

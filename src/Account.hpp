@@ -44,7 +44,7 @@ public:
      *
      * Wallet is owned by account
      */
-    void addWallet(Wallet&& wallet);
+    void addWallet(std::shared_ptr<Wallet>&& wallet);
 
     /*!
      * \brief Removes wallet with \p walletId from account
@@ -90,6 +90,6 @@ public:
     size_t categoriesCount() const;
 
 private:
-    EntityContainer<Wallet> wallets_;
+    EntityContainer<std::shared_ptr<Wallet>> wallets_;
     EntityContainer<std::shared_ptr<Category>> categories_;
 };

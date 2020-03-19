@@ -6,12 +6,12 @@
 
 const double DefaultInitialBalance = 0.0;
 
-inline Wallet createWallet()
+inline std::shared_ptr<Wallet> createWallet()
 {
-    return Wallet{DefaultId, DefaultName, DefaultInitialBalance};
+    return std::make_shared<Wallet>(DefaultId, DefaultName, DefaultInitialBalance);
 }
 
-inline Wallet createWallet(Id id, const std::string& name, double initialBalance)
+inline std::shared_ptr<Wallet> createWallet(Id id, const std::string& name, double initialBalance)
 {
-    return Wallet{id, name, initialBalance};
+    return std::make_shared<Wallet>(id, name, initialBalance);
 }
