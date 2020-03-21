@@ -22,7 +22,7 @@ set(SOURCES
     EntityContainer.hpp
 )
 
-find_package(Boost 1.70 REQUIRED date_time)
+find_package(Boost 1.69 REQUIRED date_time)
 
 # build object lib with coverage flags and propagate them further
 add_library(${OBJECT_LIBRARY} OBJECT ${SOURCES})
