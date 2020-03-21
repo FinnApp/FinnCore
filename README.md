@@ -71,3 +71,32 @@
 
 ### Plans for 0.12-alpha API
 - Subscriptions list
+
+### Key ideas
+- "Pay for me in both sides" - when someone or you pay goods for 2 more people in the shop the receipt can be splitted between others and countered as a debt. Basically, it means that single transaction splitted in subtransaction (your part and debts).
+- Debts should be assigned to specific person. We should track debt history for debtors as well.
+- If your friend or someone else is using this app debts are synchronized in all accounts
+- Attach receipt photo, crop it, do some post-processing to be able to recognize all lines
+- Transaction multi-select to change category/date for all of them
+- Transaction with subtransactions
+- Regular/planned/template transactions + notifications about planned/regular transactions
+- Data import/export
+- Calculator while entering transaction amount
+- Bank sync (check manual transaction with bank transactions) with plugin system to extend banks
+- Parse notifications
+- Create categories that can be used only 1 type (income or expense)
+- Business account for companies
+- Project mode - your track spending/stats for specific project
+- Scan a physical receipt to make a new record of expenses or incomes. Taking the description and value.
+- "Close" an account so that the transactions for that account are retained in stats. Also, you can't make new transfers and transactions to this account.
+- Rollover (savings in the previous month goes for the next) in budgets
+- Money to goals should be transeferred as it was wallet
+- Budget forecasting
+- Calendar view for planned payments
+- Invoice control: You could have the option to add to both expiration date and closing date, so the application would automatically close that invoice, throwing the next records to the next invoice. That way it would be simple to make a check of which purchases came in the invoice that month, for example. This information could be checked in the statistics.
+Still on invoices, we could, with item 1 implemented, have the option to pay the invoice with the balance of some account, as happens today with the "debits", through a button "pay / anticipate invoice"
+- Credit card management
+- Networth monitoring.
+- Budget should be different for different month / yea
+- Budget should tell the average spend for the budget in last 6 months/1 year
+- Financial Independence Retire Early (FIRE) target number is the year (or how many years) you reach financial independence and there is no need to work anymore. Normally is the year when total balance reaches 25 times yearly spending.
