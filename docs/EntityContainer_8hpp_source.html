@@ -80,76 +80,100 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structEntityNotFound.html">   13</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structEntityNotFound.html">EntityNotFound</a> : std::runtime_error</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structEntityNotFound.html#a6f963739444881ed21194dda48edaea4">   19</a></span>&#160;    <a class="code" href="structEntityNotFound.html#a6f963739444881ed21194dda48edaea4">EntityNotFound</a>(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>) : std::runtime_error{<span class="stringliteral">&quot;Entity with ID &quot;</span> + std::to_string(<span class="keywordtype">id</span>) + <span class="stringliteral">&quot; not found&quot;</span>} {}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classEntityContainer.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEntityContainer.html">EntityContainer</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">class </span>IdPredicate</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        IdPredicate(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>) : id_(<span class="keywordtype">id</span>) {}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Entity&gt;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> Entity&amp; uniqueEntity)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">return</span> uniqueEntity.id() == id_;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Entity&gt;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> std::shared_ptr&lt;Entity&gt;&amp; uniqueEntity)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">return</span> uniqueEntity-&gt;id() == id_;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="classId.html">Id</a> id_;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    };</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classEntityContainer.html#a3543e808f0d17ac4d4a11541408deba0">   65</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classEntityContainer.html#a3543e808f0d17ac4d4a11541408deba0">add</a>(T&amp;&amp; entity)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        entities_.emplace_back(std::move(entity));</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classEntityContainer.html#a8c99c16a4016f3fa5b2b6e56733d1b0d">   73</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classEntityContainer.html#a8c99c16a4016f3fa5b2b6e56733d1b0d">add</a>(<span class="keyword">const</span> T&amp; entity)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        entities_.emplace_back(entity);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classEntityContainer.html#a258276850533482ee0cb297c4700066d">   81</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classEntityContainer.html#a258276850533482ee0cb297c4700066d">removeBy</a>(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        entities_.erase(std::remove_if(entities_.begin(), entities_.end(), IdPredicate{id}), entities_.end());</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classEntityContainer.html#a761a7bf9128a06ab7372eb8f606b0fbb">   91</a></span>&#160;    T&amp; <a class="code" href="classEntityContainer.html#a761a7bf9128a06ab7372eb8f606b0fbb">entityBy</a>(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">auto</span> it = std::find_if(entities_.begin(), entities_.end(), IdPredicate{id});</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">if</span> (it == entities_.end()) <span class="keywordflow">throw</span> <a class="code" href="structEntityNotFound.html">EntityNotFound</a>{<span class="keywordtype">id</span>};</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> *it;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classEntityContainer.html#aae60556b46c543beda2d33abb038a054">  103</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classEntityContainer.html#aae60556b46c543beda2d33abb038a054">count</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">return</span> entities_.size();</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    std::vector&lt;T&gt; entities_;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;};</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structEntityNotFound.html#a6f963739444881ed21194dda48edaea4">   18</a></span>&#160;    <a class="code" href="structEntityNotFound.html#a6f963739444881ed21194dda48edaea4">EntityNotFound</a>(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>) : std::runtime_error{<span class="stringliteral">&quot;Entity with ID &quot;</span> + std::to_string(<span class="keywordtype">id</span>) + <span class="stringliteral">&quot; not found&quot;</span>} {}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classEntityContainer.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEntityContainer.html">EntityContainer</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">class </span>IdPredicate</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        IdPredicate(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>) : id_(<span class="keywordtype">id</span>) {}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Entity&gt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> Entity&amp; uniqueEntity)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> uniqueEntity.id() == id_;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Entity&gt;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> std::shared_ptr&lt;Entity&gt;&amp; uniqueEntity)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">return</span> uniqueEntity-&gt;id() == id_;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="classId.html">Id</a> id_;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    };</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classEntityContainer.html#a3543e808f0d17ac4d4a11541408deba0">   64</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classEntityContainer.html#a3543e808f0d17ac4d4a11541408deba0">add</a>(T&amp;&amp; entity)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        entities_.emplace_back(std::move(entity));</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classEntityContainer.html#afd82079c5464266736637ead99fb1ce9">   72</a></span>&#160;    <span class="keyword">typename</span> std::vector&lt;T&gt;::iterator <a class="code" href="classEntityContainer.html#afd82079c5464266736637ead99fb1ce9">begin</a>()</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> entities_.begin();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classEntityContainer.html#abd80146ef5d60cce48b7c54d4a2b63b2">   80</a></span>&#160;    <span class="keyword">typename</span> std::vector&lt;T&gt;::iterator <a class="code" href="classEntityContainer.html#abd80146ef5d60cce48b7c54d4a2b63b2">end</a>()</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span> entities_.end();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classEntityContainer.html#af2ee9962ffa5e482a85c5b6bfbe0d2b6">   88</a></span>&#160;    <span class="keyword">typename</span> std::vector&lt;T&gt;::const_iterator <a class="code" href="classEntityContainer.html#af2ee9962ffa5e482a85c5b6bfbe0d2b6">begin</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">return</span> entities_.begin();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classEntityContainer.html#a08e879445c3515d089ee115a0db6803d">   96</a></span>&#160;    <span class="keyword">typename</span> std::vector&lt;T&gt;::const_iterator <a class="code" href="classEntityContainer.html#a08e879445c3515d089ee115a0db6803d">end</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> entities_.end();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classEntityContainer.html#a8c99c16a4016f3fa5b2b6e56733d1b0d">  104</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classEntityContainer.html#a8c99c16a4016f3fa5b2b6e56733d1b0d">add</a>(<span class="keyword">const</span> T&amp; entity)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        entities_.emplace_back(entity);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classEntityContainer.html#a258276850533482ee0cb297c4700066d">  112</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classEntityContainer.html#a258276850533482ee0cb297c4700066d">removeBy</a>(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        entities_.erase(std::remove_if(entities_.begin(), entities_.end(), IdPredicate{id}), entities_.end());</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="classEntityContainer.html#a761a7bf9128a06ab7372eb8f606b0fbb">  123</a></span>&#160;    T&amp; <a class="code" href="classEntityContainer.html#a761a7bf9128a06ab7372eb8f606b0fbb">entityBy</a>(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keyword">auto</span> it = std::find_if(entities_.begin(), entities_.end(), IdPredicate{id});</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">if</span> (it == entities_.end()) <span class="keywordflow">throw</span> <a class="code" href="structEntityNotFound.html">EntityNotFound</a>{<span class="keywordtype">id</span>};</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">return</span> *it;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="classEntityContainer.html#aae60556b46c543beda2d33abb038a054">  135</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classEntityContainer.html#aae60556b46c543beda2d33abb038a054">count</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">return</span> entities_.size();</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    std::vector&lt;T&gt; entities_;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassEntityContainer_html"><div class="ttname"><a href="classEntityContainer.html">EntityContainer</a></div><div class="ttdoc">EntityContainer.</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:26</div></div>
+<div class="ttc" id="aclassEntityContainer_html_af2ee9962ffa5e482a85c5b6bfbe0d2b6"><div class="ttname"><a href="classEntityContainer.html#af2ee9962ffa5e482a85c5b6bfbe0d2b6">EntityContainer::begin</a></div><div class="ttdeci">std::vector&lt; T &gt;::const_iterator begin() const</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:88</div></div>
+<div class="ttc" id="aclassEntityContainer_html"><div class="ttname"><a href="classEntityContainer.html">EntityContainer</a></div><div class="ttdoc">EntityContainer.</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:25</div></div>
+<div class="ttc" id="aclassEntityContainer_html_a08e879445c3515d089ee115a0db6803d"><div class="ttname"><a href="classEntityContainer.html#a08e879445c3515d089ee115a0db6803d">EntityContainer::end</a></div><div class="ttdeci">std::vector&lt; T &gt;::const_iterator end() const</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:96</div></div>
 <div class="ttc" id="aclassId_html"><div class="ttname"><a href="classId.html">Id</a></div><div class="ttdoc">Represents the identifier which can be used throughout the program. ID is considered to be valid if i...</div><div class="ttdef"><b>Definition:</b> Id.hpp:9</div></div>
-<div class="ttc" id="aclassEntityContainer_html_a3543e808f0d17ac4d4a11541408deba0"><div class="ttname"><a href="classEntityContainer.html#a3543e808f0d17ac4d4a11541408deba0">EntityContainer::add</a></div><div class="ttdeci">void add(T &amp;&amp;entity)</div><div class="ttdoc">Moves entity to container.</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:65</div></div>
-<div class="ttc" id="astructEntityNotFound_html"><div class="ttname"><a href="structEntityNotFound.html">EntityNotFound</a></div><div class="ttdoc">The EntityNotFound struct.</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:13</div></div>
-<div class="ttc" id="aclassEntityContainer_html_a761a7bf9128a06ab7372eb8f606b0fbb"><div class="ttname"><a href="classEntityContainer.html#a761a7bf9128a06ab7372eb8f606b0fbb">EntityContainer::entityBy</a></div><div class="ttdeci">T &amp; entityBy(Id id)</div><div class="ttdoc">Retrives the entity with id from container.</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:91</div></div>
-<div class="ttc" id="aclassEntityContainer_html_aae60556b46c543beda2d33abb038a054"><div class="ttname"><a href="classEntityContainer.html#aae60556b46c543beda2d33abb038a054">EntityContainer::count</a></div><div class="ttdeci">size_t count() const</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:103</div></div>
-<div class="ttc" id="astructEntityNotFound_html_a6f963739444881ed21194dda48edaea4"><div class="ttname"><a href="structEntityNotFound.html#a6f963739444881ed21194dda48edaea4">EntityNotFound::EntityNotFound</a></div><div class="ttdeci">EntityNotFound(Id id)</div><div class="ttdoc">EntityNotFound.</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:19</div></div>
-<div class="ttc" id="aclassEntityContainer_html_a8c99c16a4016f3fa5b2b6e56733d1b0d"><div class="ttname"><a href="classEntityContainer.html#a8c99c16a4016f3fa5b2b6e56733d1b0d">EntityContainer::add</a></div><div class="ttdeci">void add(const T &amp;entity)</div><div class="ttdoc">Copies entity to container.</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:73</div></div>
-<div class="ttc" id="aclassEntityContainer_html_a258276850533482ee0cb297c4700066d"><div class="ttname"><a href="classEntityContainer.html#a258276850533482ee0cb297c4700066d">EntityContainer::removeBy</a></div><div class="ttdeci">void removeBy(Id id)</div><div class="ttdoc">Removes entity with id from container.</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:81</div></div>
+<div class="ttc" id="aclassEntityContainer_html_a3543e808f0d17ac4d4a11541408deba0"><div class="ttname"><a href="classEntityContainer.html#a3543e808f0d17ac4d4a11541408deba0">EntityContainer::add</a></div><div class="ttdeci">void add(T &amp;&amp;entity)</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:64</div></div>
+<div class="ttc" id="astructEntityNotFound_html"><div class="ttname"><a href="structEntityNotFound.html">EntityNotFound</a></div><div class="ttdoc">Exception is thrown is entity in container is not found.</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:13</div></div>
+<div class="ttc" id="aclassEntityContainer_html_a761a7bf9128a06ab7372eb8f606b0fbb"><div class="ttname"><a href="classEntityContainer.html#a761a7bf9128a06ab7372eb8f606b0fbb">EntityContainer::entityBy</a></div><div class="ttdeci">T &amp; entityBy(Id id)</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:123</div></div>
+<div class="ttc" id="aclassEntityContainer_html_aae60556b46c543beda2d33abb038a054"><div class="ttname"><a href="classEntityContainer.html#aae60556b46c543beda2d33abb038a054">EntityContainer::count</a></div><div class="ttdeci">size_t count() const</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:135</div></div>
+<div class="ttc" id="astructEntityNotFound_html_a6f963739444881ed21194dda48edaea4"><div class="ttname"><a href="structEntityNotFound.html#a6f963739444881ed21194dda48edaea4">EntityNotFound::EntityNotFound</a></div><div class="ttdeci">EntityNotFound(Id id)</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:18</div></div>
+<div class="ttc" id="aclassEntityContainer_html_afd82079c5464266736637ead99fb1ce9"><div class="ttname"><a href="classEntityContainer.html#afd82079c5464266736637ead99fb1ce9">EntityContainer::begin</a></div><div class="ttdeci">std::vector&lt; T &gt;::iterator begin()</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:72</div></div>
+<div class="ttc" id="aclassEntityContainer_html_a8c99c16a4016f3fa5b2b6e56733d1b0d"><div class="ttname"><a href="classEntityContainer.html#a8c99c16a4016f3fa5b2b6e56733d1b0d">EntityContainer::add</a></div><div class="ttdeci">void add(const T &amp;entity)</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:104</div></div>
+<div class="ttc" id="aclassEntityContainer_html_abd80146ef5d60cce48b7c54d4a2b63b2"><div class="ttname"><a href="classEntityContainer.html#abd80146ef5d60cce48b7c54d4a2b63b2">EntityContainer::end</a></div><div class="ttdeci">std::vector&lt; T &gt;::iterator end()</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:80</div></div>
+<div class="ttc" id="aclassEntityContainer_html_a258276850533482ee0cb297c4700066d"><div class="ttname"><a href="classEntityContainer.html#a258276850533482ee0cb297c4700066d">EntityContainer::removeBy</a></div><div class="ttdeci">void removeBy(Id id)</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:112</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

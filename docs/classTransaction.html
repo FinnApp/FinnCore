@@ -62,6 +62,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classTransaction-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -83,11 +85,61 @@ Inheritance diagram for Transaction:</div>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1InvalidCategory.html">InvalidCategory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with nullptr category.  <a href="structTransaction_1_1InvalidCategory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1InvalidDateTime.html">InvalidDateTime</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with invalid date/time.  <a href="structTransaction_1_1InvalidDateTime.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1InvalidWallet.html">InvalidWallet</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with nullptr wallet.  <a href="structTransaction_1_1InvalidWallet.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1ZeroAmountError.html">ZeroAmountError</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with zero amount.  <a href="structTransaction_1_1ZeroAmountError.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a99a4a922c1826b52d575a7fcaa10de1c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#a99a4a922c1826b52d575a7fcaa10de1c">Type</a> { <b>Income</b>, 
+<b>Expense</b>
+ }</td></tr>
+<tr class="memdesc:a99a4a922c1826b52d575a7fcaa10de1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Type enum.  <a href="classTransaction.html#a99a4a922c1826b52d575a7fcaa10de1c">More...</a><br /></td></tr>
+<tr class="separator:a99a4a922c1826b52d575a7fcaa10de1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aed8a097984e51c72c93c4624c463066a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#aed8a097984e51c72c93c4624c463066a">Transaction</a> (<a class="el" href="classId.html">Id</a> <a class="el" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>)</td></tr>
-<tr class="memdesc:aed8a097984e51c72c93c4624c463066a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a>.  <a href="classTransaction.html#aed8a097984e51c72c93c4624c463066a">More...</a><br /></td></tr>
-<tr class="separator:aed8a097984e51c72c93c4624c463066a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83371226bcf861793c59394205fb07ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#a83371226bcf861793c59394205fb07ea">Transaction</a> (<a class="el" href="classId.html">Id</a> <a class="el" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>, double <a class="el" href="classTransaction.html#a0621f4fdf66207ea9ebc464baad8944d">amount</a>, std::weak_ptr&lt; <a class="el" href="classWallet.html">Wallet</a> &gt; <a class="el" href="classTransaction.html#aa65018eaf6691eb4f9a328105ab12d07">wallet</a>, std::weak_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt; <a class="el" href="classTransaction.html#ada205c61d70d69246e423f6ef19e9223">category</a>, const <a class="el" href="Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549">DateTime</a> &amp;<a class="el" href="classTransaction.html#a1b69b19f0a29fb30b24e886bf887a058">dateTime</a>)</td></tr>
+<tr class="separator:a83371226bcf861793c59394205fb07ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f65e44f06b0f6d07e647f81e568fe55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#a7f65e44f06b0f6d07e647f81e568fe55">Transaction</a> (<a class="el" href="classId.html">Id</a> <a class="el" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>, double <a class="el" href="classTransaction.html#a0621f4fdf66207ea9ebc464baad8944d">amount</a>, std::weak_ptr&lt; <a class="el" href="classWallet.html">Wallet</a> &gt; <a class="el" href="classTransaction.html#aa65018eaf6691eb4f9a328105ab12d07">wallet</a>, std::weak_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt; <a class="el" href="classTransaction.html#ada205c61d70d69246e423f6ef19e9223">category</a>)</td></tr>
+<tr class="separator:a7f65e44f06b0f6d07e647f81e568fe55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0621f4fdf66207ea9ebc464baad8944d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#a0621f4fdf66207ea9ebc464baad8944d">amount</a> () const</td></tr>
+<tr class="separator:a0621f4fdf66207ea9ebc464baad8944d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a239d0ddda25cb203f04828ce91b4558d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#a239d0ddda25cb203f04828ce91b4558d">updateAmount</a> (double <a class="el" href="classTransaction.html#a0621f4fdf66207ea9ebc464baad8944d">amount</a>)</td></tr>
+<tr class="separator:a239d0ddda25cb203f04828ce91b4558d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa65018eaf6691eb4f9a328105ab12d07"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; <a class="el" href="classWallet.html">Wallet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#aa65018eaf6691eb4f9a328105ab12d07">wallet</a> () const</td></tr>
+<tr class="separator:aa65018eaf6691eb4f9a328105ab12d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ca500a6b5496d3422fe48970e2993b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#a5ca500a6b5496d3422fe48970e2993b3">updateWallet</a> (const std::weak_ptr&lt; <a class="el" href="classWallet.html">Wallet</a> &gt; &amp;<a class="el" href="classTransaction.html#aa65018eaf6691eb4f9a328105ab12d07">wallet</a>)</td></tr>
+<tr class="separator:a5ca500a6b5496d3422fe48970e2993b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada205c61d70d69246e423f6ef19e9223"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#ada205c61d70d69246e423f6ef19e9223">category</a> () const</td></tr>
+<tr class="separator:ada205c61d70d69246e423f6ef19e9223"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b850a5ed92ba1e021cfd3c637d408f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#a5b850a5ed92ba1e021cfd3c637d408f7">updateCategory</a> (const std::weak_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt; &amp;<a class="el" href="classTransaction.html#ada205c61d70d69246e423f6ef19e9223">category</a>)</td></tr>
+<tr class="separator:a5b850a5ed92ba1e021cfd3c637d408f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b69b19f0a29fb30b24e886bf887a058"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549">DateTime</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#a1b69b19f0a29fb30b24e886bf887a058">dateTime</a> () const</td></tr>
+<tr class="separator:a1b69b19f0a29fb30b24e886bf887a058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf1d11e4c9196328e7fc99a5c2033486"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#acf1d11e4c9196328e7fc99a5c2033486">updateDateTime</a> (const <a class="el" href="Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549">DateTime</a> &amp;<a class="el" href="classTransaction.html#a1b69b19f0a29fb30b24e886bf887a058">dateTime</a>)</td></tr>
+<tr class="separator:acf1d11e4c9196328e7fc99a5c2033486"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade3153886435af69125f1410feecdd59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Transaction_8hpp.html#a1e2d41b3c865c2f53fd1af13935663e4">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#ade3153886435af69125f1410feecdd59">date</a> () const</td></tr>
+<tr class="separator:ade3153886435af69125f1410feecdd59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e87d6b61298ae30c37d058007df5c11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Transaction_8hpp.html#af3b1ed7e7609bef75ad681423adf4db6">Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#a5e87d6b61298ae30c37d058007df5c11">time</a> () const</td></tr>
+<tr class="separator:a5e87d6b61298ae30c37d058007df5c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c0a887d4f0616f734e253fe8b6a7d00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTransaction.html#a99a4a922c1826b52d575a7fcaa10de1c">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#a4c0a887d4f0616f734e253fe8b6a7d00">type</a> () const</td></tr>
+<tr class="separator:a4c0a887d4f0616f734e253fe8b6a7d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f7a79bac8266b89f4243f64321da1ae"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#a7f7a79bac8266b89f4243f64321da1ae">description</a> () const</td></tr>
+<tr class="separator:a7f7a79bac8266b89f4243f64321da1ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addf867d5ca19d033ef9c9a1c463d3a66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTransaction.html#addf867d5ca19d033ef9c9a1c463d3a66">updateDescription</a> (const std::string &amp;<a class="el" href="classTransaction.html#a7f7a79bac8266b89f4243f64321da1ae">description</a>)</td></tr>
+<tr class="separator:addf867d5ca19d033ef9c9a1c463d3a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classUniqueEntity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classUniqueEntity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classUniqueEntity.html">UniqueEntity&lt; Transaction &gt;</a></td></tr>
 <tr class="memitem:a1bd5176ee40191ca30e5f3575b25b6c3 inherit pub_methods_classUniqueEntity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">UniqueEntity</a> (<a class="el" href="classId.html">Id</a> <a class="el" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>)</td></tr>
 <tr class="memdesc:a1bd5176ee40191ca30e5f3575b25b6c3 inherit pub_methods_classUniqueEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates entity with unique ID.  <a href="classUniqueEntity.html#a1bd5176ee40191ca30e5f3575b25b6c3">More...</a><br /></td></tr>
@@ -114,9 +166,10 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> class. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aed8a097984e51c72c93c4624c463066a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed8a097984e51c72c93c4624c463066a">&#9670;&nbsp;</a></span>Transaction()</h2>
+<p>Represents a single transaction in the wallet. Each transaction has unqiue ID, assigned wallet and category, non-zero amount, type (income/expense) and date/time occurence. Optionally, description can be specified to give more info about transaction. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a99a4a922c1826b52d575a7fcaa10de1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99a4a922c1826b52d575a7fcaa10de1c">&#9670;&nbsp;</a></span>Type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,32 +178,430 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Transaction::Transaction </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classId.html">Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
+          <td class="memname">enum <a class="el" href="classTransaction.html#a99a4a922c1826b52d575a7fcaa10de1c">Transaction::Type</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a>. </p>
+<p>The Type enum. </p>
+<p>Represents the transaction type. For now, only 2 types are available: income and end expense </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a83371226bcf861793c59394205fb07ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83371226bcf861793c59394205fb07ea">&#9670;&nbsp;</a></span>Transaction() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Transaction::Transaction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classId.html">Id</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>amount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::weak_ptr&lt; <a class="el" href="classWallet.html">Wallet</a> &gt;&#160;</td>
+          <td class="paramname"><em>wallet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::weak_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt;&#160;</td>
+          <td class="paramname"><em>category</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549">DateTime</a> &amp;&#160;</td>
+          <td class="paramname"><em>dateTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructs <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> object with given parameters. Description is left empty. <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> type is deduced from the amount sign.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">id</td><td>Unique non-negative integer that represents category ID </td></tr>
+    <tr><td class="paramname">amount</td><td>Non-zero value that represents transaction amount </td></tr>
+    <tr><td class="paramname">wallet</td><td>Pointer to wallet the transaction is belonged to </td></tr>
+    <tr><td class="paramname">category</td><td>Pointer to category the transaction is associated with </td></tr>
+    <tr><td class="paramname">dateTime</td><td>Date/Time in POSIX format when the transaction has occured </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structUniqueEntity_1_1SameIdError.html" title="Exception is thrown if entity with some ID already exists.">UniqueEntity::SameIdError</a></td><td>is thrown if category with <code>id</code> already exists </td></tr>
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1ZeroAmountError.html" title="Exception is thrown if transaction is created with zero amount.">ZeroAmountError</a></td><td>is thrown if <code>amount</code> equals zero </td></tr>
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidWallet.html" title="Exception is thrown if transaction is created with nullptr wallet.">InvalidWallet</a></td><td>is thrown is <code>wallet</code> is <b>nullptr</b> </td></tr>
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidCategory.html" title="Exception is thrown if transaction is created with nullptr category.">InvalidCategory</a></td><td>is thrown is <code>category</code> is <b>nullptr</b> </td></tr>
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidDateTime.html" title="Exception is thrown if transaction is created with invalid date/time.">InvalidDateTime</a></td><td>is thrown is <code>dateTime</code> is invalid </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a id="a7f65e44f06b0f6d07e647f81e568fe55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f65e44f06b0f6d07e647f81e568fe55">&#9670;&nbsp;</a></span>Transaction() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Transaction::Transaction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classId.html">Id</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>amount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::weak_ptr&lt; <a class="el" href="classWallet.html">Wallet</a> &gt;&#160;</td>
+          <td class="paramname"><em>wallet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::weak_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt;&#160;</td>
+          <td class="paramname"><em>category</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructs <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> object with given parameters. Description is left empty. Date/Time is generated from current local time. <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> type is deduced from the amount sign.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Unique non-negative integer that represents category ID </td></tr>
+    <tr><td class="paramname">amount</td><td>Non-zero value that represents transaction amount </td></tr>
+    <tr><td class="paramname">wallet</td><td>Pointer to wallet the transaction is belonged to </td></tr>
+    <tr><td class="paramname">category</td><td>Pointer to category the transaction is associated with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structUniqueEntity_1_1SameIdError.html" title="Exception is thrown if entity with some ID already exists.">UniqueEntity::SameIdError</a></td><td>is thrown if category with <code>id</code> already exists </td></tr>
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1ZeroAmountError.html" title="Exception is thrown if transaction is created with zero amount.">ZeroAmountError</a></td><td>is thrown if <code>amount</code> equals zero </td></tr>
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidWallet.html" title="Exception is thrown if transaction is created with nullptr wallet.">InvalidWallet</a></td><td>is thrown is <code>wallet</code> is <b>nullptr</b> </td></tr>
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidCategory.html" title="Exception is thrown if transaction is created with nullptr category.">InvalidCategory</a></td><td>is thrown is <code>category</code> is <b>nullptr</b> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0621f4fdf66207ea9ebc464baad8944d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0621f4fdf66207ea9ebc464baad8944d">&#9670;&nbsp;</a></span>amount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Transaction::amount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> amount rounded to 2 decimal places </dd></dl>
+
+</div>
+</div>
+<a id="ada205c61d70d69246e423f6ef19e9223"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada205c61d70d69246e423f6ef19e9223">&#9670;&nbsp;</a></span>category()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::weak_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt; Transaction::category </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Pointer to category the transaction is associated with. It could return expired pointer if category has been deleted. </dd></dl>
+
+</div>
+</div>
+<a id="ade3153886435af69125f1410feecdd59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade3153886435af69125f1410feecdd59">&#9670;&nbsp;</a></span>date()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Transaction_8hpp.html#a1e2d41b3c865c2f53fd1af13935663e4">Date</a> Transaction::date </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Date when transaction has occured </dd></dl>
+
+</div>
+</div>
+<a id="a1b69b19f0a29fb30b24e886bf887a058"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b69b19f0a29fb30b24e886bf887a058">&#9670;&nbsp;</a></span>dateTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549">DateTime</a> &amp; Transaction::dateTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Date/Time of transaction occurence in POSIX format </dd></dl>
+
+</div>
+</div>
+<a id="a7f7a79bac8266b89f4243f64321da1ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f7a79bac8266b89f4243f64321da1ae">&#9670;&nbsp;</a></span>description()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; Transaction::description </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> Unicode description </dd></dl>
+
+</div>
+</div>
+<a id="a5e87d6b61298ae30c37d058007df5c11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e87d6b61298ae30c37d058007df5c11">&#9670;&nbsp;</a></span>time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Transaction_8hpp.html#af3b1ed7e7609bef75ad681423adf4db6">Time</a> Transaction::time </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Time when transaction has occured </dd></dl>
+
+</div>
+</div>
+<a id="a4c0a887d4f0616f734e253fe8b6a7d00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c0a887d4f0616f734e253fe8b6a7d00">&#9670;&nbsp;</a></span>type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTransaction.html#a99a4a922c1826b52d575a7fcaa10de1c">Transaction::Type</a> Transaction::type </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Income if amount is positive or Expense if amount is negative </dd></dl>
+
+</div>
+</div>
+<a id="a239d0ddda25cb203f04828ce91b4558d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a239d0ddda25cb203f04828ce91b4558d">&#9670;&nbsp;</a></span>updateAmount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Transaction::updateAmount </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>amount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amount</td><td>New amount which will be rounded to 2 decimal places </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1ZeroAmountError.html" title="Exception is thrown if transaction is created with zero amount.">ZeroAmountError</a></td><td>is thrown if <code>amount</code> equals zero </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5b850a5ed92ba1e021cfd3c637d408f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b850a5ed92ba1e021cfd3c637d408f7">&#9670;&nbsp;</a></span>updateCategory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Transaction::updateCategory </td>
+          <td>(</td>
+          <td class="paramtype">const std::weak_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>category</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidCategory.html" title="Exception is thrown if transaction is created with nullptr category.">InvalidCategory</a></td><td>is thrown is <code>category</code> is <b>nullptr</b> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acf1d11e4c9196328e7fc99a5c2033486"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf1d11e4c9196328e7fc99a5c2033486">&#9670;&nbsp;</a></span>updateDateTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Transaction::updateDateTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549">DateTime</a> &amp;&#160;</td>
+          <td class="paramname"><em>dateTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dateTime</td><td>POSIX Date/Time of transaction occurence </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidDateTime.html" title="Exception is thrown if transaction is created with invalid date/time.">InvalidDateTime</a></td><td>is thrown is <code>dateTime</code> is invalid </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="addf867d5ca19d033ef9c9a1c463d3a66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addf867d5ca19d033ef9c9a1c463d3a66">&#9670;&nbsp;</a></span>updateDescription()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Transaction::updateDescription </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>description</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">description</td><td><a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> description as a Unicode string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5ca500a6b5496d3422fe48970e2993b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ca500a6b5496d3422fe48970e2993b3">&#9670;&nbsp;</a></span>updateWallet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Transaction::updateWallet </td>
+          <td>(</td>
+          <td class="paramtype">const std::weak_ptr&lt; <a class="el" href="classWallet.html">Wallet</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>wallet</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set new wallet for transaction. <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> will be removed from previous wallet automatically.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidWallet.html" title="Exception is thrown if transaction is created with nullptr wallet.">InvalidWallet</a></td><td>is thrown is <code>wallet</code> is <b>nullptr</b> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa65018eaf6691eb4f9a328105ab12d07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa65018eaf6691eb4f9a328105ab12d07">&#9670;&nbsp;</a></span>wallet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::weak_ptr&lt; <a class="el" href="classWallet.html">Wallet</a> &gt; Transaction::wallet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Transactions are stored as unique pointers in the wallet so they are deleted when wallet is deleted. Hence, it should never return expired pointer to wallet.</p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to wallet the transaction is belonged to. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="Transaction_8hpp_source.html">Transaction.hpp</a></li>
+<li>src/Transaction.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

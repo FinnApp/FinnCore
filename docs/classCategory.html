@@ -87,17 +87,12 @@ Inheritance diagram for Category:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8585d6483d70b4c91addf55020969e3c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#a8585d6483d70b4c91addf55020969e3c">Category</a> (<a class="el" href="classId.html">Id</a> <a class="el" href="classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f">id</a>, const std::string &amp;<a class="el" href="classNamedEntity.html#a2dfd3b6f8f7bac8cd4bd27806fdf63ba">name</a>)</td></tr>
-<tr class="memdesc:a8585d6483d70b4c91addf55020969e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classCategory.html#a8585d6483d70b4c91addf55020969e3c">More...</a><br /></td></tr>
 <tr class="separator:a8585d6483d70b4c91addf55020969e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44b15ae2378438e23c308f335df00f80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#a44b15ae2378438e23c308f335df00f80">addSubcategory</a> (const std::shared_ptr&lt; <a class="el" href="classCategory.html">Category</a> &gt; &amp;subcategory)</td></tr>
-<tr class="memdesc:a44b15ae2378438e23c308f335df00f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds subcategory to account.  <a href="classCategory.html#a44b15ae2378438e23c308f335df00f80">More...</a><br /></td></tr>
 <tr class="separator:a44b15ae2378438e23c308f335df00f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7641399764623ab40d91feb171f10c6"><td class="memItemLeft" align="right" valign="top"><a id="af7641399764623ab40d91feb171f10c6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#af7641399764623ab40d91feb171f10c6">removeSubcategoryBy</a> (<a class="el" href="classId.html">Id</a> subcategoryId)</td></tr>
-<tr class="memdesc:af7641399764623ab40d91feb171f10c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes subcategory with <code>subcategoryId</code> from parent category. <br /></td></tr>
+<tr class="memitem:af7641399764623ab40d91feb171f10c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#af7641399764623ab40d91feb171f10c6">removeSubcategoryBy</a> (<a class="el" href="classId.html">Id</a> subcategoryId)</td></tr>
 <tr class="separator:af7641399764623ab40d91feb171f10c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b39a610e165d1dee5f1821bd0dcaa8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCategory.html">Category</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#a8b39a610e165d1dee5f1821bd0dcaa8e">subcategoryBy</a> (<a class="el" href="classId.html">Id</a> subcategoryId)</td></tr>
-<tr class="memdesc:a8b39a610e165d1dee5f1821bd0dcaa8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrives the subcategory with <code>subcategoryId</code> from category.  <a href="classCategory.html#a8b39a610e165d1dee5f1821bd0dcaa8e">More...</a><br /></td></tr>
 <tr class="separator:a8b39a610e165d1dee5f1821bd0dcaa8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dab86f052457cd548458ab0cd0eb12b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCategory.html#a9dab86f052457cd548458ab0cd0eb12b">subcategoriesCount</a> () const</td></tr>
 <tr class="separator:a9dab86f052457cd548458ab0cd0eb12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,8 +160,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Constructor. </p>
 <p>Constructs category object with <code>id</code> and <code>name</code> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -177,8 +170,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">SameIdError</td><td>is thrown if category with <code>id</code> already exists </td></tr>
-    <tr><td class="paramname">EmptyNameError</td><td>is thrown if <code>name</code> is empty </td></tr>
+    <tr><td class="paramname"><a class="el" href="structUniqueEntity_1_1SameIdError.html" title="Exception is thrown if entity with some ID already exists.">UniqueEntity::SameIdError</a></td><td>is thrown if category with <code>id</code> already exists </td></tr>
+    <tr><td class="paramname"><a class="el" href="structNamedEntity_1_1EmptyNameError.html" title="Exception is thrown if name is empty.">NamedEntity::EmptyNameError</a></td><td>is thrown if <code>name</code> is empty </td></tr>
   </table>
   </dd>
 </dl>
@@ -201,9 +194,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Adds subcategory to account. </p>
-<p>Subcateogry is owned by parent category. Subcategory has reference to its parent. </p>
+<p>Adds subcategory to account. Subcateogry is owned by parent category. Subcategory has reference to its parent. </p>
 
 </div>
 </div>
@@ -222,6 +213,25 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Weak pointer to parent category. It can be checked to find if parent category is alive </dd></dl>
+
+</div>
+</div>
+<a id="af7641399764623ab40d91feb171f10c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7641399764623ab40d91feb171f10c6">&#9670;&nbsp;</a></span>removeSubcategoryBy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Category::removeSubcategoryBy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classId.html">Id</a>&#160;</td>
+          <td class="paramname"><em>subcategoryId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Removes subcategory with <code>subcategoryId</code> from parent category </p>
 
 </div>
 </div>
@@ -258,12 +268,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Retrives the subcategory with <code>subcategoryId</code> from category. </p>
+<p>Retrives the subcategory with <code>subcategoryId</code> from category</p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to existing subcategory </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">InvalidSubcategory</td><td>is thrown if subcategory with <code>subcategoryId</code> isn't found in the parent category </td></tr>
+    <tr><td class="paramname"><a class="el" href="structEntityNotFound.html" title="Exception is thrown is entity in container is not found.">EntityNotFound</a></td><td>is thrown if subcategory with <code>subcategoryId</code> isn't found in the parent category </td></tr>
   </table>
   </dd>
 </dl>

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['id_17',['Id',['../classId.html',1,'Id'],['../classId.html#a2ecd652512e482798d3a0905cab71990',1,'Id::Id()=default'],['../classId.html#a248c0334583ce20ae846d509ab709cb7',1,'Id::Id(int value)'],['../classId.html#ad0ebe723c74f79eb6dd4123b4f1fd7e8',1,'Id::Id(const Id &amp;)=default'],['../classId.html#a7877c96a77a656e9a77a21647deb877c',1,'Id::Id(Id &amp;&amp;other)'],['../classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f',1,'UniqueEntity::id()']]],
-  ['invalididerror_18',['InvalidIdError',['../structUniqueEntity_1_1InvalidIdError.html',1,'UniqueEntity']]]
+  ['date_13',['date',['../classTransaction.html#ade3153886435af69125f1410feecdd59',1,'Transaction::date()'],['../Transaction_8hpp.html#a1e2d41b3c865c2f53fd1af13935663e4',1,'Date():&#160;Transaction.hpp']]],
+  ['datetime_14',['dateTime',['../classTransaction.html#a1b69b19f0a29fb30b24e886bf887a058',1,'Transaction::dateTime()'],['../Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549',1,'DateTime():&#160;Transaction.hpp']]],
+  ['description_15',['description',['../classTransaction.html#a7f7a79bac8266b89f4243f64321da1ae',1,'Transaction']]]
 ];

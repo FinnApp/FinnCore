@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['operator_20int_22',['operator int',['../classId.html#a860049a71641e0d0a4cf2a41ca245802',1,'Id']]],
-  ['operator_3d_23',['operator=',['../classId.html#aa5118be431712d800378d6d7f7ebc9db',1,'Id::operator=(const Id &amp;)=default'],['../classId.html#a92d29cfc946df5b413bca5ab9d2a41a2',1,'Id::operator=(Id &amp;&amp;other)'],['../classUniqueEntity.html#abd263d5899942cb8aa82fdd9ae244002',1,'UniqueEntity::operator=(const UniqueEntity &amp;)=delete'],['../classUniqueEntity.html#aadee5259a16b69f00858c4a44960d74a',1,'UniqueEntity::operator=(UniqueEntity &amp;&amp;other)']]]
+  ['id_24',['Id',['../classId.html',1,'Id'],['../classUniqueEntity.html#a2984b7478ee6f5f15d2a911c2d81eb2f',1,'UniqueEntity::id()'],['../classId.html#a2ecd652512e482798d3a0905cab71990',1,'Id::Id()=default'],['../classId.html#a248c0334583ce20ae846d509ab709cb7',1,'Id::Id(int value)'],['../classId.html#ad0ebe723c74f79eb6dd4123b4f1fd7e8',1,'Id::Id(const Id &amp;)=default'],['../classId.html#a7877c96a77a656e9a77a21647deb877c',1,'Id::Id(Id &amp;&amp;other)']]],
+  ['initialbalance_25',['initialBalance',['../classWallet.html#a2959404272455bc991a251a078ba1dae',1,'Wallet']]],
+  ['invalidcategory_26',['InvalidCategory',['../structTransaction_1_1InvalidCategory.html',1,'Transaction']]],
+  ['invaliddatetime_27',['InvalidDateTime',['../structTransaction_1_1InvalidDateTime.html',1,'Transaction']]],
+  ['invalididerror_28',['InvalidIdError',['../structUniqueEntity_1_1InvalidIdError.html',1,'UniqueEntity']]],
+  ['invalidwallet_29',['InvalidWallet',['../structTransaction_1_1InvalidWallet.html',1,'Transaction']]]
 ];

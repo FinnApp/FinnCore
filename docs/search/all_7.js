@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['removeby_25',['removeBy',['../classEntityContainer.html#a258276850533482ee0cb297c4700066d',1,'EntityContainer']]],
-  ['removecategoryby_26',['removeCategoryBy',['../classAccount.html#a57bbc3c81110128213c0322989fe1d73',1,'Account']]],
-  ['removesubcategoryby_27',['removeSubcategoryBy',['../classCategory.html#af7641399764623ab40d91feb171f10c6',1,'Category']]],
-  ['removetransactionby_28',['removeTransactionBy',['../classWallet.html#aa49a8ada495cbea4fd246396e85a2d73',1,'Wallet']]],
-  ['removewalletby_29',['removeWalletBy',['../classAccount.html#a5022ac4105c41d8057aadc14ad7753e6',1,'Account']]]
+  ['operator_20int_33',['operator int',['../classId.html#a860049a71641e0d0a4cf2a41ca245802',1,'Id']]],
+  ['operator_3d_34',['operator=',['../classId.html#aa5118be431712d800378d6d7f7ebc9db',1,'Id::operator=(const Id &amp;)=default'],['../classId.html#a92d29cfc946df5b413bca5ab9d2a41a2',1,'Id::operator=(Id &amp;&amp;other)'],['../classUniqueEntity.html#abd263d5899942cb8aa82fdd9ae244002',1,'UniqueEntity::operator=(const UniqueEntity &amp;)=delete'],['../classUniqueEntity.html#aadee5259a16b69f00858c4a44960d74a',1,'UniqueEntity::operator=(UniqueEntity &amp;&amp;other)']]]
 ];

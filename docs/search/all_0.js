@@ -5,5 +5,6 @@ var searchData=
   ['addcategory_2',['addCategory',['../classAccount.html#a19b07968270d0b4cb7aa4650c7a7f584',1,'Account']]],
   ['addsubcategory_3',['addSubcategory',['../classCategory.html#a44b15ae2378438e23c308f335df00f80',1,'Category']]],
   ['addtransaction_4',['addTransaction',['../classWallet.html#a27a43facea75208e11f4994c3ff01507',1,'Wallet']]],
-  ['addwallet_5',['addWallet',['../classAccount.html#a879b132d992317aa47ff8f15754bb3e0',1,'Account']]]
+  ['addwallet_5',['addWallet',['../classAccount.html#aae7956c3eb2d80c0c85e2b6a89bf02fd',1,'Account']]],
+  ['amount_6',['amount',['../classTransaction.html#a0621f4fdf66207ea9ebc464baad8944d',1,'Transaction']]]
 ];
