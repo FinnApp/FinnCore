@@ -29,6 +29,11 @@ jobs:
         cd ..
         rm -r googletest-release-${GTEST_VERSION}
         rm gtest.tar.gz
+    - name: Installing Boost
+      run: |
+        sudo add-apt-repository ppa:mhier/libboost-latest
+        sudo apt-get update
+        sudo apt-get install -y libboost1.70-dev
     - name: Creating binary files
       run: cmake -DCMAKE_BUILD_TYPE=Debug -H. -Bbuild
     - name: Building core
@@ -70,6 +75,11 @@ jobs:
         sudo make install
         cd ..
         rm -r googletest-release-${GTEST_VERSION}
+    - name: Installing Boost
+      run: |
+        sudo add-apt-repository ppa:mhier/libboost-latest
+        sudo apt-get update
+        sudo apt-get install -y libboost1.70-dev
     - name: Creating binary files
       run: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=build -H. -Bbuild
     - name: Building core
