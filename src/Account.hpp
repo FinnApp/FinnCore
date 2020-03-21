@@ -28,33 +28,37 @@ public:
     };
 
     /*!
-     * \brief Constructor
-     *
      * Constructs account object with \p id and \p name
      *
      * \param id Unique non-negative integer that represents account ID
      * \param name Unicode string that represents account name
-     * \exception SameIdError is thrown if account with \p id already exists
-     * \exception EmptyNameError is thrown if \p name is empty
+     * \exception UniqueEntity::SameIdError is thrown if account with \p id already exists
+     * \exception NamedEntity::EmptyNameError is thrown if \p name is empty
      */
     Account(Id id, const std::string& name);
 
     /*!
-     * \brief Adds wallet to account
-     *
-     * Wallet is owned by account
+     * \return Account accumulated balance for all wallets
      */
-    void addWallet(std::shared_ptr<Wallet>&& wallet);
+    double balance() const;
+    // TODO tests with wallets
 
     /*!
-     * \brief Removes wallet with \p walletId from account
+     * Adds wallet to account. Wallet is owned by account
+     */
+    void addWallet(std::shared_ptr<Wallet>&& wallet);
+    // TODO tests with nullptr
+
+    /*!
+     * Removes wallet with \p walletId from account
      */
     void removeWalletBy(Id walletId);
 
     /*!
-     * \brief Retrives the wallet with \p walletId from account
+     * Retrives the wallet with \p walletId from account
+     *
      * \return Reference to existing wallet
-     * \exception NotFound is thrown if wallet with \p walletId isn't found in the account
+     * \exception EntityNotFound is thrown if wallet with \p walletId isn't found in the account
      */
     Wallet& walletBy(Id walletId);
 
@@ -64,23 +68,22 @@ public:
     size_t walletsCount() const;
 
     /*!
-     * \brief Adds category to account
-     *
-     * Category is owned by account
+     * Adds category to account. Category is owned by account
      *
      * \exception NonRootCategory is thrown if \p category is not root
      */
     void addCategory(std::shared_ptr<Category>&& category);
 
     /*!
-     * \brief Removes category with \p categoryId from account
+     * Removes category with \p categoryId from account
      */
     void removeCategoryBy(Id categoryId);
 
     /*!
-     * \brief Retrives the category with \p walletId from category
+     * Retrives the category with \p walletId from category
+     *
      * \return Reference to existing category
-     * \exception NotFound is thrown if category with \p categoryId isn't found in the account
+     * \exception EntityNotFound is thrown if category with \p categoryId isn't found in the account
      */
     Category& categoryBy(Id categoryId);
 

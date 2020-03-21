@@ -16,33 +16,31 @@ class Category : public UniqueEntity<Category>, public NamedEntity, public std::
 {
 public:
     /*!
-     * \brief Constructor
-     *
      * Constructs category object with \p id and \p name
      *
      * \param id Unique non-negative integer that represents category ID
      * \param name Unicode string that represents category name
-     * \exception SameIdError is thrown if category with \p id already exists
-     * \exception EmptyNameError is thrown if \p name is empty
+     * \exception UniqueEntity::SameIdError is thrown if category with \p id already exists
+     * \exception NamedEntity::EmptyNameError is thrown if \p name is empty
      */
     Category(Id id, const std::string& name);
 
     /*!
-     * \brief Adds subcategory to account
-     *
-     * Subcateogry is owned by parent category. Subcategory has reference to its parent.
+     * Adds subcategory to account. Subcateogry is owned by parent category. Subcategory has reference to its parent.
      */
     void addSubcategory(const std::shared_ptr<Category>& subcategory);
+    // TODO tests for nullptr
 
     /*!
-     * \brief Removes subcategory with \p subcategoryId from parent category
+     * Removes subcategory with \p subcategoryId from parent category
      */
     void removeSubcategoryBy(Id subcategoryId);
 
     /*!
-     * \brief Retrives the subcategory with \p subcategoryId from category
+     * Retrives the subcategory with \p subcategoryId from category
+     *
      * \return Reference to existing subcategory
-     * \exception NotFound is thrown if subcategory with \p subcategoryId isn't found in the parent category
+     * \exception EntityNotFound is thrown if subcategory with \p subcategoryId isn't found in the parent category
      */
     Category& subcategoryBy(Id subcategoryId);
 

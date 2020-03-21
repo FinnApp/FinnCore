@@ -10,6 +10,16 @@ Account::NonRootCategory::NonRootCategory(Id categoryId) :
 
 Account::Account(Id id, const std::string& name) : UniqueEntity{id}, NamedEntity{name} {}
 
+double Account::balance() const
+{
+    double balance = 0.0;
+    for (auto&& wallet : wallets_)
+    {
+        balance += wallet->balance();
+    }
+    return balance;
+}
+
 void Account::addWallet(std::shared_ptr<Wallet>&& wallet)
 {
     wallets_.add(std::move(wallet));

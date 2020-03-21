@@ -8,13 +8,12 @@
 #include <vector>
 
 /*!
- * \brief The EntityNotFound struct
+ * \brief Exception is thrown is entity in container is not found
  */
 struct EntityNotFound : std::runtime_error
 {
     /*!
-     * \brief EntityNotFound
-     * \param id
+     * \param id is used in exception message
      */
     EntityNotFound(Id id) : std::runtime_error{"Entity with ID " + std::to_string(id) + " not found"} {}
 };
@@ -26,18 +25,18 @@ template <typename T>
 class EntityContainer
 {
     /*!
-     * \brief Simplifies entity search in the container with UniqueEntity
+     * Simplifies entity search in the container with UniqueEntity
      */
     class IdPredicate
     {
     public:
         /*!
-         * \brief Constructs predicate with target \p id
+         * Constructs predicate with target \p id
          */
         IdPredicate(Id id) : id_(id) {}
 
         /*!
-         *  \brief Compares \p uniqueEntity id with target id
+         * Compares \p uniqueEntity id with target id
          */
         template <typename Entity>
         bool operator()(const Entity& uniqueEntity)
@@ -46,7 +45,7 @@ class EntityContainer
         }
 
         /*!
-         *  \brief Compares \p uniqueEntity shared pointer id with target id
+         * Compares \p uniqueEntity shared pointer id with target id
          */
         template <typename Entity>
         bool operator()(const std::shared_ptr<Entity>& uniqueEntity)
@@ -60,7 +59,7 @@ class EntityContainer
 
 public:
     /*!
-     * \brief Moves entity to container
+     * Moves entity to container
      */
     void add(T&& entity)
     {
@@ -68,8 +67,7 @@ public:
     }
 
     /*!
-     * \brief begin
-     * \return
+     * \return Iterator to the beginning of the container
      */
     typename std::vector<T>::iterator begin()
     {
@@ -77,8 +75,7 @@ public:
     }
 
     /*!
-     * \brief end
-     * \return
+     * \return Iterator to the end of the container
      */
     typename std::vector<T>::iterator end()
     {
@@ -86,8 +83,7 @@ public:
     }
 
     /*!
-     * \brief cbegin
-     * \return
+     * \return Constant iterator to the beginning of the container
      */
     typename std::vector<T>::const_iterator begin() const
     {
@@ -95,8 +91,7 @@ public:
     }
 
     /*!
-     * \brief cend
-     * \return
+     * \return Constant iterator to the end of the container
      */
     typename std::vector<T>::const_iterator end() const
     {
@@ -104,7 +99,7 @@ public:
     }
 
     /*!
-     * \brief Copies entity to container
+     * Copies entity to container
      */
     void add(const T& entity)
     {
@@ -112,7 +107,7 @@ public:
     }
 
     /*!
-     * \brief Removes entity with \p id from container
+     * Removes entity with \p id from container
      */
     void removeBy(Id id)
     {
@@ -120,9 +115,10 @@ public:
     }
 
     /*!
-     * \brief Retrives the entity with \p id from container
+     * Retrives the entity with \p id from container
+     *
      * \return Reference to existing entity
-     * \exception NotFound is thrown if entity with \p id isn't found in the container
+     * \exception EntityNotFound is thrown if entity with \p id isn't found in the container
      */
     T& entityBy(Id id)
     {
