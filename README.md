@@ -9,7 +9,7 @@
   - [x] Set/Update name
   - [x] Add/Remove/Get/Count wallets
   - [x] Add/Remove/Get/Count categories
-  - [ ] Overall balance
+  - [x] Overall balance
 - Category
   - [x] Has ID
   - [x] Set/Update name
@@ -22,12 +22,12 @@
   - [x] Add/Remove/Get/Count transactions
 - Transaction
   - [x] Has ID
-  - [ ] Set/Update wallet
-  - [ ] Set/Update category
-  - [ ] Set/Update date
-  - [ ] Set/Update description
-  - [ ] Set/Update amount
-  - [ ] Set/Update type (income/expense)
+  - [x] Set/Update wallet
+  - [x] Set/Update category
+  - [x] Set/Update date
+  - [x] Set/Update description
+  - [x] Set/Update amount
+  - [x] Set/Update type (income/expense)
 
 ### Plans for 0.2-alpha API
 - [ ] Store/Load services to preserve added entities
