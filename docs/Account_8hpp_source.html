@@ -96,13 +96,13 @@ $(function() {
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="structAccount_1_1InvalidCategory.html">InvalidCategory</a>();</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    };</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classAccount.html#ab5aabb1fb0568bdb2f762166ce659b76">Account</a>(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; <a class="code" href="classNamedEntity.html#a2dfd3b6f8f7bac8cd4bd27806fdf63ba">name</a>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classAccount.html#aa5ba7274557ad562b718e1ed6ccbc2a3">balance</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// TODO tests with wallets</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAccount.html#aae7956c3eb2d80c0c85e2b6a89bf02fd">addWallet</a>(std::shared_ptr&lt;Wallet&gt;&amp;&amp; wallet);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// TODO tests with nullptr</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classAccount.html#ab5aabb1fb0568bdb2f762166ce659b76">Account</a>(<a class="code" href="classId.html">Id</a> <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string&amp; <a class="code" href="classNamedEntity.html#a2dfd3b6f8f7bac8cd4bd27806fdf63ba">name</a>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classAccount.html#aa5ba7274557ad562b718e1ed6ccbc2a3">balance</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">// TODO tests with wallets</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAccount.html#aae7956c3eb2d80c0c85e2b6a89bf02fd">addWallet</a>(std::shared_ptr&lt;Wallet&gt;&amp;&amp; wallet);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAccount.html#a5022ac4105c41d8057aadc14ad7753e6">removeWalletBy</a>(<a class="code" href="classId.html">Id</a> walletId);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
@@ -111,18 +111,17 @@ $(function() {
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classAccount.html#a6b04d181f7d9c91df8a2c5b5c0d04e70">walletsCount</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAccount.html#a19b07968270d0b4cb7aa4650c7a7f584">addCategory</a>(std::shared_ptr&lt;Category&gt;&amp;&amp; category);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">// TODO tests for nullptr</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAccount.html#a57bbc3c81110128213c0322989fe1d73">removeCategoryBy</a>(<a class="code" href="classId.html">Id</a> categoryId);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="classCategory.html">Category</a>&amp; <a class="code" href="classAccount.html#a26e9201c03db96f45583cf36288187b8">categoryBy</a>(<a class="code" href="classId.html">Id</a> categoryId);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classAccount.html#a59d6a67e60d9412339d2d1959dbf7fcb">categoriesCount</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="classEntityContainer.html">EntityContainer&lt;std::shared_ptr&lt;Wallet&gt;</a>&gt; wallets_;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="classEntityContainer.html">EntityContainer&lt;std::shared_ptr&lt;Category&gt;</a>&gt; categories_;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;};</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAccount.html#a57bbc3c81110128213c0322989fe1d73">removeCategoryBy</a>(<a class="code" href="classId.html">Id</a> categoryId);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="classCategory.html">Category</a>&amp; <a class="code" href="classAccount.html#a26e9201c03db96f45583cf36288187b8">categoryBy</a>(<a class="code" href="classId.html">Id</a> categoryId);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classAccount.html#a59d6a67e60d9412339d2d1959dbf7fcb">categoriesCount</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="classEntityContainer.html">EntityContainer&lt;std::shared_ptr&lt;Wallet&gt;</a>&gt; wallets_;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="classEntityContainer.html">EntityContainer&lt;std::shared_ptr&lt;Category&gt;</a>&gt; categories_;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassAccount_html_a57bbc3c81110128213c0322989fe1d73"><div class="ttname"><a href="classAccount.html#a57bbc3c81110128213c0322989fe1d73">Account::removeCategoryBy</a></div><div class="ttdeci">void removeCategoryBy(Id categoryId)</div><div class="ttdef"><b>Definition:</b> Account.cpp:57</div></div>
 <div class="ttc" id="aclassEntityContainer_html"><div class="ttname"><a href="classEntityContainer.html">EntityContainer</a></div><div class="ttdoc">EntityContainer.</div><div class="ttdef"><b>Definition:</b> EntityContainer.hpp:25</div></div>

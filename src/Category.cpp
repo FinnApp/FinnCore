@@ -1,13 +1,9 @@
 #include "Category.hpp"
 
-#include <cassert>
-
 Category::Category(Id id, const std::string& name) : UniqueEntity{id}, NamedEntity{name} {}
 
 void Category::addSubcategory(const std::shared_ptr<Category>& subcategory)
 {
-    assert(subcategory);
-
     subcategory->setParentCategory(shared_from_this());
     subcategories_.add(subcategory);
 }

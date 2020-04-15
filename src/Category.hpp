@@ -10,47 +10,51 @@
  * \brief The Category class
  *
  * Represents the transaction category and has tree structure:
- * category has subcategories which also can have subsubcategories and so on.
+ * category has subcategories which also can have subcategories and so on.
  */
 class Category : public UniqueEntity<Category>, public NamedEntity, public std::enable_shared_from_this<Category>
 {
 public:
     /*!
-     * Constructs category object with \p id and \p name
+     * Create category with \p id and \p name.
+     * Category is root by default unless added as a subcategory to another category.
      *
-     * \param id Unique non-negative integer that represents category ID
-     * \param name Unicode string that represents category name
+     * \param id Category ID
+     * \param name Category name
      * \exception UniqueEntity::SameIdError is thrown if category with \p id already exists
      * \exception NamedEntity::EmptyNameError is thrown if \p name is empty
      */
     Category(Id id, const std::string& name);
 
     /*!
-     * Adds subcategory to account. Subcateogry is owned by parent category. Subcategory has reference to its parent.
+     * Add \p subcategory to the Category. \p subcateogry is owned by parent Category.
+     * There is not limit for nested level.
      */
     void addSubcategory(const std::shared_ptr<Category>& subcategory);
     // TODO tests for nullptr
 
     /*!
-     * Removes subcategory with \p subcategoryId from parent category
+     * Remove the subcategory with \p subcategoryId from parent Category
      */
     void removeSubcategoryBy(Id subcategoryId);
 
     /*!
-     * Retrives the subcategory with \p subcategoryId from category
+     * Retrive the subcategory with \p subcategoryId from parent Category
      *
-     * \return Reference to existing subcategory
+     * \return Reference to the existing subcategory
      * \exception EntityNotFound is thrown if subcategory with \p subcategoryId isn't found in the parent category
      */
     Category& subcategoryBy(Id subcategoryId);
 
     /*!
-     * \return Number of created subcategories in the Category
+     * \return Number of created subcategories in the parent Category
      */
     size_t subcategoriesCount() const;
 
     /*!
-     * \return Weak pointer to parent category. It can be checked to find if parent category is alive
+     * Subcategory doesn't own its parent so the weak pointer is used.
+     *
+     * \return Weak pointer to parent category. It can be checked if parent category is alive
      */
     std::weak_ptr<Category> parentCategory() const;
 

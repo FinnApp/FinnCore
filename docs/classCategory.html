@@ -133,7 +133,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classCategory.html" title="The Category class.">Category</a> class. </p>
-<p>Represents the transaction category and has tree structure: category has subcategories which also can have subsubcategories and so on. </p>
+<p>Represents the transaction category and has tree structure: category has subcategories which also can have subcategories and so on. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8585d6483d70b4c91addf55020969e3c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8585d6483d70b4c91addf55020969e3c">&#9670;&nbsp;</a></span>Category()</h2>
@@ -160,11 +160,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructs category object with <code>id</code> and <code>name</code> </p>
+<p>Create category with <code>id</code> and <code>name</code>. <a class="el" href="classCategory.html" title="The Category class.">Category</a> is root by default unless added as a subcategory to another category.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>Unique non-negative integer that represents category ID </td></tr>
-    <tr><td class="paramname">name</td><td>Unicode string that represents category name </td></tr>
+    <tr><td class="paramname">id</td><td><a class="el" href="classCategory.html" title="The Category class.">Category</a> ID </td></tr>
+    <tr><td class="paramname">name</td><td><a class="el" href="classCategory.html" title="The Category class.">Category</a> name </td></tr>
   </table>
   </dd>
 </dl>
@@ -194,7 +194,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Adds subcategory to account. Subcateogry is owned by parent category. Subcategory has reference to its parent. </p>
+<p>Add <code>subcategory</code> to the <a class="el" href="classCategory.html" title="The Category class.">Category</a>. <code>subcateogry</code> is owned by parent <a class="el" href="classCategory.html" title="The Category class.">Category</a>. There is not limit for nested level. </p>
 
 </div>
 </div>
@@ -212,7 +212,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Weak pointer to parent category. It can be checked to find if parent category is alive </dd></dl>
+<p>Subcategory doesn't own its parent so the weak pointer is used.</p>
+<dl class="section return"><dt>Returns</dt><dd>Weak pointer to parent category. It can be checked if parent category is alive </dd></dl>
 
 </div>
 </div>
@@ -231,7 +232,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Removes subcategory with <code>subcategoryId</code> from parent category </p>
+<p>Remove the subcategory with <code>subcategoryId</code> from parent <a class="el" href="classCategory.html" title="The Category class.">Category</a> </p>
 
 </div>
 </div>
@@ -249,7 +250,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Number of created subcategories in the <a class="el" href="classCategory.html" title="The Category class.">Category</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of created subcategories in the parent <a class="el" href="classCategory.html" title="The Category class.">Category</a> </dd></dl>
 
 </div>
 </div>
@@ -268,8 +269,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retrives the subcategory with <code>subcategoryId</code> from category</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to existing subcategory </dd></dl>
+<p>Retrive the subcategory with <code>subcategoryId</code> from parent <a class="el" href="classCategory.html" title="The Category class.">Category</a></p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the existing subcategory </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structEntityNotFound.html" title="Exception is thrown is entity in container is not found.">EntityNotFound</a></td><td>is thrown if subcategory with <code>subcategoryId</code> isn't found in the parent category </td></tr>

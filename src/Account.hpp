@@ -43,6 +43,7 @@ public:
         InvalidCategory();
     };
 
+public:
     /*!
      * Create account with \p id and \p name
      *
@@ -66,7 +67,6 @@ public:
      * \exception InvalidWallet is thrown if \p wallet is nullptr
      */
     void addWallet(std::shared_ptr<Wallet>&& wallet);
-    // TODO tests with nullptr
 
     /*!
      * Remove the wallet with \p walletId from the Account
@@ -95,7 +95,6 @@ public:
      * \exception InvalidCategory is thrown if \p category is nullptr
      */
     void addCategory(std::shared_ptr<Category>&& category);
-    // TODO tests for nullptr
 
     /*!
      * Remove the category with \p categoryId from the Account
