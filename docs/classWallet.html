@@ -135,7 +135,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classWallet.html" title="The Wallet class.">Wallet</a> class. </p>
-<p>Represents the physical (e.g. cash) or virtual (e.g. credit/debit card, deposit) wallet. It has assigned currency and contains a list of transactions. </p>
+<p>Represents the physical (e.g. cash) or virtual (e.g. credit/debit card, deposit) wallet. It contains a list of transactions. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a00860d689074d76132bc231e5f541f85"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00860d689074d76132bc231e5f541f85">&#9670;&nbsp;</a></span>Wallet()</h2>
@@ -168,12 +168,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructs wallet object with <code>id</code> and <code>name</code> </p>
+<p>Create wallet with <code>id</code> and <code>name</code> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>Unique non-negative integer that represents wallet ID </td></tr>
-    <tr><td class="paramname">name</td><td>Unicode string that represents wallet name </td></tr>
-    <tr><td class="paramname">initialBalance</td><td>Sets the initial balance for the wallet </td></tr>
+    <tr><td class="paramname">id</td><td><a class="el" href="classWallet.html" title="The Wallet class.">Wallet</a> ID </td></tr>
+    <tr><td class="paramname">name</td><td><a class="el" href="classWallet.html" title="The Wallet class.">Wallet</a> name </td></tr>
+    <tr><td class="paramname">initialBalance</td><td>Balance when no transaction has been made </td></tr>
   </table>
   </dd>
 </dl>
@@ -203,7 +203,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Adds transaction to wallet. <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> is owned by wallet</p>
+<p>Add <code>transaction</code> to the <a class="el" href="classWallet.html" title="The Wallet class.">Wallet</a>. <code>transaction</code> is owned by <a class="el" href="classWallet.html" title="The Wallet class.">Wallet</a></p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structNullEntityError.html" title="Exception is thrown if nullptr entity used and it&#39;s considered invalid.">NullEntityError</a></td><td>is thrown if <code>transaction</code> is nullptr </td></tr>
@@ -227,7 +227,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Accumulated wallet balance from all transactions amounts </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Accumulated <a class="el" href="classWallet.html" title="The Wallet class.">Wallet</a> balance from all transactions amounts </dd></dl>
 
 </div>
 </div>
@@ -264,7 +264,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Removes transaction with <code>transactionId</code> from wallet </p>
+<p>Remove the transaction with <code>transactionId</code> from <a class="el" href="classWallet.html" title="The Wallet class.">Wallet</a> </p>
 
 </div>
 </div>
@@ -283,7 +283,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retrives the transaction with <code>transactionId</code> from wallet</p>
+<p>Retrive the transaction with <code>transactionId</code> from <a class="el" href="classWallet.html" title="The Wallet class.">Wallet</a></p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to existing transaction </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
