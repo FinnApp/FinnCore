@@ -27,6 +27,13 @@ TEST(AccountTests, AddWalletShouldIncreaseTheNumberOfWallets)
     ASSERT_EQ(acc.walletsCount(), 1);
 }
 
+TEST(AccountTests, AddInvalidWalletShouldThrowException)
+{
+    auto acc = createAccount();
+
+    ASSERT_THROW(acc.addWallet(nullptr), Account::InvalidWallet);
+}
+
 TEST(AccountTests, GetExistingWalletById)
 {
     auto acc = createAccount();
@@ -83,6 +90,13 @@ TEST(AccountTests, AddCategoryShouldIncreaseTheNumberOfCategories)
     acc.addCategory(createCategory());
 
     ASSERT_EQ(acc.categoriesCount(), 1);
+}
+
+TEST(AccountTests, AddInvalidCategoryShouldThrowException)
+{
+    auto acc = createAccount();
+
+    ASSERT_THROW(acc.addCategory(nullptr), Account::InvalidCategory);
 }
 
 TEST(AccountTests, AddNonRootCategoryShouldThrowException)

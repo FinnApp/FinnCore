@@ -87,8 +87,14 @@ Inheritance diagram for Account:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccount_1_1InvalidCategory.html">InvalidCategory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if added category is nullptr.  <a href="structAccount_1_1InvalidCategory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccount_1_1InvalidWallet.html">InvalidWallet</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if added wallet is nullptr.  <a href="structAccount_1_1InvalidWallet.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccount_1_1NonRootCategory.html">NonRootCategory</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown is category with some ID is not root.  <a href="structAccount_1_1NonRootCategory.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown when category is not root.  <a href="structAccount_1_1NonRootCategory.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -148,7 +154,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classAccount.html" title="The Account class.">Account</a> class. </p>
-<p>Repesents the single users and contains account-specific settings, wallets with transactions and categories. You can create multiple accounts but each of them will have own data and information. </p>
+<p>Repesents a single user and contains account-specific settings, wallets with transactions and categories. You can create multiple accounts but each of them will have own data and settings. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab5aabb1fb0568bdb2f762166ce659b76"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab5aabb1fb0568bdb2f762166ce659b76">&#9670;&nbsp;</a></span>Account()</h2>
@@ -175,11 +181,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructs account object with <code>id</code> and <code>name</code> </p>
+<p>Create account with <code>id</code> and <code>name</code> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>Unique non-negative integer that represents account ID </td></tr>
-    <tr><td class="paramname">name</td><td>Unicode string that represents account name </td></tr>
+    <tr><td class="paramname">id</td><td><a class="el" href="classAccount.html" title="The Account class.">Account</a> ID </td></tr>
+    <tr><td class="paramname">name</td><td><a class="el" href="classAccount.html" title="The Account class.">Account</a> name </td></tr>
   </table>
   </dd>
 </dl>
@@ -209,10 +215,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Adds category to account. <a class="el" href="classCategory.html" title="The Category class.">Category</a> is owned by account</p>
+<p>Add root <code>category</code> to the <a class="el" href="classAccount.html" title="The Account class.">Account</a>. <code>category</code> is owned by <a class="el" href="classAccount.html" title="The Account class.">Account</a></p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structAccount_1_1NonRootCategory.html" title="Exception is thrown is category with some ID is not root.">NonRootCategory</a></td><td>is thrown if <code>category</code> is not root </td></tr>
+    <tr><td class="paramname"><a class="el" href="structAccount_1_1NonRootCategory.html" title="Exception is thrown when category is not root.">NonRootCategory</a></td><td>is thrown if <code>category</code> is not root </td></tr>
+    <tr><td class="paramname"><a class="el" href="structAccount_1_1InvalidCategory.html" title="Exception is thrown if added category is nullptr.">InvalidCategory</a></td><td>is thrown if <code>category</code> is nullptr </td></tr>
   </table>
   </dd>
 </dl>
@@ -234,7 +241,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Adds wallet to account. <a class="el" href="classWallet.html" title="The Wallet class.">Wallet</a> is owned by account </p>
+<p>Add <code>wallet</code> to the <a class="el" href="classAccount.html" title="The Account class.">Account</a>. <code>wallet</code> is owned by <a class="el" href="classAccount.html" title="The Account class.">Account</a></p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structAccount_1_1InvalidWallet.html" title="Exception is thrown if added wallet is nullptr.">InvalidWallet</a></td><td>is thrown if <code>wallet</code> is nullptr </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -252,7 +265,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classAccount.html" title="The Account class.">Account</a> accumulated balance for all wallets </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classAccount.html" title="The Account class.">Account</a> overall balance which is accumulated from wallets balances. It assumes the same currency among all wallets. </dd></dl>
 
 </div>
 </div>
@@ -289,7 +302,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retrives the category with <code>walletId</code> from category</p>
+<p>Retrive the category with <code>walletId</code> from category</p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to existing category </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
@@ -315,7 +328,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Removes category with <code>categoryId</code> from account </p>
+<p>Remove the category with <code>categoryId</code> from the <a class="el" href="classAccount.html" title="The Account class.">Account</a></p>
+<p>If category with <code>categoryId</code> doesn't exists it will do nothing </p>
 
 </div>
 </div>
@@ -334,7 +348,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Removes wallet with <code>walletId</code> from account </p>
+<p>Remove the wallet with <code>walletId</code> from the <a class="el" href="classAccount.html" title="The Account class.">Account</a></p>
+<p>If wallet with <code>walletId</code> doesn't exists it will do nothing </p>
 
 </div>
 </div>
@@ -353,8 +368,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retrives the wallet with <code>walletId</code> from account</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to existing wallet </dd></dl>
+<p>Retrive the wallet with <code>walletId</code> from the <a class="el" href="classAccount.html" title="The Account class.">Account</a></p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the existing wallet </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structEntityNotFound.html" title="Exception is thrown is entity in container is not found.">EntityNotFound</a></td><td>is thrown if wallet with <code>walletId</code> isn't found in the account </td></tr>

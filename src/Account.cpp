@@ -4,9 +4,13 @@
 #include "Wallet.hpp"
 
 Account::NonRootCategory::NonRootCategory(Id categoryId) :
-    std::runtime_error{"Category with ID " + std::to_string(categoryId) + " not root"}
+    std::runtime_error{"Category with ID " + std::to_string(categoryId) + "is not root"}
 {
 }
+
+Account::InvalidWallet::InvalidWallet() : std::runtime_error{"Account has been created with invalid wallet"} {}
+
+Account::InvalidCategory::InvalidCategory() : std::runtime_error{"Account has been created with invalid category"} {}
 
 Account::Account(Id id, const std::string& name) : UniqueEntity{id}, NamedEntity{name} {}
 
@@ -22,6 +26,8 @@ double Account::balance() const
 
 void Account::addWallet(std::shared_ptr<Wallet>&& wallet)
 {
+    if (!wallet) throw InvalidWallet{};
+
     wallets_.add(std::move(wallet));
 }
 
@@ -42,8 +48,7 @@ size_t Account::walletsCount() const
 
 void Account::addCategory(std::shared_ptr<Category>&& category)
 {
-    assert(category);
-
+    if (!category) throw InvalidCategory{};
     if (category->parentCategory().lock()) throw NonRootCategory{category->id()};
 
     categories_.add(std::move(category));
