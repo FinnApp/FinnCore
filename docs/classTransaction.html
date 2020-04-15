@@ -87,14 +87,8 @@ Inheritance diagram for Transaction:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1InvalidCategory.html">InvalidCategory</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with nullptr category.  <a href="structTransaction_1_1InvalidCategory.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1InvalidDateTime.html">InvalidDateTime</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with invalid date/time.  <a href="structTransaction_1_1InvalidDateTime.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1InvalidWallet.html">InvalidWallet</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with nullptr wallet.  <a href="structTransaction_1_1InvalidWallet.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1InvalidDateTimeError.html">InvalidDateTimeError</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with invalid date/time.  <a href="structTransaction_1_1InvalidDateTimeError.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1ZeroAmountError.html">ZeroAmountError</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with zero amount.  <a href="structTransaction_1_1ZeroAmountError.html#details">More...</a><br /></td></tr>
@@ -189,7 +183,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The Type enum. </p>
-<p>Represents the transaction type. For now, only 2 types are available: income and end expense </p>
+<p>Represents the transaction type. For now, only 2 types are available: income and expense </p>
 
 </div>
 </div>
@@ -237,7 +231,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructs <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> object with given parameters. Description is left empty. <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> type is deduced from the amount sign.</p>
+<p>Create <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> with the given parameters. Description is left empty. <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> type is deduced from the amount sign.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>Unique non-negative integer that represents category ID </td></tr>
@@ -252,9 +246,8 @@ Public Member Functions</h2></td></tr>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structUniqueEntity_1_1SameIdError.html" title="Exception is thrown if entity with some ID already exists.">UniqueEntity::SameIdError</a></td><td>is thrown if category with <code>id</code> already exists </td></tr>
     <tr><td class="paramname"><a class="el" href="structTransaction_1_1ZeroAmountError.html" title="Exception is thrown if transaction is created with zero amount.">ZeroAmountError</a></td><td>is thrown if <code>amount</code> equals zero </td></tr>
-    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidWallet.html" title="Exception is thrown if transaction is created with nullptr wallet.">InvalidWallet</a></td><td>is thrown is <code>wallet</code> is <b>nullptr</b> </td></tr>
-    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidCategory.html" title="Exception is thrown if transaction is created with nullptr category.">InvalidCategory</a></td><td>is thrown is <code>category</code> is <b>nullptr</b> </td></tr>
-    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidDateTime.html" title="Exception is thrown if transaction is created with invalid date/time.">InvalidDateTime</a></td><td>is thrown is <code>dateTime</code> is invalid </td></tr>
+    <tr><td class="paramname"><a class="el" href="structNullEntityError.html" title="Exception is thrown if nullptr entity used and it&#39;s considered invalid.">NullEntityError</a></td><td>is thrown if <code>wallet</code> or <code>category</code> is <b>nullptr</b> </td></tr>
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidDateTimeError.html" title="Exception is thrown if transaction is created with invalid date/time.">InvalidDateTimeError</a></td><td>is thrown if <code>dateTime</code> is invalid </td></tr>
   </table>
   </dd>
 </dl>
@@ -298,7 +291,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructs <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> object with given parameters. Description is left empty. Date/Time is generated from current local time. <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> type is deduced from the amount sign.</p>
+<p>Create <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> with the given parameters. Description is left empty. Date/Time is generated from the current local time. <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> type is deduced from the amount sign.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>Unique non-negative integer that represents category ID </td></tr>
@@ -312,8 +305,7 @@ Public Member Functions</h2></td></tr>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structUniqueEntity_1_1SameIdError.html" title="Exception is thrown if entity with some ID already exists.">UniqueEntity::SameIdError</a></td><td>is thrown if category with <code>id</code> already exists </td></tr>
     <tr><td class="paramname"><a class="el" href="structTransaction_1_1ZeroAmountError.html" title="Exception is thrown if transaction is created with zero amount.">ZeroAmountError</a></td><td>is thrown if <code>amount</code> equals zero </td></tr>
-    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidWallet.html" title="Exception is thrown if transaction is created with nullptr wallet.">InvalidWallet</a></td><td>is thrown is <code>wallet</code> is <b>nullptr</b> </td></tr>
-    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidCategory.html" title="Exception is thrown if transaction is created with nullptr category.">InvalidCategory</a></td><td>is thrown is <code>category</code> is <b>nullptr</b> </td></tr>
+    <tr><td class="paramname"><a class="el" href="structNullEntityError.html" title="Exception is thrown if nullptr entity used and it&#39;s considered invalid.">NullEntityError</a></td><td>is thrown if <code>wallet</code> or <code>category</code> is <b>nullptr</b> </td></tr>
   </table>
   </dd>
 </dl>
@@ -353,7 +345,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Pointer to category the transaction is associated with. It could return expired pointer if category has been deleted. </dd></dl>
+<p><a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> doesn't own the category so the weak pointer is returned.</p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the category the transaction is associated with. </dd></dl>
 
 </div>
 </div>
@@ -407,7 +400,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> Unicode description </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> description </dd></dl>
 
 </div>
 </div>
@@ -494,7 +487,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidCategory.html" title="Exception is thrown if transaction is created with nullptr category.">InvalidCategory</a></td><td>is thrown is <code>category</code> is <b>nullptr</b> </td></tr>
+    <tr><td class="paramname"><a class="el" href="structNullEntityError.html" title="Exception is thrown if nullptr entity used and it&#39;s considered invalid.">NullEntityError</a></td><td>is thrown if <code>category</code> is <b>nullptr</b> </td></tr>
   </table>
   </dd>
 </dl>
@@ -524,7 +517,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidDateTime.html" title="Exception is thrown if transaction is created with invalid date/time.">InvalidDateTime</a></td><td>is thrown is <code>dateTime</code> is invalid </td></tr>
+    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidDateTimeError.html" title="Exception is thrown if transaction is created with invalid date/time.">InvalidDateTimeError</a></td><td>is thrown if <code>dateTime</code> is invalid </td></tr>
   </table>
   </dd>
 </dl>
@@ -548,7 +541,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">description</td><td><a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> description as a Unicode string </td></tr>
+    <tr><td class="paramname">description</td><td><a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> description </td></tr>
   </table>
   </dd>
 </dl>
@@ -570,10 +563,10 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set new wallet for transaction. <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> will be removed from previous wallet automatically.</p>
+<p>Set new <code>wallet</code> for transaction. <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> will be removed from the previous <a class="el" href="classWallet.html" title="The Wallet class.">Wallet</a> automatically.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structTransaction_1_1InvalidWallet.html" title="Exception is thrown if transaction is created with nullptr wallet.">InvalidWallet</a></td><td>is thrown is <code>wallet</code> is <b>nullptr</b> </td></tr>
+    <tr><td class="paramname"><a class="el" href="structNullEntityError.html" title="Exception is thrown if nullptr entity used and it&#39;s considered invalid.">NullEntityError</a></td><td>is thrown if <code>wallet</code> is <b>nullptr</b> </td></tr>
   </table>
   </dd>
 </dl>
@@ -594,8 +587,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Transactions are stored as unique pointers in the wallet so they are deleted when wallet is deleted. Hence, it should never return expired pointer to wallet.</p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to wallet the transaction is belonged to. </dd></dl>
+<p><a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> doesn't own the wallet so the weak pointer is returned.</p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the wallet the transaction is belonged to. </dd></dl>
 
 </div>
 </div>

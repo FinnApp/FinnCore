@@ -4,11 +4,7 @@
 
 Transaction::ZeroAmountError::ZeroAmountError() : std::runtime_error{"Transaction amount should not be 0.0"} {}
 
-Transaction::InvalidWallet::InvalidWallet() : std::runtime_error{"Transaction created with invalid wallet"} {}
-
-Transaction::InvalidCategory::InvalidCategory() : std::runtime_error{"Transaction created with invalid category"} {}
-
-Transaction::InvalidDateTime::InvalidDateTime() : std::runtime_error{"Transaction created with invalid date/time"} {}
+Transaction::InvalidDateTimeError::InvalidDateTimeError() : std::runtime_error{"Transaction date/time is invalid"} {}
 
 Transaction::Transaction(Id id,
                          double amount,
@@ -49,7 +45,7 @@ std::weak_ptr<Wallet> Transaction::wallet() const
 
 void Transaction::updateWallet(const std::weak_ptr<Wallet>& wallet)
 {
-    if (wallet.expired()) throw InvalidWallet{};
+    if (wallet.expired()) throw NullEntityError<Wallet>{"The given wallet is invalid"};
 
     wallet_ = wallet;
 }
@@ -61,7 +57,7 @@ std::weak_ptr<Category> Transaction::category() const
 
 void Transaction::updateCategory(const std::weak_ptr<Category>& category)
 {
-    if (category.expired()) throw InvalidCategory{};
+    if (category.expired()) throw NullEntityError<Category>{"The given category is invalid"};
 
     category_ = category;
 }
@@ -73,7 +69,7 @@ const DateTime& Transaction::dateTime() const
 
 void Transaction::updateDateTime(const DateTime& dateTime)
 {
-    if (dateTime.is_special()) throw InvalidDateTime{};
+    if (dateTime.is_special()) throw InvalidDateTimeError{};
 
     dateTime_ = dateTime;
 }

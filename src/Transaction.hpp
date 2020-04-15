@@ -4,6 +4,7 @@
  * \file Transaction.hpp
  */
 
+#include "NullEntityError.hpp"
 #include "UniqueEntity.hpp"
 
 #include <boost/date_time/posix_time/ptime.hpp>
@@ -39,7 +40,7 @@ public:
     /*!
      * \brief The Type enum
      *
-     * Represents the transaction type. For now, only 2 types are available: income and end expense
+     * Represents the transaction type. For now, only 2 types are available: income and expense
      */
     enum class Type
     {
@@ -56,31 +57,15 @@ public:
     };
 
     /*!
-     * \brief Exception is thrown if transaction is created with nullptr wallet
-     */
-    struct InvalidWallet : std::runtime_error
-    {
-        InvalidWallet();
-    };
-
-    /*!
-     * \brief Exception is thrown if transaction is created with nullptr category
-     */
-    struct InvalidCategory : std::runtime_error
-    {
-        InvalidCategory();
-    };
-
-    /*!
      * \brief Exception is thrown if transaction is created with invalid date/time
      */
-    struct InvalidDateTime : std::runtime_error
+    struct InvalidDateTimeError : std::runtime_error
     {
-        InvalidDateTime();
+        InvalidDateTimeError();
     };
 
     /*!
-     * Constructs Transaction object with given parameters. Description is left empty.
+     * Create Transaction with the given parameters. Description is left empty.
      * Transaction type is deduced from the amount sign.
      *
      * \param id Unique non-negative integer that represents category ID
@@ -90,9 +75,8 @@ public:
      * \param dateTime Date/Time in POSIX format when the transaction has occured
      * \exception UniqueEntity::SameIdError is thrown if category with \p id already exists
      * \exception ZeroAmountError is thrown if \p amount equals zero
-     * \exception InvalidWallet is thrown is \p wallet is \b nullptr
-     * \exception InvalidCategory is thrown is \p category is \b nullptr
-     * \exception InvalidDateTime is thrown is \p dateTime is invalid
+     * \exception NullEntityError is thrown if \p wallet or \p category is \b nullptr
+     * \exception InvalidDateTimeError is thrown if \p dateTime is invalid
      */
     Transaction(Id id,
                 double amount,
@@ -101,8 +85,8 @@ public:
                 const DateTime& dateTime);
 
     /*!
-     * Constructs Transaction object with given parameters. Description is left empty.
-     * Date/Time is generated from current local time. Transaction type is deduced from the amount sign.
+     * Create Transaction with the given parameters. Description is left empty.
+     * Date/Time is generated from the current local time. Transaction type is deduced from the amount sign.
      *
      * \param id Unique non-negative integer that represents category ID
      * \param amount Non-zero value that represents transaction amount
@@ -110,8 +94,7 @@ public:
      * \param category Pointer to category the transaction is associated with
      * \exception UniqueEntity::SameIdError is thrown if category with \p id already exists
      * \exception ZeroAmountError is thrown if \p amount equals zero
-     * \exception InvalidWallet is thrown is \p wallet is \b nullptr
-     * \exception InvalidCategory is thrown is \p category is \b nullptr
+     * \exception NullEntityError is thrown if \p wallet or \p category is \b nullptr
      */
     Transaction(Id id, double amount, std::weak_ptr<Wallet> wallet, std::weak_ptr<Category> category);
     // TESTS for all exceptions, for amount round, that transaction is added in the wallet, the description is empty,
@@ -131,32 +114,32 @@ public:
     // TODO tests that new amount is rounded, test for invalid amount, that type is changed if sign is changed
 
     /*!
-     * Transactions are stored as unique pointers in the wallet so they are deleted when wallet is deleted.
-     * Hence, it should never return expired pointer to wallet.
+     * Transaction doesn't own the wallet so the weak pointer is returned.
      *
-     * \return Pointer to wallet the transaction is belonged to.
+     * \return Pointer to the wallet the transaction is belonged to.
      */
     std::weak_ptr<Wallet> wallet() const;
     // TODO tests that pointer equals to wallet where transaction belongs to
 
     /*!
-     * Set new wallet for transaction. Transaction will be removed from previous wallet automatically.
+     * Set new \p wallet for transaction. Transaction will be removed from the previous Wallet automatically.
      *
-     * \exception InvalidWallet is thrown is \p wallet is \b nullptr
+     * \exception NullEntityError is thrown if \p wallet is \b nullptr
      */
     void updateWallet(const std::weak_ptr<Wallet>& wallet);
     // TODO tests for invalid wallet, transaction removal from wallet, transaction insertion in new wallet,
     // pointer equals to new wallet transaction belongs to
 
     /*!
-     * \return Pointer to category the transaction is associated with. It could return expired pointer if category has
-     * been deleted.
+     * Transaction doesn't own the category so the weak pointer is returned.
+     *
+     * \return Pointer to the category the transaction is associated with.
      */
     std::weak_ptr<Category> category() const;
     // TODO tests that pointer equals to category transaction associated with
 
     /*!
-     * \exception InvalidCategory is thrown is \p category is \b nullptr
+     * \exception NullEntityError is thrown if \p category is \b nullptr
      */
     void updateCategory(const std::weak_ptr<Category>& category);
     // TODO tests for invalid category, pointer equals to new category transaction associated with
@@ -169,7 +152,7 @@ public:
 
     /*!
      * \param dateTime POSIX Date/Time of transaction occurence
-     * \exception InvalidDateTime is thrown is \p dateTime is invalid
+     * \exception InvalidDateTimeError is thrown if \p dateTime is invalid
      */
     void updateDateTime(const DateTime& dateTime);
     // TODO tests for invalid dt, dt is correctly updated
@@ -193,13 +176,13 @@ public:
     // TODO tests type correspons to amount sign
 
     /*!
-     * \return Transaction Unicode description
+     * \return Transaction description
      */
     const std::string& description() const;
     // TODO set/update description
 
     /*!
-     * \param description Transaction description as a Unicode string
+     * \param description Transaction description
      */
     void updateDescription(const std::string& description);
 

@@ -72,7 +72,8 @@ $(function() {
 <div class="title">Transaction.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;UniqueEntity.hpp&quot;</code><br />
+<div class="textblock"><code>#include &quot;NullEntityError.hpp&quot;</code><br />
+<code>#include &quot;UniqueEntity.hpp&quot;</code><br />
 <code>#include &lt;boost/date_time/posix_time/ptime.hpp&gt;</code><br />
 </div>
 <p><a href="Transaction_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -85,14 +86,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1ZeroAmountError.html">Transaction::ZeroAmountError</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with zero amount.  <a href="structTransaction_1_1ZeroAmountError.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1InvalidWallet.html">Transaction::InvalidWallet</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with nullptr wallet.  <a href="structTransaction_1_1InvalidWallet.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1InvalidCategory.html">Transaction::InvalidCategory</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with nullptr category.  <a href="structTransaction_1_1InvalidCategory.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1InvalidDateTime.html">Transaction::InvalidDateTime</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with invalid date/time.  <a href="structTransaction_1_1InvalidDateTime.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransaction_1_1InvalidDateTimeError.html">Transaction::InvalidDateTimeError</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if transaction is created with invalid date/time.  <a href="structTransaction_1_1InvalidDateTimeError.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>

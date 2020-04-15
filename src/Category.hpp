@@ -52,9 +52,9 @@ public:
     size_t subcategoriesCount() const;
 
     /*!
-     * Subcategory doesn't own its parent so the weak pointer is used.
+     * Subcategory doesn't own its parent so the weak pointer is returned.
      *
-     * \return Weak pointer to parent category. It can be checked if parent category is alive
+     * \return Pointer to the parent category the category is belonged to.
      */
     std::weak_ptr<Category> parentCategory() const;
 
