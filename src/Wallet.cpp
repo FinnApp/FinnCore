@@ -24,9 +24,11 @@ double Wallet::balance() const
     return balance;
 }
 
-void Wallet::addTransaction(std::shared_ptr<Transaction>&& wallet)
+void Wallet::addTransaction(std::shared_ptr<Transaction>&& transaction)
 {
-    transactions_.add(std::move(wallet));
+    if (!transaction) throw NullEntityError<Transaction>{"Added transaction is invalid"};
+
+    transactions_.add(std::move(transaction));
 }
 
 void Wallet::removeTransactionBy(Id transactionId)

@@ -87,12 +87,6 @@ Inheritance diagram for Account:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccount_1_1InvalidCategory.html">InvalidCategory</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if added category is nullptr.  <a href="structAccount_1_1InvalidCategory.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccount_1_1InvalidWallet.html">InvalidWallet</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown if added wallet is nullptr.  <a href="structAccount_1_1InvalidWallet.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAccount_1_1NonRootCategory.html">NonRootCategory</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception is thrown when category is not root.  <a href="structAccount_1_1NonRootCategory.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -219,7 +213,7 @@ Public Member Functions</h2></td></tr>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structAccount_1_1NonRootCategory.html" title="Exception is thrown when category is not root.">NonRootCategory</a></td><td>is thrown if <code>category</code> is not root </td></tr>
-    <tr><td class="paramname"><a class="el" href="structAccount_1_1InvalidCategory.html" title="Exception is thrown if added category is nullptr.">InvalidCategory</a></td><td>is thrown if <code>category</code> is nullptr </td></tr>
+    <tr><td class="paramname"><a class="el" href="structNullEntityError.html" title="Exception is thrown if nullptr entity used and it&#39;s considered invalid.">NullEntityError</a></td><td>is thrown if <code>category</code> is nullptr </td></tr>
   </table>
   </dd>
 </dl>
@@ -244,7 +238,7 @@ Public Member Functions</h2></td></tr>
 <p>Add <code>wallet</code> to the <a class="el" href="classAccount.html" title="The Account class.">Account</a>. <code>wallet</code> is owned by <a class="el" href="classAccount.html" title="The Account class.">Account</a></p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structAccount_1_1InvalidWallet.html" title="Exception is thrown if added wallet is nullptr.">InvalidWallet</a></td><td>is thrown if <code>wallet</code> is nullptr </td></tr>
+    <tr><td class="paramname"><a class="el" href="structNullEntityError.html" title="Exception is thrown if nullptr entity used and it&#39;s considered invalid.">NullEntityError</a></td><td>is thrown if <code>wallet</code> is nullptr </td></tr>
   </table>
   </dd>
 </dl>

@@ -2,6 +2,7 @@
 
 #include "EntityContainer.hpp"
 #include "NamedEntity.hpp"
+#include "NullEntityError.hpp"
 #include "UniqueEntity.hpp"
 
 class Wallet;
@@ -27,22 +28,6 @@ public:
         NonRootCategory(Id categoryId);
     };
 
-    /*!
-     * \brief Exception is thrown if added wallet is nullptr
-     */
-    struct InvalidWallet : std::runtime_error
-    {
-        InvalidWallet();
-    };
-
-    /*!
-     * \brief Exception is thrown if added category is nullptr
-     */
-    struct InvalidCategory : std::runtime_error
-    {
-        InvalidCategory();
-    };
-
 public:
     /*!
      * Create account with \p id and \p name
@@ -64,7 +49,7 @@ public:
     /*!
      * Add \p wallet to the Account. \p wallet is owned by Account
      *
-     * \exception InvalidWallet is thrown if \p wallet is nullptr
+     * \exception NullEntityError is thrown if \p wallet is nullptr
      */
     void addWallet(std::shared_ptr<Wallet>&& wallet);
 
@@ -92,7 +77,7 @@ public:
      * Add root \p category to the Account. \p category is owned by Account
      *
      * \exception NonRootCategory is thrown if \p category is not root
-     * \exception InvalidCategory is thrown if \p category is nullptr
+     * \exception NullEntityError is thrown if \p category is nullptr
      */
     void addCategory(std::shared_ptr<Category>&& category);
 

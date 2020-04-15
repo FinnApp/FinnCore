@@ -8,10 +8,6 @@ Account::NonRootCategory::NonRootCategory(Id categoryId) :
 {
 }
 
-Account::InvalidWallet::InvalidWallet() : std::runtime_error{"Account has been created with invalid wallet"} {}
-
-Account::InvalidCategory::InvalidCategory() : std::runtime_error{"Account has been created with invalid category"} {}
-
 Account::Account(Id id, const std::string& name) : UniqueEntity{id}, NamedEntity{name} {}
 
 double Account::balance() const
@@ -26,7 +22,7 @@ double Account::balance() const
 
 void Account::addWallet(std::shared_ptr<Wallet>&& wallet)
 {
-    if (!wallet) throw InvalidWallet{};
+    if (!wallet) throw NullEntityError<Wallet>{"Added wallet is invalid"};
 
     wallets_.add(std::move(wallet));
 }
@@ -48,7 +44,7 @@ size_t Account::walletsCount() const
 
 void Account::addCategory(std::shared_ptr<Category>&& category)
 {
-    if (!category) throw InvalidCategory{};
+    if (!category) throw NullEntityError<Category>{"Added category is invalid"};
     if (category->parentCategory().lock()) throw NonRootCategory{category->id()};
 
     categories_.add(std::move(category));

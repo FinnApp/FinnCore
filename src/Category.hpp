@@ -2,9 +2,8 @@
 
 #include "EntityContainer.hpp"
 #include "NamedEntity.hpp"
+#include "NullEntityError.hpp"
 #include "UniqueEntity.hpp"
-
-#include <memory>
 
 /*!
  * \brief The Category class
@@ -29,9 +28,10 @@ public:
     /*!
      * Add \p subcategory to the Category. \p subcateogry is owned by parent Category.
      * There is not limit for nested level.
+     *
+     * \exception NullEntityError is thrown if \p subcategory is nullptr
      */
     void addSubcategory(const std::shared_ptr<Category>& subcategory);
-    // TODO tests for nullptr
 
     /*!
      * Remove the subcategory with \p subcategoryId from parent Category

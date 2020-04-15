@@ -2,9 +2,8 @@
 
 #include "EntityContainer.hpp"
 #include "NamedEntity.hpp"
+#include "NullEntityError.hpp"
 #include "UniqueEntity.hpp"
-
-#include <memory>
 
 class Transaction;
 
@@ -41,9 +40,10 @@ public:
 
     /*!
      * Adds transaction to wallet. Transaction is owned by wallet
+     *
+     * \exception NullEntityError is thrown if \p transaction is nullptr
      */
-    void addTransaction(std::shared_ptr<Transaction>&& wallet);
-    // TODO tests for nullptr, probably change to unique_ptr
+    void addTransaction(std::shared_ptr<Transaction>&& transaction);
 
     /*!
      * Removes transaction with \p transactionId from wallet

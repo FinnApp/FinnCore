@@ -4,6 +4,8 @@ Category::Category(Id id, const std::string& name) : UniqueEntity{id}, NamedEnti
 
 void Category::addSubcategory(const std::shared_ptr<Category>& subcategory)
 {
+    if (!subcategory) throw NullEntityError<Category>{"Added subcategory is invalid"};
+
     subcategory->setParentCategory(shared_from_this());
     subcategories_.add(subcategory);
 }

@@ -31,7 +31,7 @@ TEST(AccountTests, AddInvalidWalletShouldThrowException)
 {
     auto acc = createAccount();
 
-    ASSERT_THROW(acc.addWallet(nullptr), Account::InvalidWallet);
+    ASSERT_THROW(acc.addWallet(nullptr), NullEntityError<Wallet>);
 }
 
 TEST(AccountTests, GetExistingWalletById)
@@ -96,7 +96,7 @@ TEST(AccountTests, AddInvalidCategoryShouldThrowException)
 {
     auto acc = createAccount();
 
-    ASSERT_THROW(acc.addCategory(nullptr), Account::InvalidCategory);
+    ASSERT_THROW(acc.addCategory(nullptr), NullEntityError<Category>);
 }
 
 TEST(AccountTests, AddNonRootCategoryShouldThrowException)

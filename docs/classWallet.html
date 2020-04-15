@@ -92,8 +92,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2959404272455bc991a251a078ba1dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa42430f2e0d5d3697d61ae560f7a474e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#aa42430f2e0d5d3697d61ae560f7a474e">balance</a> () const</td></tr>
 <tr class="separator:aa42430f2e0d5d3697d61ae560f7a474e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27a43facea75208e11f4994c3ff01507"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#a27a43facea75208e11f4994c3ff01507">addTransaction</a> (std::shared_ptr&lt; <a class="el" href="classTransaction.html">Transaction</a> &gt; &amp;&amp;wallet)</td></tr>
-<tr class="separator:a27a43facea75208e11f4994c3ff01507"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bc621e165d6dc6a76b216d8a8b7755c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#a2bc621e165d6dc6a76b216d8a8b7755c">addTransaction</a> (std::shared_ptr&lt; <a class="el" href="classTransaction.html">Transaction</a> &gt; &amp;&amp;transaction)</td></tr>
+<tr class="separator:a2bc621e165d6dc6a76b216d8a8b7755c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa49a8ada495cbea4fd246396e85a2d73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#aa49a8ada495cbea4fd246396e85a2d73">removeTransactionBy</a> (<a class="el" href="classId.html">Id</a> transactionId)</td></tr>
 <tr class="separator:aa49a8ada495cbea4fd246396e85a2d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cd4704dee901c7b9bcab7c58e1bbefa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTransaction.html">Transaction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#a0cd4704dee901c7b9bcab7c58e1bbefa">transactionBy</a> (<a class="el" href="classId.html">Id</a> transactionId)</td></tr>
@@ -188,8 +188,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a27a43facea75208e11f4994c3ff01507"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27a43facea75208e11f4994c3ff01507">&#9670;&nbsp;</a></span>addTransaction()</h2>
+<a id="a2bc621e165d6dc6a76b216d8a8b7755c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bc621e165d6dc6a76b216d8a8b7755c">&#9670;&nbsp;</a></span>addTransaction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,12 +198,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void Wallet::addTransaction </td>
           <td>(</td>
           <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classTransaction.html">Transaction</a> &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>wallet</em></td><td>)</td>
+          <td class="paramname"><em>transaction</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Adds transaction to wallet. <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> is owned by wallet </p>
+<p>Adds transaction to wallet. <a class="el" href="classTransaction.html" title="The Transaction class.">Transaction</a> is owned by wallet</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structNullEntityError.html" title="Exception is thrown if nullptr entity used and it&#39;s considered invalid.">NullEntityError</a></td><td>is thrown if <code>transaction</code> is nullptr </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

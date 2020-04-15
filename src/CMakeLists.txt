@@ -20,6 +20,7 @@ set(SOURCES
     Transaction.hpp
     Transaction.cpp
     EntityContainer.hpp
+    NullEntityError.hpp
 )
 
 find_package(Boost 1.69 REQUIRED date_time)

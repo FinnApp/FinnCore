@@ -19,6 +19,13 @@ TEST(CategoryTests, AddCategoryShouldIncreaseTheNumberOfCategories)
     ASSERT_EQ(cat->subcategoriesCount(), 1);
 }
 
+TEST(CategoryTests, AddNullptrCategoryShouldThrowException)
+{
+    auto cat = createCategory();
+
+    ASSERT_THROW(cat->addSubcategory(nullptr), NullEntityError<Category>);
+}
+
 TEST(CategoryTests, GetExistingSubcategoryById)
 {
     auto cat = createCategory();

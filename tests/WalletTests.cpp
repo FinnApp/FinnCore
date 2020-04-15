@@ -30,6 +30,13 @@ TEST(WalletTests, AddTransactionShouldIncreaseTheNumberOfTransactions)
     ASSERT_EQ(w->transactionsCount(), 1);
 }
 
+TEST(WalletTests, AddNullptrTransactionShouldThrowException)
+{
+    auto w = createWallet();
+
+    ASSERT_THROW(w->addTransaction(nullptr), NullEntityError<Transaction>);
+}
+
 TEST(WalletTests, GetExistingTransactionById)
 {
     auto w = createWallet();
