@@ -147,3 +147,52 @@ TEST(TransactionTests, UpdateWithNewDescription)
 
     ASSERT_EQ(trans->description(), desr);
 }
+
+TEST(TransactionTests, UpdateWithInvalidCategoryShouldThrowException)
+{
+    auto trans = createTransaction();
+
+    ASSERT_THROW(trans->updateCategory({}), NullEntityError<Category>);
+}
+
+TEST(TransactionTests, RemoveAssignedCategoryShouldMadeTransactionUnassignedToAnyCategory)
+{
+    auto category = createCategory();
+    auto trans = createTransaction(category);
+
+    category.reset();
+
+    ASSERT_TRUE(trans->category().expired());
+}
+
+TEST(TransactionTests, UpdateWithValidCategoryShouldChangeTheAssginedCategory)
+{
+    auto previousCategory = createCategory(Id{0}, DefaultName);
+    auto newCategory = createCategory(Id{1}, DefaultName);
+    auto trans = createTransaction(previousCategory);
+
+    trans->updateCategory(newCategory);
+
+    ASSERT_EQ(trans->category().lock(), newCategory);
+}
+
+TEST(TransactionTests, UpdateWithInvalidWalletShouldThrowException)
+{
+    auto trans = createTransaction();
+
+    ASSERT_THROW(trans->updateWallet({}), NullEntityError<Wallet>);
+}
+
+TEST(TransactionTests, UpdateWithNewWalletShouldAddItToNewAndRemoveFromPrevious)
+{
+    auto previousWallet = createWallet(Id{0});
+    auto newWallet = createWallet(Id{1});
+    previousWallet->addTransaction(createTransaction(previousWallet));
+    auto& trans = previousWallet->transactionBy(DefaultId);
+
+    trans.updateWallet(newWallet);
+
+    ASSERT_EQ(trans.wallet().lock(), newWallet);
+    ASSERT_EQ(&newWallet->transactionBy(DefaultId), &trans);
+    ASSERT_THROW(previousWallet->transactionBy(DefaultId), EntityNotFound);
+}

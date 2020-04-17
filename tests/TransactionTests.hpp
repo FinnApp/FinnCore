@@ -32,6 +32,11 @@ inline std::shared_ptr<Transaction> createTransaction(std::weak_ptr<Wallet> wall
     return createTransaction(DefaultId, DefaultAmount, wallet, createCategory(), DefaultCreationDT);
 }
 
+inline std::shared_ptr<Transaction> createTransaction(std::weak_ptr<Category> category)
+{
+    return createTransaction(DefaultId, DefaultAmount, createWallet(), category, DefaultCreationDT);
+}
+
 inline std::shared_ptr<Transaction> createTransaction(Id id, double amount, std::weak_ptr<Wallet> wallet)
 {
     return createTransaction(id, amount, wallet, createCategory(), DefaultCreationDT);

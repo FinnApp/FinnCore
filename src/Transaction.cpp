@@ -1,4 +1,5 @@
 #include "Transaction.hpp"
+#include "Wallet.hpp"
 
 #include <boost/date_time/local_time/local_time.hpp>
 
@@ -44,6 +45,13 @@ std::weak_ptr<Wallet> Transaction::wallet() const
 void Transaction::updateWallet(const std::weak_ptr<Wallet>& wallet)
 {
     if (wallet.expired()) throw NullEntityError<Wallet>{"The given wallet is invalid"};
+
+    if (auto oldWallet = wallet_.lock())
+    {
+        auto newWallet = wallet.lock();
+        newWallet->addTransaction(shared_from_this());
+        oldWallet->removeTransactionBy(id());
+    }
 
     wallet_ = wallet;
 }

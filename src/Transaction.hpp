@@ -34,7 +34,7 @@ class Category;
  * has unqiue ID, assigned wallet and category, non-zero amount, type (income/expense) and date/time
  * occurence. Optionally, description can be specified to give more info about transaction.
  */
-class Transaction : public UniqueEntity<Transaction>
+class Transaction : public UniqueEntity<Transaction>, public std::enable_shared_from_this<Transaction>
 {
 public:
     /*!
@@ -115,7 +115,6 @@ public:
      * \return Pointer to the wallet the transaction is belonged to.
      */
     std::weak_ptr<Wallet> wallet() const;
-    // TODO tests that pointer equals to wallet where transaction belongs to
 
     /*!
      * Set new \p wallet for transaction. Transaction will be removed from the previous Wallet automatically.
@@ -123,8 +122,6 @@ public:
      * \exception NullEntityError is thrown if \p wallet is \b nullptr
      */
     void updateWallet(const std::weak_ptr<Wallet>& wallet);
-    // TODO tests for invalid wallet, transaction removal from wallet, transaction insertion in new wallet,
-    // pointer equals to new wallet transaction belongs to
 
     /*!
      * Transaction doesn't own the category so the weak pointer is returned.
@@ -132,19 +129,16 @@ public:
      * \return Pointer to the category the transaction is associated with.
      */
     std::weak_ptr<Category> category() const;
-    // TODO tests that pointer equals to category transaction associated with
 
     /*!
      * \exception NullEntityError is thrown if \p category is \b nullptr
      */
     void updateCategory(const std::weak_ptr<Category>& category);
-    // TODO tests for invalid category, pointer equals to new category transaction associated with
 
     /*!
      * \return Date/Time of transaction occurence in POSIX format
      */
     const DateTime& dateTime() const;
-    // TODO DT is generated from local time
 
     /*!
      * \param dateTime POSIX Date/Time of transaction occurence
