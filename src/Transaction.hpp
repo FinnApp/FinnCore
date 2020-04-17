@@ -97,21 +97,17 @@ public:
      * \exception NullEntityError is thrown if \p wallet or \p category is \b nullptr
      */
     Transaction(Id id, double amount, std::weak_ptr<Wallet> wallet, std::weak_ptr<Category> category);
-    // TESTS for all exceptions, for amount round, that transaction is added in the wallet, the description is empty,
-    // DT generatef from local time
 
     /*!
      * \return Transaction amount rounded to 2 decimal places
      */
     double amount() const;
-    // TODO tests that amount is rounded
 
     /*!
      * \param amount New amount which will be rounded to 2 decimal places
      * \exception ZeroAmountError is thrown if \p amount equals zero
      */
     void updateAmount(double amount);
-    // TODO tests that new amount is rounded, test for invalid amount, that type is changed if sign is changed
 
     /*!
      * Transaction doesn't own the wallet so the weak pointer is returned.
@@ -148,38 +144,33 @@ public:
      * \return Date/Time of transaction occurence in POSIX format
      */
     const DateTime& dateTime() const;
-    // TODO test that DT is in POSIX format, that DT is valid, that DT is generated from local time
+    // TODO DT is generated from local time
 
     /*!
      * \param dateTime POSIX Date/Time of transaction occurence
      * \exception InvalidDateTimeError is thrown if \p dateTime is invalid
      */
     void updateDateTime(const DateTime& dateTime);
-    // TODO tests for invalid dt, dt is correctly updated
 
     /*!
      * \return Date when transaction has occured
      */
     Date date() const;
-    // TODO correspons to date in dt
 
     /*!
      * \return Time when transaction has occured
      */
     Time time() const;
-    // TODO correspons to time in dt
 
     /*!
      * \return Income if amount is positive or Expense if amount is negative
      */
     Type type() const;
-    // TODO tests type correspons to amount sign
 
     /*!
      * \return Transaction description
      */
     const std::string& description() const;
-    // TODO set/update description
 
     /*!
      * \param description Transaction description

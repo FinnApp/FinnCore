@@ -2,6 +2,11 @@
 
 #include "TransactionTests.hpp"
 
+std::shared_ptr<Transaction> createTransaction(std::weak_ptr<Wallet> wallet)
+{
+    return createTransaction(DefaultAmount, wallet, createCategory(), DefaultCreationDT);
+}
+
 TEST(WalletTests, CreateWithUniqueIdAndNameWithoutTransactions)
 {
     auto w = createWallet();
@@ -21,14 +26,14 @@ TEST(WalletTests, CreateWithWalletWithInitialBalance)
     ASSERT_EQ(w->balance(), 100);
 }
 
-// TEST(WalletTests, AddTransactionShouldIncreaseTheNumberOfTransactions)
-//{
-//    auto w = createWallet();
+TEST(WalletTests, AddTransactionShouldIncreaseTheNumberOfTransactions)
+{
+    auto w = createWallet();
 
-//    w->addTransaction(createTransaction());
+    w->addTransaction(createTransaction(w));
 
-//    ASSERT_EQ(w->transactionsCount(), 1);
-//}
+    ASSERT_EQ(w->transactionsCount(), 1);
+}
 
 TEST(WalletTests, AddNullptrTransactionShouldThrowException)
 {
@@ -37,34 +42,34 @@ TEST(WalletTests, AddNullptrTransactionShouldThrowException)
     ASSERT_THROW(w->addTransaction(nullptr), NullEntityError<Transaction>);
 }
 
-// TEST(WalletTests, GetExistingTransactionById)
-//{
-//    auto w = createWallet();
+TEST(WalletTests, GetExistingTransactionById)
+{
+    auto w = createWallet();
 
-//    w->addTransaction(createTransaction());
-//    auto& transaction = w->transactionBy(DefaultId);
+    w->addTransaction(createTransaction(w));
+    auto& transaction = w->transactionBy(DefaultId);
 
-//    ASSERT_EQ(transaction.id(), DefaultId);
-//}
+    ASSERT_EQ(transaction.id(), DefaultId);
+}
 
-// TEST(WalletTests, GetNonExistingTransactionShouldThrowException)
-//{
-//    auto w = createWallet();
+TEST(WalletTests, GetNonExistingTransactionShouldThrowException)
+{
+    auto w = createWallet();
 
-//    w->addTransaction(createTransaction());
+    w->addTransaction(createTransaction(w));
 
-//    ASSERT_THROW(w->transactionBy(DefaultId + 1), EntityNotFound);
-//}
+    ASSERT_THROW(w->transactionBy(DefaultId + 1), EntityNotFound);
+}
 
-// TEST(WalletTests, RemoveTransactionShouldDecreaseTheNumberOfTransactions)
-//{
-//    auto w = createWallet();
+TEST(WalletTests, RemoveTransactionShouldDecreaseTheNumberOfTransactions)
+{
+    auto w = createWallet();
 
-//    w->addTransaction(createTransaction());
-//    w->removeTransactionBy(DefaultId);
+    w->addTransaction(createTransaction(w));
+    w->removeTransactionBy(DefaultId);
 
-//    ASSERT_EQ(w->transactionsCount(), 0);
-//}
+    ASSERT_EQ(w->transactionsCount(), 0);
+}
 
 TEST(WalletTests, RemoveTransactionOnEmptyNumberOfTransactionsShouldDoNothing)
 {
@@ -75,12 +80,12 @@ TEST(WalletTests, RemoveTransactionOnEmptyNumberOfTransactionsShouldDoNothing)
     ASSERT_EQ(w->transactionsCount(), 0);
 }
 
-// TEST(WalletTests, RemoveNotExistingTransactionShouldDoNothing)
-//{
-//    auto w = createWallet();
+TEST(WalletTests, RemoveNotExistingTransactionShouldDoNothing)
+{
+    auto w = createWallet();
 
-//    w->addTransaction(createTransaction());
-//    w->removeTransactionBy(DefaultId + 1);
+    w->addTransaction(createTransaction(w));
+    w->removeTransactionBy(DefaultId + 1);
 
-//    ASSERT_EQ(w->transactionsCount(), 1);
-//}
+    ASSERT_EQ(w->transactionsCount(), 1);
+}

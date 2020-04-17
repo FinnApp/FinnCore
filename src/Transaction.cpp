@@ -31,15 +31,13 @@ double Transaction::amount() const
 
 void Transaction::updateAmount(double amount)
 {
-    if (amount_ == 0.0) throw ZeroAmountError{};
+    if (amount == 0.0) throw ZeroAmountError{};
 
-    amount_ = amount;
+    amount_ = std::round(amount * 100) / 100;
 }
 
 std::weak_ptr<Wallet> Transaction::wallet() const
 {
-    assert(!wallet_.expired());
-
     return wallet_;
 }
 
