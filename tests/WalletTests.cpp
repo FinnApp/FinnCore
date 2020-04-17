@@ -2,11 +2,6 @@
 
 #include "TransactionTests.hpp"
 
-std::shared_ptr<Transaction> createTransaction(std::weak_ptr<Wallet> wallet)
-{
-    return createTransaction(DefaultAmount, wallet, createCategory(), DefaultCreationDT);
-}
-
 TEST(WalletTests, CreateWithUniqueIdAndNameWithoutTransactions)
 {
     auto w = createWallet();
@@ -33,6 +28,40 @@ TEST(WalletTests, AddTransactionShouldIncreaseTheNumberOfTransactions)
     w->addTransaction(createTransaction(w));
 
     ASSERT_EQ(w->transactionsCount(), 1);
+}
+
+TEST(WalletTests, AddTransactionShouldIncreaseBalance)
+{
+    const double InitialBalance = 100;
+    const double TransactionAmount = 10.5;
+    auto w = createWallet(DefaultId, DefaultName, InitialBalance);
+
+    for (int i = 0; i != 3; ++i)
+    {
+        w->addTransaction(createTransaction(Id{i}, TransactionAmount + i, w));
+    }
+
+    ASSERT_EQ(w->balance(), InitialBalance + 34.5);
+}
+
+TEST(WalletTests, AddIncomeAndExpenseTransactions)
+{
+    auto w = createWallet();
+
+    w->addTransaction(createTransaction(Id{0}, -10, w));
+    w->addTransaction(createTransaction(Id{1}, 5, w));
+
+    ASSERT_EQ(w->balance(), -5);
+}
+
+TEST(WalletTests, AddTransactionsWithSameAmountButWithDifferentSign)
+{
+    auto w = createWallet();
+
+    w->addTransaction(createTransaction(Id{0}, -10, w));
+    w->addTransaction(createTransaction(Id{1}, 10, w));
+
+    ASSERT_EQ(w->balance(), 0);
 }
 
 TEST(WalletTests, AddNullptrTransactionShouldThrowException)

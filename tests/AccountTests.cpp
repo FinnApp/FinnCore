@@ -1,4 +1,5 @@
 #include "CategoryTests.hpp"
+#include "TransactionTests.hpp"
 #include "WalletTests.hpp"
 
 #include "Account.hpp"
@@ -14,6 +15,7 @@ TEST(AccountTests, CreateWithUniqueIdAndNameWithoutWalletsAndCategories)
 
     ASSERT_EQ(acc.id(), DefaultId);
     ASSERT_EQ(acc.name(), DefaultName);
+    ASSERT_EQ(acc.balance(), 0.0);
     ASSERT_EQ(acc.walletsCount(), 0);
     ASSERT_EQ(acc.categoriesCount(), 0);
 }
@@ -25,6 +27,36 @@ TEST(AccountTests, AddWalletShouldIncreaseTheNumberOfWallets)
     acc.addWallet(createWallet());
 
     ASSERT_EQ(acc.walletsCount(), 1);
+}
+
+TEST(AccountTests, AddEmptyWalletShouldNotIncreaseBalance)
+{
+    auto acc = createAccount();
+
+    acc.addWallet(createWallet());
+
+    ASSERT_EQ(acc.balance(), 0.0);
+}
+
+TEST(AccountTests, AddNonEmptyWalletsShouldIncreaseBalance)
+{
+    const double InitialWalletBalance = 5;
+    const int NumberOfWallets = 2;
+    const int NumberOfTransactions = 2;
+    auto acc = createAccount();
+
+    for (int i = 0; i != NumberOfWallets; ++i)
+    {
+        auto w = createWallet(Id{i}, DefaultName, InitialWalletBalance);
+        for (int j = 0; j != NumberOfTransactions; ++j)
+        {
+            std::cout << i * NumberOfWallets + j << std::endl;
+            w->addTransaction(createTransaction(Id{i * NumberOfWallets + j}, DefaultAmount, w));
+        }
+        acc.addWallet(std::move(w));
+    }
+
+    ASSERT_EQ(acc.balance(), 30);
 }
 
 TEST(AccountTests, AddInvalidWalletShouldThrowException)

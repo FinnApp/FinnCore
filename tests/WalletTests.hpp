@@ -15,3 +15,8 @@ inline std::shared_ptr<Wallet> createWallet(Id id, const std::string& name, doub
 {
     return std::make_shared<Wallet>(id, name, initialBalance);
 }
+
+inline std::shared_ptr<Wallet> createWallet(Id id)
+{
+    return createWallet(id, DefaultName, DefaultInitialBalance);
+}

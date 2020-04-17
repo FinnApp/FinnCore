@@ -21,7 +21,7 @@ TEST(TransactionTests, CreateWithWalletCategoryDateAndAmount)
 {
     auto wallet = createWallet();
     auto category = createCategory();
-    auto trans = createTransaction(DefaultAmount, wallet, category, DefaultCreationDT);
+    auto trans = createTransaction(DefaultId, DefaultAmount, wallet, category, DefaultCreationDT);
 
     ASSERT_EQ(trans->id(), DefaultId);
     ASSERT_EQ(trans->amount(), DefaultAmount);
@@ -36,43 +36,45 @@ TEST(TransactionTests, CreateWithWalletCategoryDateAndAmount)
 
 TEST(TransactionTests, CreateWithEmptyWalletShouldThrowException)
 {
-    ASSERT_THROW(createTransaction(DefaultAmount, {}, createCategory(), DefaultCreationDT), NullEntityError<Wallet>);
+    ASSERT_THROW(createTransaction(DefaultId, DefaultAmount, {}, createCategory(), DefaultCreationDT),
+                 NullEntityError<Wallet>);
 }
 
 TEST(TransactionTests, CreateWithEmptyCategoryShouldThrowException)
 {
-    ASSERT_THROW(createTransaction(DefaultAmount, createWallet(), {}, DefaultCreationDT), NullEntityError<Category>);
+    ASSERT_THROW(createTransaction(DefaultId, DefaultAmount, createWallet(), {}, DefaultCreationDT),
+                 NullEntityError<Category>);
 }
 
 TEST(TransactionTests, CreateWithZeroAmountShouldThrowException)
 {
-    ASSERT_THROW(createTransaction(0, createWallet(), createCategory(), DefaultCreationDT),
+    ASSERT_THROW(createTransaction(DefaultId, 0, createWallet(), createCategory(), DefaultCreationDT),
                  Transaction::ZeroAmountError);
 }
 
 TEST(TransactionTests, CreateWithInvalidDtShouldThrowException)
 {
-    ASSERT_THROW(createTransaction(DefaultAmount, createWallet(), createCategory(), {}),
+    ASSERT_THROW(createTransaction(DefaultId, DefaultAmount, createWallet(), createCategory(), {}),
                  Transaction::InvalidDateTimeError);
 }
 
 TEST(TransactionTests, CreateWithPositiveAmountTypeShouldBeIncome)
 {
-    auto trans = createTransaction(1, createWallet(), createCategory(), DefaultCreationDT);
+    auto trans = createTransaction(DefaultId, 1, createWallet(), createCategory(), DefaultCreationDT);
 
     ASSERT_EQ(trans->type(), Transaction::Type::Income);
 }
 
 TEST(TransactionTests, CreateWithNegativeAmountTypeShouldBeExpense)
 {
-    auto trans = createTransaction(-1, createWallet(), createCategory(), DefaultCreationDT);
+    auto trans = createTransaction(DefaultId, -1, createWallet(), createCategory(), DefaultCreationDT);
 
     ASSERT_EQ(trans->type(), Transaction::Type::Expense);
 }
 
 TEST_P(RoundAmountTests, CreateAndRoundAmountTo2DecimalPlaces)
 {
-    auto trans = createTransaction(GetParam().first, createWallet(), createCategory(), DefaultCreationDT);
+    auto trans = createTransaction(DefaultId, GetParam().first, createWallet(), createCategory(), DefaultCreationDT);
 
     ASSERT_EQ(trans->amount(), GetParam().second);
 }

@@ -36,7 +36,6 @@ public:
      * \return Accumulated Wallet balance from all transactions amounts
      */
     double balance() const;
-    // TODO tests with transactions
 
     /*!
      * Add \p transaction to the Wallet. \p transaction is owned by Wallet

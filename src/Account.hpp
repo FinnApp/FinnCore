@@ -44,7 +44,6 @@ public:
      * It assumes the same currency among all wallets.
      */
     double balance() const;
-    // TODO tests with wallets
 
     /*!
      * Add \p wallet to the Account. \p wallet is owned by Account
