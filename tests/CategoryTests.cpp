@@ -23,7 +23,7 @@ TEST(CategoryTests, AddNullptrCategoryShouldThrowException)
 {
     auto cat = createCategory();
 
-    ASSERT_THROW(cat->addSubcategory(nullptr), NullEntityError<Category>);
+    ASSERT_THROW(cat->addSubcategory(nullptr), NullEntityError);
 }
 
 TEST(CategoryTests, GetExistingSubcategoryById)

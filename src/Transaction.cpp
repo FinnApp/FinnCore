@@ -44,7 +44,7 @@ std::weak_ptr<Wallet> Transaction::wallet() const
 
 void Transaction::updateWallet(const std::weak_ptr<Wallet>& wallet)
 {
-    if (wallet.expired()) throw NullEntityError<Wallet>{"The given wallet is invalid"};
+    if (wallet.expired()) throw NullEntityError{"The given wallet is invalid"};
 
     if (auto oldWallet = wallet_.lock())
     {
@@ -63,7 +63,7 @@ std::weak_ptr<Category> Transaction::category() const
 
 void Transaction::updateCategory(const std::weak_ptr<Category>& category)
 {
-    if (category.expired()) throw NullEntityError<Category>{"The given category is invalid"};
+    if (category.expired()) throw NullEntityError{"The given category is invalid"};
 
     category_ = category;
 }

@@ -36,14 +36,12 @@ TEST(TransactionTests, CreateWithWalletCategoryDateAndAmount)
 
 TEST(TransactionTests, CreateWithEmptyWalletShouldThrowException)
 {
-    ASSERT_THROW(createTransaction(DefaultId, DefaultAmount, {}, createCategory(), DefaultCreationDT),
-                 NullEntityError<Wallet>);
+    ASSERT_THROW(createTransaction(DefaultId, DefaultAmount, {}, createCategory(), DefaultCreationDT), NullEntityError);
 }
 
 TEST(TransactionTests, CreateWithEmptyCategoryShouldThrowException)
 {
-    ASSERT_THROW(createTransaction(DefaultId, DefaultAmount, createWallet(), {}, DefaultCreationDT),
-                 NullEntityError<Category>);
+    ASSERT_THROW(createTransaction(DefaultId, DefaultAmount, createWallet(), {}, DefaultCreationDT), NullEntityError);
 }
 
 TEST(TransactionTests, CreateWithZeroAmountShouldThrowException)
@@ -152,7 +150,7 @@ TEST(TransactionTests, UpdateWithInvalidCategoryShouldThrowException)
 {
     auto trans = createTransaction();
 
-    ASSERT_THROW(trans->updateCategory({}), NullEntityError<Category>);
+    ASSERT_THROW(trans->updateCategory({}), NullEntityError);
 }
 
 TEST(TransactionTests, RemoveAssignedCategoryShouldMadeTransactionUnassignedToAnyCategory)
@@ -180,7 +178,7 @@ TEST(TransactionTests, UpdateWithInvalidWalletShouldThrowException)
 {
     auto trans = createTransaction();
 
-    ASSERT_THROW(trans->updateWallet({}), NullEntityError<Wallet>);
+    ASSERT_THROW(trans->updateWallet({}), NullEntityError);
 }
 
 TEST(TransactionTests, UpdateWithNewWalletShouldAddItToNewAndRemoveFromPrevious)

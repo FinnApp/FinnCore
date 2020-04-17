@@ -119,33 +119,32 @@ $(function() {
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    std::weak_ptr&lt;Wallet&gt; <a class="code" href="classTransaction.html#aa65018eaf6691eb4f9a328105ab12d07">wallet</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTransaction.html#a5ca500a6b5496d3422fe48970e2993b3">updateWallet</a>(<span class="keyword">const</span> std::weak_ptr&lt;Wallet&gt;&amp; <a class="code" href="classTransaction.html#aa65018eaf6691eb4f9a328105ab12d07">wallet</a>);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">// TODO tests transaction removal from wallet, transaction insertion in new wallet,</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    std::weak_ptr&lt;Category&gt; <a class="code" href="classTransaction.html#ada205c61d70d69246e423f6ef19e9223">category</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTransaction.html#a5b850a5ed92ba1e021cfd3c637d408f7">updateCategory</a>(<span class="keyword">const</span> std::weak_ptr&lt;Category&gt;&amp; <a class="code" href="classTransaction.html#ada205c61d70d69246e423f6ef19e9223">category</a>);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keyword">const</span> <a class="code" href="Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549">DateTime</a>&amp; <a class="code" href="classTransaction.html#a1b69b19f0a29fb30b24e886bf887a058">dateTime</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTransaction.html#acf1d11e4c9196328e7fc99a5c2033486">updateDateTime</a>(<span class="keyword">const</span> <a class="code" href="Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549">DateTime</a>&amp; <a class="code" href="classTransaction.html#a1b69b19f0a29fb30b24e886bf887a058">dateTime</a>);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <a class="code" href="Transaction_8hpp.html#a1e2d41b3c865c2f53fd1af13935663e4">Date</a> <a class="code" href="classTransaction.html#ade3153886435af69125f1410feecdd59">date</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="Transaction_8hpp.html#af3b1ed7e7609bef75ad681423adf4db6">Time</a> <a class="code" href="classTransaction.html#a5e87d6b61298ae30c37d058007df5c11">time</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <a class="code" href="classTransaction.html#a99a4a922c1826b52d575a7fcaa10de1c">Type</a> <a class="code" href="classTransaction.html#a4c0a887d4f0616f734e253fe8b6a7d00">type</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classTransaction.html#a7f7a79bac8266b89f4243f64321da1ae">description</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTransaction.html#addf867d5ca19d033ef9c9a1c463d3a66">updateDescription</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="classTransaction.html#a7f7a79bac8266b89f4243f64321da1ae">description</a>);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">double</span> amount_;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    std::weak_ptr&lt;Wallet&gt; wallet_;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    std::weak_ptr&lt;Category&gt; category_;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <a class="code" href="Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549">DateTime</a> dateTime_;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    std::string description_;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;};</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    std::weak_ptr&lt;Category&gt; <a class="code" href="classTransaction.html#ada205c61d70d69246e423f6ef19e9223">category</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTransaction.html#a5b850a5ed92ba1e021cfd3c637d408f7">updateCategory</a>(<span class="keyword">const</span> std::weak_ptr&lt;Category&gt;&amp; <a class="code" href="classTransaction.html#ada205c61d70d69246e423f6ef19e9223">category</a>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keyword">const</span> <a class="code" href="Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549">DateTime</a>&amp; <a class="code" href="classTransaction.html#a1b69b19f0a29fb30b24e886bf887a058">dateTime</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTransaction.html#acf1d11e4c9196328e7fc99a5c2033486">updateDateTime</a>(<span class="keyword">const</span> <a class="code" href="Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549">DateTime</a>&amp; <a class="code" href="classTransaction.html#a1b69b19f0a29fb30b24e886bf887a058">dateTime</a>);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <a class="code" href="Transaction_8hpp.html#a1e2d41b3c865c2f53fd1af13935663e4">Date</a> <a class="code" href="classTransaction.html#ade3153886435af69125f1410feecdd59">date</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="Transaction_8hpp.html#af3b1ed7e7609bef75ad681423adf4db6">Time</a> <a class="code" href="classTransaction.html#a5e87d6b61298ae30c37d058007df5c11">time</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="classTransaction.html#a99a4a922c1826b52d575a7fcaa10de1c">Type</a> <a class="code" href="classTransaction.html#a4c0a887d4f0616f734e253fe8b6a7d00">type</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classTransaction.html#a7f7a79bac8266b89f4243f64321da1ae">description</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTransaction.html#addf867d5ca19d033ef9c9a1c463d3a66">updateDescription</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="classTransaction.html#a7f7a79bac8266b89f4243f64321da1ae">description</a>);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">double</span> amount_;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    std::weak_ptr&lt;Wallet&gt; wallet_;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    std::weak_ptr&lt;Category&gt; category_;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <a class="code" href="Transaction_8hpp.html#ab78acb1aec18b630c5dd64d321837549">DateTime</a> dateTime_;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    std::string description_;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassTransaction_html_acf1d11e4c9196328e7fc99a5c2033486"><div class="ttname"><a href="classTransaction.html#acf1d11e4c9196328e7fc99a5c2033486">Transaction::updateDateTime</a></div><div class="ttdeci">void updateDateTime(const DateTime &amp;dateTime)</div><div class="ttdef"><b>Definition:</b> Transaction.cpp:76</div></div>
 <div class="ttc" id="aclassTransaction_html_a5e87d6b61298ae30c37d058007df5c11"><div class="ttname"><a href="classTransaction.html#a5e87d6b61298ae30c37d058007df5c11">Transaction::time</a></div><div class="ttdeci">Time time() const</div><div class="ttdef"><b>Definition:</b> Transaction.cpp:88</div></div>

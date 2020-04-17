@@ -68,7 +68,7 @@ TEST(WalletTests, AddNullptrTransactionShouldThrowException)
 {
     auto w = createWallet();
 
-    ASSERT_THROW(w->addTransaction(nullptr), NullEntityError<Transaction>);
+    ASSERT_THROW(w->addTransaction(nullptr), NullEntityError);
 }
 
 TEST(WalletTests, GetExistingTransactionById)

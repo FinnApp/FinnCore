@@ -26,7 +26,7 @@ double Wallet::balance() const
 
 void Wallet::addTransaction(std::shared_ptr<Transaction>&& transaction)
 {
-    if (!transaction) throw NullEntityError<Transaction>{"Added transaction is invalid"};
+    if (!transaction) throw NullEntityError{"Added transaction is invalid"};
 
     transactions_.add(std::move(transaction));
 }

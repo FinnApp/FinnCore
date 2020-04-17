@@ -22,7 +22,7 @@ double Account::balance() const
 
 void Account::addWallet(std::shared_ptr<Wallet>&& wallet)
 {
-    if (!wallet) throw NullEntityError<Wallet>{"Added wallet is invalid"};
+    if (!wallet) throw NullEntityError{"Added wallet is invalid"};
 
     wallets_.add(std::move(wallet));
 }
@@ -44,7 +44,7 @@ size_t Account::walletsCount() const
 
 void Account::addCategory(std::shared_ptr<Category>&& category)
 {
-    if (!category) throw NullEntityError<Category>{"Added category is invalid"};
+    if (!category) throw NullEntityError{"Added category is invalid"};
     if (category->parentCategory().lock()) throw NonRootCategory{category->id()};
 
     categories_.add(std::move(category));
